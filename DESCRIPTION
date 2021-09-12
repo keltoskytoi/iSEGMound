@@ -2,10 +2,10 @@ Package: iSEGMound
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R:
-    person(given = "First",
-           family = "Last",
+    person(given = "Agnes",
+           family = "Schneider",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "euboia.gmail.com")
 Description: What the package does (one paragraph).
 License: CC BY 4.0
 ByteCompile: true
