@@ -1,0 +1,63 @@
+ID,Reference,Year,Data,Method,OoI,Software_type
+1,Menze – Ur – Sherratt,2006,Satellite,Geometric knowledge,Tell mounds,FOSS
+1,Menze – Ur – Sherratt,2006,Satellite,PBIA,Tell mounds,FOSS
+2,Menze – Mühl – Sherratt,2007,Satellite,Geometric knowledge,Tell mounds,FOSS
+2,Menze – Mühl – Sherratt,2007,Satellite,PBIA,Tell mounds,FOSS
+3,Menze – Ur,2007,Satellite,Geometric knowledge,Tell mounds,FOSS
+3,Menze – Ur,2007,Satellite,PBIA,Tell mounds,FOSS
+4,De Boer,2007,ALS,Template Matching,burial mounds,proprietary
+5,Riley,2009,ALS,Geometric knowledge,burial mounds,proprietary
+6,Menze – Ur,2012,Satellite,Geometric knowledge,Tell mounds,FOSS
+6,Menze – Ur,2012,Satellite,PBIA,Tell mounds,FOSS
+7,Menze – Ur,2013,Satellite,Geometric knowledge,Tell mounds,FOSS
+7,Menze – Ur,2013,Satellite,PBIA,Tell mounds,FOSS
+8,Caspari et al.,2014,Satellite,PBIA,burial mounds,n/a
+9,Kramer,2015,ALS,Geometric knowledge,burial mounds,proprietary
+9,Kramer,2015,ALS,Template Matching,burial mounds,proprietary
+9,Kramer,2015,ALS,GeOBIA,burial mounds,proprietary
+10,Trier – Zortea – Tonnig,2015,ALS,Template Matching,burial mounds,n/a
+10,Trier – Zortea – Tonnig,2015,ALS,PBIA,burial mounds,n/a
+11,Sevara et al.,2016,ALS,Geometric knowledge,burial mounds,proprietary
+11,Sevara et al.,2016,ALS,GeOBIA,burial mounds,proprietary
+11,Sevara et al.,2016,ALS,PBIA,burial mounds,proprietary
+12,Freeland et al.,2016,ALS,Geometric knowledge,Monumental earthworks,FOSS
+12,Freeland et al.,2016,ALS,GeOBIA,Monumental earthworks,proprietary
+13,Cerillo-Cuenca,2017,ALS,Geometric knowledge,burial mounds,FOSS
+13,Cerillo-Cuenca,2017,ALS,GeOBIA,burial mounds,FOSS
+14,Davis – Sanger – Lipo,2018,ALS,Geometric knowledge,Mound shell ring,proprietary
+14,Davis – Sanger – Lipo,2018,ALS,GeOBIA,Mound shell ring,proprietary
+14,Davis – Sanger – Lipo,2018,ALS,Template Matching,Mound shell ring,proprietary
+15,Guyot – Hubert – MoyLorho,2018,ALS,Geometric knowledge,burial mounds,FOSS
+15,Guyot – Hubert – MoyLorho,2018,ALS,PBIA,burial mounds,FOSS
+16,Raun,2019,ALS,Template Matching,burial mounds,FOSS
+17,Davis – Lipo – Sanger,2019,ALS,Geometric knowledge,Mound shell ring,FOSS
+17,Davis – Lipo – Sanger,2019,ALS,Template Matching,Mound shell ring,proprietary
+17,Davis – Lipo – Sanger,2019,ALS,GeOBIA,Mound shell ring,proprietary
+18,Caspari – Crespo,2019,Satellite,Deep Learning,burial mounds,FOSS
+18,Caspari – Crespo,2019,Satellite,PBIA,burial mounds,FOSS
+19,Meyer-Heß – Pfeffer – Jürgens,2019,ALS,Geometric knowledge,burial mounds,proprietary
+19,Meyer-Heß – Pfeffer – Jürgens,2019,ALS,GeOBIA,burial mounds,proprietary
+20,Verschoof-van der Vaart – Lambers,2019,ALS,Geometric knowledge,burial mounds,FOSS
+20,Verschoof-van der Vaart – Lambers,2019,ALS,Deep Learning,burial mounds,FOSS
+21,Kazimi – Malek – Thiemann – Sester,2019,ALS,Deep Learning,burial mounds,FOSS
+22,Kazimi – Thiemann – Sester ,2019,ALS,Deep Learning,burial mounds,FOSS
+23,Orengo et al.,2020,Satellite,Geometric knowledge,Tell mounds,FOSS
+23,Orengo et al.,2020,Satellite,PBIA,Tell mounds,FOSS
+24,Niculită,2020,ALS,Geometric knowledge,burial mounds,FOSS
+24,Niculită,2020,ALS,GeOBIA,burial mounds,FOSS
+24,Niculită,2020,ALS,PBIA,burial mounds,FOSS
+25,Sărășan et al.,2020,UAV,Geometric knowledge,burial mounds,proprietary
+25,Sărășan et al.,2020,UAV,GeOBIA,burial mounds,proprietary
+26,Rom et al.,2020,ALS,Geometric knowledge,Tell mounds,proprietary
+26,Rom et al.,2020,ALS,Geometric knowledge,Tell mounds,FOSS
+27,Kazimi – Malek – Thiemann – Sester,2020,ALS,Geometric knowledge,burial mounds,FOSS
+27,Kazimi – Malek – Thiemann – Sester,2020,ALS,Deep Learning,burial mounds,FOSS
+28,Kazimi – Thiemann – Sester,2020,ALS,Geometric knowledge,burial mounds,FOSS
+28,Kazimi – Thiemann – Sester,2020,ALS,Deep Learning,burial mounds,FOSS
+29,Trier – Reksten –  Løseth,2021,ALS,Geometric knowledge,burial mounds,FOSS
+29,Trier – Reksten –  Løseth,2021,ALS,Deep Learning,burial mounds,FOSS
+30,GholamReza and Malian,2021,Satellite,Geometric knowledge,Tell mounds,n/a
+30,GholamReza and Malian,2021,Satellite,Template Matching,Tell mounds,proprietary
+31,Davis et al.,2021,ALS,Geometric knowledge,Mound shell ring,proprietary
+31,Davis et al.,2021,ALS,Deep Learning,Mound shell ring,proprietary
+31,Davis et al.,2021,Satellite,PBIA,Mound shell ring,proprietary

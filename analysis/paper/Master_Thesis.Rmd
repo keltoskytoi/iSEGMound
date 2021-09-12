@@ -1,17 +1,12 @@
 ---
 title: "Title Goes Here"
 author:
-  - Myfirstname Mylastname:
-      email: fl@oneplace.edu
-      institute: [UofO]
+  - Agnes Schneider:
+      email: euboia@gmail.com
+      institute: [Philipps University Marburg]
       correspondence: true
-  - Yourfirstname Yourlastname:
-      email: fl@another.edu
-      institute: [UofA]
-      correspondence: false
 institute:
-  - UofO: University of One Place
-  - UofA: University of Another Place
+  - UofO: Department of Physical Geography
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:

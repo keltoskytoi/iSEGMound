@@ -1,0 +1,32 @@
+ID,Reference,Year,Data,OoI,Software_type,access
+1,Menze – Ur – Sherratt,2006,Satellite,Tell mounds,FOSS,n/a
+2,Menze – Mühl – Sherratt,2007,Satellite,Tell mounds,FOSS,n/a
+3,Menze – Ur,2007,Satellite,Tell mounds,FOSS,n/a
+4,De Boer,2007,ALS,burial mounds,proprietary,equation
+5,Riley,2009,ALS,burial mounds,proprietary,workflow
+6,Menze – Ur,2012,Satellite,Tell mounds,FOSS,n/a
+7,Menze – Ur,2013,Satellite,Tell mounds,FOSS,n/a
+8,Caspari et al.,2014,Satellite,burial mounds,n/a,equation
+9,Kramer,2015,ALS,burial mounds,proprietary,workflow & ruleset
+10,Trier – Zortea – Tonnig,2015,ALS,burial mounds,n/a,workflow
+11,Sevara et al.,2016,ALS,burial mounds,proprietary,workflow
+12,Freeland et al.,2016,ALS,Monumental earthworks,FOSS & proprietary,n/a
+13,Cerillo-Cuenca,2017,ALS,burial mounds,FOSS,workflow & equation
+14,Davis – Sanger – Lipo,2018,ALS,Mound shell ring,proprietary,workflow
+15,Guyot – Hubert – MoyLorho,2018,ALS,burial mounds,FOSS,workflow
+16,Raun,2019,ALS,burial mounds,FOSS,n/a
+17,Davis – Lipo – Sanger,2019,ALS,Mound shell ring,FOSS & proprietary,workflow
+18,Caspari – Crespo,2019,Satellite,burial mounds,FOSS,workflow & equation
+19,Meyer-Heß – Pfeffer – Jürgens,2019,ALS,burial mounds,proprietary,workflow & ruleset
+20,Verschoof-van der Vaart – Lambers,2019,ALS,burial mounds,FOSS,workflow
+21,Kazimi – Malek – Thiemann – Sester,2019,ALS,burial mounds,FOSS,workflow
+22,Kazimi – Thiemann – Sester ,2019,ALS,burial mounds,FOSS,flowchart
+23,Orengo et al.,2020,Satellite,Tell mounds,FOSS,flowchart & code & data
+24,Niculită,2020,ALS,burial mounds,FOSS,workflow & code & data
+25,Sărășan et al.,2020,UAV,burial mounds,proprietary,workflow & equation & ruleset
+26,Rom et al.,2020,ALS,Tell mounds,FOSS & proprietary,workflow
+27,Kazimi – Malek – Thiemann – Sester,2020,ALS,burial mounds,FOSS,n/a
+28,Kazimi – Thiemann – Sester,2020,ALS,burial mounds,FOSS,workflow
+29,Trier – Reksten –  Løseth,2021,ALS,burial mounds,FOSS,flowchart
+30,GholamReza and Malian,2021,Satellite,Tell mounds,n/a & proprietary,n/a
+31,Davis et al.,2021,ALS,Mound shell ring,proprietary,flowchart
