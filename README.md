@@ -6,16 +6,9 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/keltoskytoi/iSEGMound/master?urlpath=rstudio)
 [![Travis-CI Build Status](https://travis-ci.com/keltoskytoi/iSEGMound.svg?branch=master)](https://travis-ci.com/keltoskytoi/iSEGMound)
 
-This repository contains the data and code for our paper:
+This repository contains the data and code for the following Master's thesis:
 
 > Schneider, A. (2021). *iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs*. Master's Thesis
-
-
-Our pre-print is online here:
-
-> Authors, (YYYY). *Title of your paper goes here*. Name of
-> journal/book, Accessed 12 Sep 2021. Online at
-> <https://doi.org/xxx/xxx>
 
 ### How to cite
 
