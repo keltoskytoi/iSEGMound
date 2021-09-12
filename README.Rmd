@@ -22,9 +22,9 @@ Title <- "Title of your paper goes here"
 
 
 
-This repository contains the data and code for our paper:
+This repository contains the data and code for the folowing Master's thesis:
 
-> Authors, (YYYY). _`r Title`_. Name of journal/book <https://doi.org/xxx/xxx>
+> Schneider, A. (2021). _`iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs`_. Master's Thesis <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
@@ -66,7 +66,7 @@ You can download the compendium as a zip from from this URL:
 - open the `.Rproj` file in RStudio
 - run `devtools::install()` to ensure you have the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file).
-- finally, open `analysis/paper/paper.Rmd` and knit to produce the `paper.docx`, or run `rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
+- finally, open `analysis/paper/Master_Thesis.Rmd` and knit to produce the `paper.docx`, or run `rmarkdown::render("analysis/paper/Master_Thesis.Rmd")` in the R console
 
 ### Licenses
 

@@ -1,11 +1,12 @@
 Package: iSEGMound
-Title: What the Package Does (One Line, Title Case)
+Title: Burial Mound Detection in LiDAR Derived MSTPI Using iMound and GeOBIA 
 Version: 0.0.0.9000
 Authors@R:
     person(given = "Agnes",
            family = "Schneider",
            role = c("aut", "cre"),
            email = "euboia.gmail.com")
+           ORCID = "0000-0002-1854-6760")
 Description: What the package does (one paragraph).
 License: CC BY 4.0
 ByteCompile: true
