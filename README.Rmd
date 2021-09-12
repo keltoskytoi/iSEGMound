@@ -22,7 +22,7 @@ Title <- "Title of your paper goes here"
 
 
 
-This repository contains the data and code for the folowing Master's thesis:
+This repository contains the data and code for the following Master's thesis:
 
 > Schneider, A. (2021). _`iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs`_. Master's Thesis <https://doi.org/xxx/xxx>
 
