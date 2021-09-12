@@ -16,9 +16,11 @@ Title <- "Title of your paper goes here"
 
 # iSEGMound
 
+[![Travis-CI Build Status](https://travis-ci.com/keltoskytoi/iSEGMound.svg?branch=master)](https://travis-ci.com/keltoskytoi/iSEGMound)
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/keltoskytoi/iSEGMound/master?urlpath=rstudio)
 
-[![Travis-CI Build Status](https://travis-ci.com/keltoskytoi/iSEGMound.svg?branch=master)](https://travis-ci.com/keltoskytoi/iSEGMound)
+
 
 This repository contains the data and code for our paper:
 
