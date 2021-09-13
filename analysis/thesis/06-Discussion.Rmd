@@ -1,1 +1,16 @@
 # Discussion
+
+After the technical review of studies which use automation to detect burial  mounds  and mound-like structures in Archaeological Remote Sensing data sets, the aim of this Master thesis was to detect burial mounds by using the most frequent and  easily reproducible methods in the repertoire. As already emphasized in Chapter II and IV, the most accessible workflow is iMound and the only one reproducible workflow in R is published and developed in R (Niculitca 2020). After detailing the framework of the thesis in Chapter III, chapter IV was dedicated to the iSEGMound workflow, the actual product of this Master’s thesis. 
+
+
+
+Although the results of the segmentation(s) are not perfect (often the exact form of the burial mounds is not reached) they still offer a quite effective tool to filter the amount  of data to be examined. The input for the workflow can be either a DTM or a  MSTPI and from the results of the different workflows it is very clear, that the enhancement of the mounds leads to a better detection (see the case of burial mound group 35, where in the training DTM one and in the training area both mounds are visible), although the mounds can be definitely enhanced better.
+
+Whitebox vs. SAGA 
+Technical problems: not updated packages etc. 
+
+
+
+Shape index is a tricky thing, because the same value can mean different forms
+
+This means on the other hand of course more segments to check, but also more possibility to find previously not known mounds. This will be investigated in the Discussion.  

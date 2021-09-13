@@ -1,1 +1,9 @@
 # Conclusion
+
+Was haben wir aus der Arbeit gelernt? Hat es funktioniert? Was nicht? Wieso? War es erfolgreich?
+
+Without reproducibility it is hard to really understand and recreate workflows, thus a reproducible workflow like the one developed in this Master’s thesis can facilitate the understanding and utilization of automated analysis also by less technically trained archaeologists. It can also enable the joint further development by other specialists and also the reuse of parts of the workflow and knowledge. 
+
+The archaeological significance of such a reproducible workflow is moreover the assistance in the analysis of archaeological big datasets not only for research purposes but also for the Cultural Heritage Management sector. Of course the human operator cannot be removed from the equation and has an integral part in providing the variable settings for the different functions in the workflow (as in the case of this Master's thesis), which can be generalized but the different amount of input data (number of tiles) calls for different variable settings which frequently have to be checked. 
+Using iMound as the first step when looking for burial mounds but basically any archaeological objects which protrude above the ground reduces the amount of data needed to feed to the GeOBIA algorithm. Thus iMound could be used as a useful data extraction method as data preparation in projects with big areas to cover. 
+

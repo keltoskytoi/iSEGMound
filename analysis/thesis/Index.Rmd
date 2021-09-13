@@ -8,6 +8,7 @@ author:
 date: '16.09.2021'
 output: 
     bookdown::pdf_book:
+      df_print: kable
       latex_engine: lualatex
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
@@ -24,10 +25,13 @@ keywords: |
 highlights: |
   These are the highlights.
 always_allow_html: true   
-
 ---
-\newpage
 
+Keywords: `r rmarkdown::metadata$keywords`
+
+Highlights: `r rmarkdown::metadata$highlights`
+
+\newpage
 ```{r child = here::here("analysis", "thesis", "01-Intro.Rmd")}
 ```
 \newpage
@@ -47,4 +51,10 @@ always_allow_html: true
 ```
 \newpage
 ```{r child = here::here("analysis", "thesis", "07-Conclusion.Rmd")}
+```
+\newpage
+```{r child = here::here("analysis", "thesis", "08-Bibliography.Rmd")}
+```
+\newpage
+```{r child = here::here("analysis", "thesis", "09-Colophon.Rmd")}
 ```
