@@ -18,12 +18,13 @@ output:
 bibliography: "../templates/references.bib"
 csl: "../templates/antiquity.csl" # Insert path for the bib-style
 abstract: |
-  Text of abstract
+  TEST TEST TEST TEST
 keywords: |
   Archaeological Remote Sensing; Automation; burial mounds
 highlights: |
   These are the highlights.
 always_allow_html: true   
+
 ---
 \newpage
 

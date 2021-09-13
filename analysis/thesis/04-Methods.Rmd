@@ -1,1 +1,3 @@
 # Applied Mound Detection
+
+In certain instances it was decided to use screenshot to be able make points clearer. It was planned to use mapview::mapview, but it does not knit nicely when exported as a PDF. 

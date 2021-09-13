@@ -1,22 +1,60 @@
 # Results of the iSEGMound Workflow
 
-In this Master’s thesis two data preparation methods and two segmentation methods were used and compared. The four workflows were tested on the Train DTM and the Train Area to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. The most effective workflow was chosen to be applied to the five Areas of Interests: AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
+In this Master’s thesis two data preparation methods (DTm and Multi-Scale Topographic Index) and two segmentation methods (Watershed and Region Growing) were used and compared. The four workflows were tested on the Train DTM and the Train Area to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. The most effective workflow was chosen to be applied to the five Areas of Interests: AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
 
-5.1 Results of the Training DTM 
+First let's have glimpse on the morphometric derivative chosen, the Multi-Scale Topographic Index, on the example of the Train DTM: 
 
-5a_iSEG05_WS
-5b_iSEG05_mtpi_WS
-5c_iSEG05_RG
-5d_iSEG05_mtpi_RG
+```{r Figure 67, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Multi-Scale Topographic Index of the Train DTM, Scale 1:4450."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_67.png')
+```
+As a reminder let's see where the burial mound groups Site ID 5 (black) and Site ID 35 (blue) are located in the Training DTM:  
 
+```{r Figure 68, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Multi-Scale Topographic Index of the Train DTM with bruial mound groups Site ID 5 and 35. Scale 1:4450."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_68.png')
+```
+We know from Dobiat et al. 1994, that Site ID 35 was identified as two mounds. As in Chapter 4 discussed, the mounds visible in Figure 68 were possible to be identified on ground.  
 
-5.2 Results of the Training Area
-6a_iSEG05_WS_ta
-6b_iSEG05_mtpi_WS_ta
-6c_iSEG05_RG_ta
-6d_iSEG05_mtpi_RG_ta
+**5.1 Results of the Training DTM**
 
-5.3 Choosing the right segmentation
+The workflows applied on the Training DTM are the following: 
+5a_iSEG05_WS, 5b_iSEG05_mtpi_WS, 5c_iSEG05_RG, and 5d_iSEG05_mtpi_RG.
+
+Let's plot the results of the Training DTM by segmentation.
+First the Watershed Segmentation based on a DTM (iSEG05_WS, orange segments) and on the SAGA MSTPI (iSEG05_mtpi_WS, lilac segments):
+
+```{r Figure 69, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Plotting iSEGWS and iSEG mtpiWS on the SAGA MSTPI, Scale 1:4450."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_69.png')
+```
+
+Now, the Region Growing Segmentation based on a DTM (iSEG05_RG, light blue) and on the SAGA MSTPI (iSEG05_mtpi_RG, brown):
+
+```{r Figure 70, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Plotting iSEGRG and iSEGmtpiRG, on the SAGA MSTPI, Scale 1:4450."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_70.png')
+```
+
+The first thing that catches the eyes is that both segmentation methods were able to detect Site ID 35, using the SAGA MSTPI. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with derivatives. When comparing the two segmentation methods, it is apparent, that Watershed segmentation produces more segments than Region Growing. 
+
+**5.2 Results of the Training Area**
+
+When we look at a bit bigger picture, we can understand the following: 
+The workflows applied on the Training DTM are the following: 
+6a_iSEG05_WS_ta, 6b_iSEG05_mtpi_WS_ta, 6c_iSEG05_RG_ta, 6d_iSEG05_mtpi_RG_ta.
+
+Before discussing the results of the segmentations, first let's inspect Site ID 7 and Site ID 14. 
+
+Site ID 7 is situated relatively near to the North of Site IDs 5 and 35. The group is constituted of 9 burials, roughly in an elongated line, counted from Southwest to Northeast. When inspecting the mounds, it can be seen that, similar to Site ID 5-9, these are also very near to the forestry commuting routes. Also they already show erosion (mound Site ID 7-5 to 9), mainly in road proximity. This situation has already worsened since 2009/2010, the collection date of the LiDAR data. This burial mound group is similarly preserved such as the average height of the mounds of Site ID 5.
+
+```{r Figure 71, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Site ID 7, consituted of 9 burial mounds on a DTM, Scale 1:1200."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_71.png')
+```
+
+Site ID 14 stretches a little further away to the South and consists of altogether 18 burials. This burial mound group spreads similarly elongated as Site ID 7, although a grouping can be made out in the center region of the group. What is striking about this group is, that many of the mounds - apart from mound 8, which is cut right at the middle - have been just missed or only slightly touched by service roads. The situation of burial mound Site ID 14-8 already indicated, that it is going to be hard to detect this mound properly, because it might be will be difficult to distinguish from the road which is cutting it.  
+
+```{r Figure 72, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Site ID 14, consituted of 18 burial mounds on a DTM, Scale 1:3100."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_72.png')
+```
+
+**5.3 Choosing the right segmentation**
 
 To choose the best working workflow for the Training Area the question posed was: Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. From the archaeological point of view the aim is to detect the all (locations of) burial mounds. This can be of course broken down to the question do we want to find the exact shape of the mounds (in the case of the Training DTM and Training Area) or the most important is to detect as much as possible in any shape (e.g. just half or ¾ of a mound is detected) but to detect as as possible of them. 
 
