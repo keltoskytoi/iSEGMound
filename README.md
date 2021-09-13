@@ -3,20 +3,29 @@
 
 # iSEGMound
 
+[![Travis-CI Build
+Status](https://travis-ci.com/keltoskytoi/iSEGMound.svg?branch=master)](https://travis-ci.com/keltoskytoi/iSEGMound)
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/keltoskytoi/iSEGMound/master?urlpath=rstudio)
-[![Travis-CI Build Status](https://travis-ci.com/keltoskytoi/iSEGMound.svg?branch=master)](https://travis-ci.com/keltoskytoi/iSEGMound)
 
-This repository contains the data and code for the following Master's thesis:
+This repository contains the data and code for the following Master’s
+thesis:
 
-> Schneider, A. (2021). *iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs*. Master's Thesis
+> Schneider, A. (2021).
+> *`iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs`*.
+> Master’s Thesis <https://doi.org/xxx/xxx>
+
+Our pre-print is online here:
+
+> Authors, (YYYY). *iSEGMound*. Name of journal/book, Accessed 12 Sep
+> 2021. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2021). *Compendium of R code and data for Title of your
-> paper goes here*. Accessed 12 Sep 2021. Online at
-> <https://doi.org/xxx/xxx>
+> Authors, (2021). *Compendium of R code and data for iSEGMound*.
+> Accessed 12 Sep 2021. Online at <https://doi.org/xxx/xxx>
 
 ## Contents
 
@@ -48,8 +57,9 @@ You can download the compendium as a zip from from this URL:
 file in RStudio - run `devtools::install()` to ensure you have the
 packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file). - finally, open
-`analysis/paper/paper.Rmd` and knit to produce the `paper.docx`, or run
-`rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
+`analysis/paper/Master_Thesis.Rmd` and knit to produce the `paper.docx`,
+or run `rmarkdown::render("analysis/paper/Master_Thesis.Rmd")` in the R
+console
 
 ### Licenses
 

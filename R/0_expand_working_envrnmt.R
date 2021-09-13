@@ -46,7 +46,8 @@ paths<-link2GI::initProj(projRootDir = projRootDir,
                                          "tests/compare_algorithms/IDW/idw05_3/",
                                          "tests/compare_algorithms/IDW/idw05_4/",
                                          "tests/compare_algorithms/IDW/idw05_5/",
-                                         "tests/", "R/", "man/", "analysis/scripts/"),
+                                         "tests/", "R/", "man/", "analysis/scripts/",
+                                         "analysis/thesis/"),
                          global = TRUE,
                          path_prefix = "path_")
 

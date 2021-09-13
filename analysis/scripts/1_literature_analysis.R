@@ -138,9 +138,6 @@ names(all_combined_df)
 ################################################################################
 ####----------------------#stacked plots all_combined_df#-------------------####
 #Methods used to detect mound-like objects in Automated Archaeological Remote Sensing between 2006 & 2021
-brewer.pal(n = 9, name = "RdBu")
-(values=morris:::trellis_palette(9))
-
 ggplot(all_combined_df, aes(fill=Method, y=Freq, x=Year)) +
   geom_bar(position="stack", stat="identity") +
   ylim(0, 15) +

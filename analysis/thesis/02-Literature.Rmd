@@ -1,0 +1,323 @@
+# Exploitation of Automated Analysis Methods to detect burial mounds and structurally similar archaeological objects: a survey
+
+The analysis carried out and communicated in this chapter reviews all published studies which are aimed at the detection of burial mound and mound-like structures in order to define a baseline to place present research. Numerous reviews of methods and applications used in Archaeological Remote Sensing have been carried out (e.g. Leisz 2013, Agapiou and Lysandrou 2015; Davis 2018, Luo et al. 2019, Fiorucci et al. 2020): some broad and general, some more specific. The word survey was chosen specifically, because it was not a systematic search of databases as various ‘classical’ reviews did (such as Agapiou and Lysandrou 2015, Raun and Patterson 2018, Magnini and Bettineschi 2019 and Davis 2020a & b). 
+This survey is building on the experience of aforementioned systematic reviews (which show very diversified nomenclature and heterogeneous terms) and the scientific literature was collected based on these reviews, Researchgate, Academia and mainly considering open-access publications (if possible). As a starting point all published studies (at least available to the author via University access; number of studies in August 2021: 96) have been collected which deal with the automation of Archaeological Remote Sensing data set (practical studies which use any automation methods and analysis) but only those are discussed, which are concerned with the detection of burial mounds and structurally similar archaeological objects: altogether 31 publications. Burial mounds have been chosen as Objects of Interest for the review because they are relatively simple structures and a very common funerary custom throughout human history. Similarly structured archaeological objects like tell mounds or other monumental earthworks of circular form can be found in very different areas and time periods and are widely investigated and thus deliver good examples of automated analysis methods of these archaeological objects. The first archaeological objects to automatically detect were tell mounds and only then and with the dawn of the use of LiDAR data came burial mounds into the focus of research. While the early research carried on tell settlements can be connected to Ur & Menze, the monumental earthworks and mound shell rings can also be allocated to two research groups: Freeland et al. and Davis, Lipo & Sanger. The detection of burial mounds themselves shows more variability in the investigators (Figure 3). A complete list of references (which is by far not conclusive and is to be supplemented) is included as a supplement at the end of this thesis. 
+
+```{r Figure 3, echo=FALSE, fig.align='center', fig.cap="The Objects of Interests investigated by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit_2 <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds_short.csv'))
+#read as tibble
+mounds_lit_2 <- dplyr::as_tibble(mounds_lit_2)
+mounds_lit_2_filt <- mounds_lit_2[, c(3:7)]
+all_combined_2 <- table(mounds_lit_2_filt$Year, mounds_lit_2_filt$OoI,
+                      mounds_lit_2_filt$Data, mounds_lit_2_filt$Software_type,
+                      mounds_lit_2_filt$access)
+methods_table_2 <- stats::ftable(all_combined_2)
+methods_table_df2 <- as.data.frame(methods_table_2)
+names(methods_table_df2) <- c("Year", "OoI", "Data", "Software_type", "access", "Freq")
+ggplot(methods_table_df2, aes(fill=OoI, y=Freq, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  ylim(0, 7) +
+  scale_fill_manual(values=morris:::holland_palette) +
+  ggtitle(expression(atop("Objects of Interest in Automated Archaeological Remote Sensing", atop("between 2006 and 2021", "")))) +
+  theme_light() +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+The main points considered in this survey were chosen based on the aforementioned reviews, which were conducted looking at citation indexes of different Remote Sensing methods in scientific periodicals (Agapiou and Lysandrou 2015, Raun and Patterson 2018, Luo et al. 2019, Davis 2020b), Institutional Affiliations of researchers (Agapiou and Lysansrou 2015, Raun and Patterson 2018), the citation network (Raun and Patterson 2018), OBIA by geographic region (Davis 2018), the developments and limitations of OBIA methods (Davis 2018), research goal using OBIA (Davis 2018), the development of different passive and active Remote Sensing methods (Luo et al. 2019), the scale of ArchaeOBIA applications (Magnini and Bettineschi 2019), datasets and methods applied in Archaeological Remote Sensing (Fiorucci et al. 2020), different parameters, thresholds, methods and accuracy used in the automated detection of mound features (Davis 2020a) and geometric disparity of Remote Sensing methods (Davis 2020b). 
+These systematic reviews stimulated questions such as: How can we learn from previous studies? How transparent is the workflow and if described, which variables and parameters (rule sets) were used? Which software was used? How reproducible or even replicable is the workflow in the studies? 
+
+Based on these questions the points investigated in this Master’s thesis are: 
+
+(i) Location (only in Supplement 1)
+(ii) RS (Remote Sensing) data
+(iii) Methods
+(iv) Detail of methods (only in Supplement 1)
+(v) Variables/morphometric parameters
+(vi) OoI (Objects of Interest)
+(vii) Scale
+(viii) Software
+(ix) Access 
+
+The point “Location” (i) was documented, because different geographical and landscape conditions ask for different methods and objects can appear geographically and culturally diverse, which can explain the chosen method. The point “RS data” (ii) documents which type of remote sensing data was used and also it’s resolution if known. The point “Methods” (iii) organizes the studies in five main categories (Template Matching, Geometric Knowledge-based, GeOBIA-based and Machine Learning-based, Deep Learning; see Figure 4), based on Cheng and Han 2016 (also see Lambers et al. 2019 and Roffler 2020), instead of juxtaposing pixel-based and object-based methods. This differentiation points out the different object detection methods based on the approach to the dataset. Still, for the differentiation of Machine Learning-based methods, the expression pixel-based is going to be used for the classifier training-based methods, also because several studies use it (Sevara et al. 2016, Niculită 2020b). 
+
+```{r Figure 4, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Taxonomy of Automated Analysis in Archaeological Remote Sensing, based on Cheng and Han 2016."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_4.png')
+```
+The point “Details of method” (iv) explains the workflow of the study in a nutshell, if comprehensible. Point v, “Variables/Morphometric parameters” highlights the variables and or morphometric parameters used in the study. “OOI” (vi) are the objects investigated. The point “Scale” (vii) implies the geographical range of the study, if it was applied to a broader region than the area on which the method was developed. The last two points (“Software” - viii, and “Access” - ix) investigated give us hints about the accessibility of the dataset and the code. Especially in earlier studies, information about the software used is not mentioned and sometimes can only be guessed. In the case of “Access”, apart from the information about accessible data and code it was also documented if there is a workflow (a comprehensible sequence of the steps of the workflow) or a flowchart (a very generalized workflow without clear steps) or if any of the equations used was published and or explained. It was also documented if any supplementary information or document was attached to the study which can guide to a better understanding for a possible reproduction of the study. Although all these points have been investigated, for practical reasons mainly the points (ii) RS (Remote Sensing) data, (iii) Method/s, (iv) Detail of method/s, (v) Variables/morphometric parameters, (vi) OoI/Object(s) of Interest, (viii) Software and (ix) Access is going to be elaborated in depth in this and the next chapter. 
+
+It is essential to discuss the basic traits of the used methods (iii) in short, concentrating on their application in Archaeological Remote Sensing. It has to be stressed, that still no semantic lingua franca (between Archaeological Remote Sensing and Computer Vision and Remote Sensing Methods) exists when talking about automated methods in Archaeological Remote Sensing, thus methods are addressed in different ways (or most commonly in a very simplified way) and it is not always possible to determine which exact method has been utilised (recently it is improving, but it depends where the authors put the focus of their work). First, when shortly discussing the basic traits of the methods and their use in Archaeological Remote Sensing, it is only focussed on the use of the different methods (what is used, where and when) since 2006, when tell mounds were first investigated using automated analysis methods. In the second part of this chapter the way of their use is investigated and analysed how the methods are used. 
+
+***Template Matching-based methods*** utilize a template of the Object of Interest to be detected, which is then statistically matched to the input image. Two general directions can be distinguished: Rigid Template Matching, which requires a precise template which gets problematic when it comes to intra-class shape and size variations. Deformable Template Matching on the other hand can handle either free-form deformable templates or parametric deformable templates. (Cheng and Han 2016, 13-14).
+In the literature investigated Template Matching was used seven times for the detection of burial mounds, mound shell rings and tell mounds (De Boer 2007, Kramer 2015, Trier et al. 2015, Davis et al. 2018, Raun 2019, Davis et al. 2019, GholamReza and Malian 2021). Apart from Kramer 2015, Rigid Template Matching was preferred (Table 1). Template Matching itself is a method which is being revisited from time to time (Figure 5).
+
+```{r Figure 5, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The Objects of Interests investigated by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+methods <- table(mounds_lit_filt$Year, mounds_lit_filt$Method)
+methods_table <- stats::ftable(methods)
+methods_table_df <- as.data.frame(methods_table)
+names(methods_table_df) <- c("Year", "Method", "Freq")
+names(methods_table_df)
+TM <- methods_table_df %>% filter(Method=="Template Matching")
+ggplot(TM, aes(x=Year, y=Freq)) +
+  geom_bar(stat="identity", fill ="#A68A59") +
+  ylim(0, 5) +
+  ggtitle("Use of Template Matching-based methods between 2006 & 2021") +
+  theme_light() +
+  theme(legend.position="center") +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+***Geometric knowledge-based analysis*** works with specialized solutions for specific problems, applying rules based and established on knowledge of the regions of interest and it’s context. It uses either encoded prior geometric knowledge of the generic specificity of the Object of Interest and then e.g. applies hand-crafted mathematical morphometry rules for object extraction (morphometric derivatives such as Slope, Aspect, Curvature, Local Relief Model, vegetation indices etc.). Context knowledge based analysis uses knowledge about the relationship of the Object of Interest and the area it should be separated from (e.g. filters, textural analysis) (Cheng and Han 2016, 15). In the case of Automated Archeological Remote Sensing the two Geometric knowledge-based analysis approaches are often used in combination and form the data preparation step (Figure 6). Geometric knowledge based object analysis is only occasionally used per se as an automated analysis method for the detection of burial mounds, monumental earthworks and tell mounds: Riley 2009, Freeland et al. 2016, Rom et al. 2020. (Lately) it is only occasional, that Geometric knowledge-based object analysis is not used as data preparation method (De Boer 2007, Caspari et al. 2014, Trier et al. 2015, Raun 2019, Caspari and Crespo 2019, Kazimi et al. 2019a, Kazimi et al. 2019b). In some cases, Geometric knowledge based analysis is included in the future work (compare works by Kazimi et. al 2019 vs. Kazimi et al. 2020)(Table 1.).  
+
+```{r Figure 6, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of Geometric knowledge-based methods distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+methods <- table(mounds_lit_filt$Year, mounds_lit_filt$Method)
+methods_table <- stats::ftable(methods)
+methods_table_df <- as.data.frame(methods_table)
+names(methods_table_df) <- c("Year", "Method", "Freq")
+names(methods_table_df)
+GKNB <- methods_table_df %>% filter(Method=="Geometric knowledge")
+ggplot(GKNB, aes(y=Freq, x=Year)) +
+  geom_bar(stat="identity", fill ="#70795E") +
+  ylim(0, 7) +
+  ggtitle("Use of Geometric knowledge-based methods between 2006 & 2021") +
+  theme_light() +
+  theme(legend.position="none") +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+***Geographical Object-based Image Analysis (GeOBIA)*** dates back to the late 1970’s (Blaschke et al. 2014), but it was only around 2000 that Object-based Images Analysis became widely used in Remote Sensing studies due to the availability of high resolution Satellite data. This induced a paradigm shift not only in Remote Sensing but generally in GI Science, hence its new name: GeOBIA (Hay and Castilla 2008). GeOBIA operates in two steps: images are divided into small segments, which are defined by the homogeneity of specific morphometric (shape, size, orientation), spectral, textural, context and neighborhood parameters (Hay – Castilla 2008) and are then grouped together to meaningful homogeneous object candidates (the segmentation step), which are then classified by specific extracted object criteria in question (the feature extraction and classification step, Blaschke et al. 2014, 186, Cheng and Han 2016, 15, Hossain and Chen 2019, 115) or filtered by a rule-set. Various types of segmentation methods exist (as also their categorization: Blaschke 2010, Blaschke et al. 2014, Kumar et al. 2014). Lately Hossain and Chen 2019 investigated the different segmentation methods from a Remote Sensing point of view, but here only the two main Segmentation methods used in Automated Archaeological Remote Sensing studies are described: Watershed Segmentation (or Transformation) (Niculiță 2020a,b) and Multiresolution Segmentation (Kramer 2015, Sevara et al. 2016, Freeland et al. 2016, Davis et al. 2018,  Davis et al. 2019, Meyer-Heß et al. 2019, Sărășan et al. 2020), the first being an Edge-Based Segmentation method, the latter a Region-Based Segmentation method. For an in-depth analysis see Hossain and Chen 2019. 
+
+*Edge-Based Segmentation techniques* are ‘top-down’ methods: first they locate edges in the image and then use contouring algorithms to close them. Edges are regarded as boundaries between objects where pixel properties are abruptly changing (Hossain and Chen 2019, 117). ‘Watershed Segmentation’ (implemented in open source software e.g. in SAGA or in the ForestTools package in R) simulates real-life flooding. It first transforms the image into a gradient (grey-scale), then identifies objects with clear segment boundaries, only to then create (fill) objects, for which it is also called a Region-Growing algorithm (Hossain and Chen 2019, 117, Table 1; Figure 7). 
+
+```{r Figure 7, echo=FALSE, fig.align='center', fig.cap="Operating principle of ‘Watershed Segmentation’. Roffler 2020, 33."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_7.png')
+```
+Region-Based Segmentation techniques start from the complete opposite: they begin with an initial segmentation of the whole image (thus also called ‘bottom-up methods’) based on a specific rule-set. Regions are generated in two completely different ways: either by splitting the image into homogeneous regions based on inhomogeneity (region-splitting and then merging) or by region-growing from a so-called seed-region based on homogeneity (region-growing and then merging, Hossain and Chen 2019, 119). ‘Multiresolution Segmentation’ (Baatz and Schäpe 2000, for which mainly eCognition is used in Automated Archaeological Remote Sensing) is a region-merging hierarchical segmentation method which starts with one pixel (seed) and applies pairwise merging of segments to build up hierarchical levels. The merging – or clustering (using local rule sets) is repeated (on multiple levels), until an object is recognized (Hossain and Chen 2019, 119, Roffler 2020, 33-34; Figure 8). 
+
+```{r Figure 8, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="Operating principle of ‘Region Growing Segmentation’. Roffler 2020, 34."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_8.png')
+```
+
+With regard to (Automated) Archaeological Remote Sensing, GeOBIA is sometimes also called archaeOBIA (Lamotte and Masson 2016), which points to the fact, that (Automated) Archaeological Remote Sensing is in need of a completely different semantic ontology and rule sets than which is needed for customary GeOBIA methods used in Remote Sensing. Still recently the challenge in Remote Sensing has been to define segmentation parameters/rule sets which can be transferred to other images (Cheng and Han 2015, 16) – something archeOBIA is also struggling with (see Table 1; note the different variables used in the different studies).
+Burial mounds, monumental earthworks and mound shell rings have been investigated using GeOBIA methods nine times since 2015 (Figure 9). Apart from one case (Niculiță 2020: Watershed Segmentation, carried out with SAGA in R), Multiresolution Segmentation was applied (Table 1), almost exclusively using eCognition, (former Definiens), a software developed for and with the evolution of GeOBIA and thus is generally considered “the software” for GeOBIA (Blaschke 2010, Fig 4, Hossain and Chen 2019, Fig 1.), which is clearly reflected in this survey. 
+
+```{r Figure 9, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of GeOBIA methods distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+methods <- table(mounds_lit_filt$Year, mounds_lit_filt$Method)
+methods_table <- stats::ftable(methods)
+methods_table_df <- as.data.frame(methods_table)
+names(methods_table_df) <- c("Year", "Method", "Freq")
+names(methods_table_df)
+GeOBIA <-methods_table_df %>% filter(Method=="GeOBIA")
+ggplot(GeOBIA, aes(y=Freq, x=Year)) +
+  geom_bar(stat="identity", fill ="#A9AF86") +
+  ylim(0, 5) +
+  ggtitle("Use of GeOBIA methods between 2006 & 2021") +
+  theme_light() +
+  theme(legend.position="none") +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+***Machine Learning-based methods*** are considered a subfield of Artificial Intelligence. Machine learning automates statistical methods to learn from input data either supervised, unsupervised or semi-supervised. Automated Archaeological Remote Sensing mainly utilizes supervised methods.
+*Pixel-based Image Analysis*, an image classification method, has been developed in the early 1970s for the digital analysis of Landsat Multispectral Scanner Systems (Phiri and Morgenroth 2017, 9) and is (still) widely distributed in Remote Sensing research, especially in land-use and land-cover classification. In contrast to GeOBIA, Pixel-based Image Analysis approaches an image on pixel basis, which are classified into different categories based on the information they carry (usually one variable). Given that the second step of GeOBIA can be a classification of the segmented image using variables of the image-objects best describing the Objects of Interest, GeOBIA is sometimes also seen as a form of Machine Learning (Davis 2018, 1). 
+Random forest classifiers are supervised learning algorithms which consist of an ensemble of decision trees. Each (unrelated) decision tree is trained using a random subset of the training data. Each of these trees will give a prediction for a datapoint. Then, the prediction of all decision trees is averaged by a majority vote to a final prediction (Figure 9). The independence of the different decision trees increases the accuracy of the prediction and also eliminates problems that can be caused by outliers in the dataset and works also well with small datasets, because of the facts just explained. These effects can be enhanced by resampling techniques and parameter tuning (Kuhn and Johnson 2016). 
+
+```{r Figure 10, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Schematized modus operandi of the Random Forest algorithm."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_10.png')
+```
+Regarding the automated detection of burial mounds and similar structures, Pixel-based classification was the first method used in 2006 and has been more or less revisited since (Figure 11). When looking closely at the specific algorithms used, it is not surprising why the Random Forest algorithm was exploited in most Pixel-based Image Analysis studies (Menze et al. 2006, 2007, Menze and Ur 2007, 2012, 2013, Kramer 2015, Guyot et al. 2018, Orengo et al. 2020, Niculiță 2020, Davis et al. 2021) and Mahalanobis Distance (Trier et al. 2015, Severa et al. 2016) and Support Vector Machine Classifiers (Caspari and Crespo 2019) in less.
+
+```{r Figure 11, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of Pixel-based Image Analysis methods distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+methods <- table(mounds_lit_filt$Year, mounds_lit_filt$Method)
+methods_table <- stats::ftable(methods)
+methods_table_df <- as.data.frame(methods_table)
+names(methods_table_df) <- c("Year", "Method", "Freq")
+names(methods_table_df)
+PBIA <-methods_table_df %>% filter(Method=="PBIA")
+ggplot(PBIA, aes(y=Freq, x=Year)) +
+  geom_bar(stat="identity", fill ="#BCC0AF") +
+  ylim(0, 5) +
+  ggtitle("Use of PBIA methods between 2006 & 2021") +
+  theme_light() +
+  theme(legend.position="none") +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+It was already suggested that with the development of remote sensing sensors and resulting new, higher resolution datasets the need for new analysis methods is constantly stimulated. Starting with pixel-wise analysis and followed by the object-level addressing of remote sensing imagery, lately an even bigger semantic step was taken: the analysis on the scene-level, which can be seen as the next paradigm shift (Cheng and Han 2016, Cheng et al. 2020, 2, Fig. 2). The complex semantic structures of very high resolution images are addressed by  *Deep Learning*, which is also a sub-field of Machine Learning. In contrast to Pixel- and Object-based Image Analysis, Deep Learning Algorithms consist of multiple stacked hierarchical layers (network architectures) which can handle complexity and abstraction.
+In the case of the identification of burial mounds and mound like structures Deep Learning is only in use since 2019 (Figure 12). 
+
+```{r Figure 12, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of Deep Learning methods distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+methods <- table(mounds_lit_filt$Year, mounds_lit_filt$Method)
+methods_table <- stats::ftable(methods)
+methods_table_df <- as.data.frame(methods_table)
+names(methods_table_df) <- c("Year", "Method", "Freq")
+names(methods_table_df)
+DL <-methods_table_df %>% filter(Method=="Deep Learning")
+ggplot(DL, aes(y=Freq, x=Year)) +
+  geom_bar(stat="identity", fill ="#43595E") +
+  ylim(0, 5) +
+  ggtitle("Use of Deep Learning methods between 2006 & 2021") +
+  theme_light() +
+  theme(legend.position="none") +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+To summarize the use of automated analysis methods to detect burial mounds and mound-like structures (Figure 13), it can be established that the first method used was Pixel-based Image analysis (Menze et al. 2006), followed by Template Matching (de Boer 2007). Geometric knowledge-based analysis was used as an autonomous method only by Riley 2009, Freeland et al. 2016, Rom et al. 2020, but as already concluded it is more often than not incorporated in workflows as data preparation method. GeOBIA was first used in 2015 and remained a very effective analysis method, until recently when Deep Learning became widespread (including Semantic and Instance Segmentation).
+
+```{r Figure 13, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of different Image Analysis methods to detect mounds and mound-like objects distributed by year between 2006 and 2021. Note: this represents the number of methods used, not the number of studies."}
+library(dplyr)
+library(ggplot2)
+mounds_lit <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds.csv'))
+#read as tibble
+mounds_lit <- dplyr::as_tibble(mounds_lit)
+mounds_lit_filt <- mounds_lit[, c(3:7)]
+all_combined <- table(mounds_lit_filt$Year, mounds_lit_filt$OoI, mounds_lit_filt$Method,
+                      mounds_lit_filt$Data, mounds_lit_filt$Software_type)
+all_combined_table <- stats::ftable(all_combined)
+all_combined_df <- as.data.frame(all_combined_table)
+names(all_combined_df) <- c("Year", "OoI", "Method", "Data", "Software_type", "Freq")
+ggplot(all_combined_df, aes(fill=Method, y=Freq, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  ylim(0, 15) +
+  scale_fill_manual(values=morris:::acanthus_palette) +
+  ggtitle(expression(atop("Methods used in Automated Archaeological Remote Sensing", atop("between 2006 and 2021", "")))) +
+  theme_light() +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+Several studies compare different analysis methods or combine them. Freeland et al. 2016 and Davis et al. 2019 compare Geometric-knowledge-based analysis (iMound/Inverse Stochastic Depression Analysis) to GeOBIA, with success (this is also reflected in the fact that the original algorithm iMound by Freeland at al. 2016 was reused by Davis et al. 2019 and Rom et al. 2020). Template Matching has been compared to GeOBIA (Kramer 2015, Davis et al. 2019: including Geometric knowledge-based method) and Pixel-based Image Analysis to GeOBIA (Sevara et al. 2016) and to Deep Learning (Caspari and Crespo 2019).
+
+Although LiDAR data has been available for some time (see De Boer 2007, Riley 2009), it was only after 2010 that it made its way into everyday archaeological research, including various visualization methods (as Geometric knowledge-based analysis and data preparation method), making LiDAR visualisations a self-evident step for any archaeological project using ALS data (see also Kokalj and Hesse 2017). It is mainly from 2015, when ALS data started to dominate and revolutionize Automated Analysis methods in Archaeological Remote Sensing and provoking new approaches, such as GeOBIA (Figure 14). Since the diffusion of LiDAR data, Satellite Imagery is mainly used in large-scale studies (Caspari and Crespo 2019, Orengo et al. 2020). Studies which require high resolution data and utilize LiDAR quickly shifted to Deep Learning solutions. Simultaneously also UAV data finds its way into the general data repertoire of Automated Archaeological Analysis (Sărășan et al 2020). 
+
+```{r Figure 14, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The use of different data types used to detect mounds and mound-like objects distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit_2 <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds_short.csv'))
+#read as tibble
+mounds_lit_2 <- dplyr::as_tibble(mounds_lit_2)
+mounds_lit_2_filt <- mounds_lit_2[, c(3:7)]
+all_combined_2 <- table(mounds_lit_2_filt$Year, mounds_lit_2_filt$OoI,
+                      mounds_lit_2_filt$Data, mounds_lit_2_filt$Software_type,
+                      mounds_lit_2_filt$access)
+methods_table_2 <- stats::ftable(all_combined_2)
+methods_table_df2 <- as.data.frame(methods_table_2)
+names(methods_table_df2) <- c("Year", "OoI", "Data", "Software_type", "access", "Freq")
+ggplot(methods_table_df2, aes(fill=Data, y=Freq, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  ylim(0, 7) +
+  scale_fill_manual(values=morris:::peacock_palette) +
+  ggtitle(expression(atop("Data types used in Automated Archaeological Remote Sensing", atop("between 2006 and 2021", "")))) +
+  theme_light() +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+When taking the points ‘Software’ and ‘Access’ into account, it has to be expressed that it is only a recent phenomenon that software and computation details have to be disclosed when publishing a study. Even though lately many journals require data and code availability statements, only a few studies provide openly accessible code and data: Orengo et al. 2020, and Niculiță 2020. In the first case the data and the code  are available using Google Earth Engine. In the latter case, the regulations of the local Cultural Heritage Management authorities require a signed form through the author of the study to be able to use the DEM on which the study was based on - nonetheless it can be accessed. Although with restrictions. 
+Inspecting the information about the methodology details of the studies, nine cases have been identified (Figure 15): from not available (n/a) to workflow & code & data, many constellations can be observed. In many cases the workflow was published, in some cases only a flowchart. In this thesis as a workflow the clear explanation of the methodology in a chart form is defined (with a big probability of reproducibility if the observer knew the exact tools and software used or if those were made clear). As a flowchart on the other hand, a part of a workflow or a very schematized workflow was identified where only the main steps were arranged in chart form, thus making it impossible to trace back the specific steps and to reproduce the workflow or any part of it. Thus the only reproducible study, which published a really detailed workflow, the code and made the dataset - although restricted by certain rules - available is Niculiță 2020.
+
+```{r Figure 15, echo=FALSE, fig.align='center', fig.cap="Access to any parts of  studies used to detect mounds and mound-like objects distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit_2 <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds_short.csv'))
+#read as tibble
+mounds_lit_2 <- dplyr::as_tibble(mounds_lit_2)
+mounds_lit_2_filt <- mounds_lit_2[, c(3:7)]
+all_combined_2 <- table(mounds_lit_2_filt$Year, mounds_lit_2_filt$OoI,
+                      mounds_lit_2_filt$Data, mounds_lit_2_filt$Software_type,
+                      mounds_lit_2_filt$access)
+methods_table_2 <- stats::ftable(all_combined_2)
+methods_table_df2 <- as.data.frame(methods_table_2)
+names(methods_table_df2) <- c("Year", "OoI", "Data", "Software_type", "access", "Freq")
+ggplot(methods_table_df2, aes(fill=access, y=Freq, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  ylim(0, 7) +
+  scale_fill_manual(values=morris:::strawberry_palette ) +
+  ggtitle(expression(atop("Access to any parts of studies investigated", 
+                     atop("between 2006 and 2021", "")))) +
+  theme_light() +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+As already noted, eCognition is considered “the” software for GeOBIA (Hossain - Chen 2019, 122) thus it is evident that many will choose this simpler solution. At the same time, it must be emphasised that the first analyses were carried out in R (Menze et al. 2006, Menze et al. 2007, Menze and Ur 2007), i.e. with open source software.. Using proprietary software not only marginalises researchers and institutions who/which can’t afford rather expensive software, but  it is also hard to comprehend the exact algorithm behind the software, and to understand to be able to apply it in another domain. It is also important to understand why certain tools or algorithms worked or did not work? This can only be done by creating reproducible workflows with open source software. In 2019 and 2020 more than 60% of the studies were conducted with FOSS  (Free and Open Source Software) software. This number is only increasing (Figure 16).
+
+```{r Figure 16, echo=FALSE, fig.align='center', fig.cap="Software types of studies used to detect mounds and mound-like objects distributed by year between 2006 and 2021."}
+library(dplyr)
+library(ggplot2)
+mounds_lit_2 <- read.csv(here::here('analysis/data/literature_analysis/burial_mounds_short.csv'))
+#read as tibble
+mounds_lit_2 <- dplyr::as_tibble(mounds_lit_2)
+mounds_lit_2_filt <- mounds_lit_2[, c(3:7)]
+all_combined_2 <- table(mounds_lit_2_filt$Year, mounds_lit_2_filt$OoI,
+                      mounds_lit_2_filt$Data, mounds_lit_2_filt$Software_type,
+                      mounds_lit_2_filt$access)
+methods_table_2 <- stats::ftable(all_combined_2)
+methods_table_df2 <- as.data.frame(methods_table_2)
+names(methods_table_df2) <- c("Year", "OoI", "Data", "Software_type", "access", "Freq")
+ggplot(methods_table_df2, aes(fill=Software_type, y=Freq, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  ylim(0, 7) +
+  scale_fill_manual(values=morris:::flowers_palette) +
+  ggtitle(expression(atop("Software types of studies investigated", 
+                     atop("between 2006 and 2021", "")))) +
+  theme_light() +
+  xlab("Year") +
+  ylab("Number of studies")
+```
+This survey served the purpose to elaborate the development of Automated Analysis in Archaeological Remote Sensing, mainly with regard to the applied methods, the used software and access to information about the workflow. The aim was to show how little reproducible research has been published with regard to automated analyses and how much there is to be done in the future. Also, automated analysis in Archaeological Remote Sensing is being carried out on different scales with different algorithms, specialized to different research questions in mainly research contexts. This is also a reason why many critical voices see automated analysis methods as pastimes and not really something operational (see many AARGnews Editorials). To give way for the next chapter we can conclude that the results of automated analyses are compelling, but many studies start basically from the beginning, because when research is published without accompanying software, workflow, data and documented steps, it is a challenge and time consuming to understand, verify, expand and eventually surpass that research (Marwick 2017, 425). This is one reason why many research projects start from the beginning, with a new idea instead of building on the previous knowledge. Another point is that automated analysis methods in Archaeological Remote Sensing are still in their infancy (Opitz and Herrmann 2018, 30) and best practices have not yet been established. Nonetheless it has to be stated that automated analysis itself is not a goal, but a method, a means to an end to further research and thus reproducible or even replicable best practices would help shift the focus on further development of methods than on continuous recommencements.
+
+Chapter II discussed the use of automated analysis methods in Archaeological Remote Sensing for the detection of burial mounds and structurally similar archaeological objects. It was demonstrated that only 2 out of 31 studies have disclosed workflow, code and data and are thus reproducible (see chapter III for explanation). As a reproducible study in the R environment Niculiță 2020 can be taken as the best example. It was also noted that even without the availability of code, there are workflows which are illustrated and also explained clearly enough that they can be reproduced, which on the other hand can take some time but is still possible to do when having enough experience with spatial tools. 
+On this basis it was decided that the Geometric knowledge-based workflow ‘iMound’ (established by Freeland at al. 2016 and reused by Davis et al. 2019 and Rom et al. 2020) is going to be utilized in R to detect burial mounds in LiDAR data in this Master’s thesis to create a reproducible workflow. During the implementation of the workflow it became clear that on the basis of the geomorphometry of the Train Area it was necessary to include another method to be able to effectively detect burial mounds (this is discussed in depth in Chapter IV). Thus, in addition to ‘iMound’ also the reproducible workflow of Niculiță 2020, thus a GeOBIA method was used in this Master’s thesis. 

@@ -1,0 +1,23 @@
+# Results of the iSEGMound Workflow
+
+In this Master’s thesis two data preparation methods and two segmentation methods were used and compared. The four workflows were tested on the Train DTM and the Train Area to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. The most effective workflow was chosen to be applied to the five Areas of Interests: AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
+
+5.1 Results of the Training DTM 
+
+5a_iSEG05_WS
+5b_iSEG05_mtpi_WS
+5c_iSEG05_RG
+5d_iSEG05_mtpi_RG
+
+
+5.2 Results of the Training Area
+6a_iSEG05_WS_ta
+6b_iSEG05_mtpi_WS_ta
+6c_iSEG05_RG_ta
+6d_iSEG05_mtpi_RG_ta
+
+5.3 Choosing the right segmentation
+
+To choose the best working workflow for the Training Area the question posed was: Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. From the archaeological point of view the aim is to detect the all (locations of) burial mounds. This can be of course broken down to the question do we want to find the exact shape of the mounds (in the case of the Training DTM and Training Area) or the most important is to detect as much as possible in any shape (e.g. just half or ¾ of a mound is detected) but to detect as as possible of them. 
+
+

@@ -1,0 +1,8 @@
+book_filename: "Master_thesis"
+chapter_name: "Chapter "
+download: [
+    ["Master_thesis.pdf", "PDF"],
+    ["Master_thesis.epub", "EPUB"],
+    ["Master_thesis.docx", "Word"]
+  ]
+delete_merged_file: true
