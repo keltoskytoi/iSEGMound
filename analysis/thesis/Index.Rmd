@@ -1,10 +1,13 @@
 ---
 title: "iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs"
+subtitle: "Agnes Schneider"
+author: 
+- "Submitted in accordance with the requirements for the degree of Master of Science"
+- "Philipps-University Marburg" 
+- "Department of Physical Geography"
+
 site: bookdown::bookdown_site
 
-author:
-  - Agnes Schneider
-  - Philipps-Universität Marburg
 date: '16.09.2021'
 output: 
     bookdown::pdf_book:
@@ -16,21 +19,15 @@ output:
       - --lua-filter=../templates/scholarly-metadata.lua
       - --lua-filter=../templates/author-info-blocks.lua
       - --lua-filter=../templates/pagebreak.lua
+      fontsize: 12pt
+      toc: true
+      toc-depth: 5
+      number_sections: true
 bibliography: "../templates/references.bib"
 csl: "../templates/antiquity.csl" # Insert path for the bib-style
-abstract: |
-  TEST TEST TEST TEST
-keywords: |
-  Archaeological Remote Sensing; Automation; burial mounds
-highlights: |
-  These are the highlights.
 always_allow_html: true   
+
 ---
-
-Keywords: `r rmarkdown::metadata$keywords`
-
-Highlights: `r rmarkdown::metadata$highlights`
-
 \newpage
 ```{r child = here::here("analysis", "thesis", "01-Intro.Rmd")}
 ```

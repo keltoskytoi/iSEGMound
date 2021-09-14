@@ -14,7 +14,7 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 ```
 We know from Dobiat et al. 1994, that Site ID 35 was identified as two mounds. As in Chapter 4 discussed, the mounds visible in Figure 68 were possible to be identified on ground.  
 
-**5.1 Results of the Training DTM**
+# **5.1 Results of the Training DTM**
 
 The workflows applied on the Training DTM are the following: 
 5a_iSEG05_WS, 5b_iSEG05_mtpi_WS, 5c_iSEG05_RG, and 5d_iSEG05_mtpi_RG.
@@ -29,14 +29,13 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 
 The first thing that catches the eyes is that both segmentation methods were able to detect Site ID 35, using the SAGA MTPI. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with morphometric derivatives. When comparing the two segmentation methods, it is apparent, that Watershed segmentation produces more segments than Region Growing. 
 
-**5.2 Results of the Training Area**
+# **5.2 Results of the Training Area**
 
 Before discussing the results of the segmentations, first let's inspect Site ID 7 and Site ID 14. 
 
 Site ID 7 is situated relatively near to the North of Site IDs 5 and 35. The group is constituted of 9 burials, roughly in an elongated line, counted from Southwest to Northeast. When inspecting the mounds, it can be seen that, similar to Site ID 5-9, these are also very near to the forestry commuting routes. Also they already show erosion (mound Site ID 7-5 to 9), mainly in road proximity. This situation has already worsened since 2009/2010, the collection date of the LiDAR data. This burial mound group is similarly preserved such as the average height of the mounds of Site ID 5.
 
 Site ID 14 stretches a little further away to the South and consists of altogether 18 burials. This burial mound group spreads similarly elongated as Site ID 7, although a grouping can be made out in the center region of the group. What is striking about this group is, that many of the mounds - apart from mound 8, which is cut right at the middle - have been just missed or only slightly touched by service roads. The situation of burial mound Site ID 14-8 already indicated, that it is going to be hard to detect this mound properly, because it might be will be difficult to distinguish from the road which is cutting it.  
-
 
 ```{r Figure 70, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Site ID 7, consituted of 9 burial mounds and Site ID 14, constituted of 18 burial mounds on the DTM, Scale 1:1200 and 1:3100."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_70_1.png')
@@ -81,7 +80,7 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 ```
 
 \newpage
-**5.3 Choosing the best fitting segmentation**
+# **5.3 Choosing the best fitting segmentation**
 
 We have seen, that it is clear, that SAGA MTPI as morphometric data preparation methods clearly enhances even the less well visible burial mounds and delineates the mounds more naturally. The remaining question is: how to choose between Watershed and Region growing Segmentation? Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. 
 
@@ -93,4 +92,8 @@ The only statistical measure which was found the most approximatively fitting is
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_75.png')
 ```
 
-
+```{r Table 10, echo=FALSE}
+table_10 <- read.csv(here::here('analysis/supplementary-materials/IoU_comparison.csv'))
+knitr::kable(table_10, longtable = T, booktabs = TRUE,
+  caption = "Demo table")
+```

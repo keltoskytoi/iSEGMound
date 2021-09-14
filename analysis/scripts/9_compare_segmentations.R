@@ -88,7 +88,6 @@ IoU_mtpiWSta_ID_7_2 <- IoU(burial_mounds_7_SHI[2,], mtpi_WS_ta_7_2)
 #0.804681
 IoU_mtpiWSta_ID_7_3 <- IoU(burial_mounds_7_SHI[3,], mtpi_WS_ta_7_3)
 #0.6831214
-
 IoU_mtpiWSta_ID_7_4 <- IoU(burial_mounds_7_SHI[4,], mtpi_WS_ta_7_4)
 #0.5397044
 IoU_mtpiWSta_ID_7_5 <- IoU(burial_mounds_7_SHI[5,], mtpi_WS_ta_7_5)
@@ -202,9 +201,9 @@ IoU_mtpiRGta_ID_5_9 <- IoU(burial_mounds_5_SHI[9,], mtpi_RG_ta_5_9)
 #0.4591942
 #------------------------#Dobiat 1994, Grave group 7#--------------------------#
 IoU_mtpiRGta_ID_7_1 <- IoU(burial_mounds_7_SHI[1,], mtpi_RG_ta_7_1)
-#0.44277
-IoU_mtpiRGta_ID_7_2 <- IoU(burial_mounds_7_SHI[2,], mtpi_WS_ta_7_2)
-#0.804681
+#0.442774
+IoU_mtpiRGta_ID_7_2 <- IoU(burial_mounds_7_SHI[2,], mtpi_RG_ta_7_2)
+#0.4973026
 IoU_mtpiRGta_ID_7_3 <- IoU(burial_mounds_7_SHI[3,], mtpi_RG_ta_7_3)
 #0.4453112
 IoU_mtpiRGta_ID_7_5 <- IoU(burial_mounds_7_SHI[5,], mtpi_RG_ta_7_5)
