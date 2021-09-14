@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <DATABASE>
+    <FIELDS>
+      <FIELD TYPE="INTEGER">ID</FIELD>
+      <FIELD TYPE="DOUBLE">A</FIELD>
+      <FIELD TYPE="DOUBLE">P</FIELD>
+      <FIELD TYPE="DOUBLE">P/A</FIELD>
+      <FIELD TYPE="DOUBLE">P/sqrt(A)</FIELD>
+      <FIELD TYPE="DOUBLE">Depqc</FIELD>
+      <FIELD TYPE="DOUBLE">Sphericity</FIELD>
+      <FIELD TYPE="DOUBLE">Shape Index</FIELD>
+      <FIELD TYPE="DOUBLE">Dmax</FIELD>
+      <FIELD TYPE="DOUBLE">DmaxDir</FIELD>
+      <FIELD TYPE="DOUBLE">Dmax/A</FIELD>
+      <FIELD TYPE="DOUBLE">Dmax/sqrt(A)</FIELD>
+      <FIELD TYPE="DOUBLE">Dgyros</FIELD>
+      <FIELD TYPE="DOUBLE">Fmax</FIELD>
+      <FIELD TYPE="DOUBLE">FmaxDir</FIELD>
+      <FIELD TYPE="DOUBLE">Fmin</FIELD>
+      <FIELD TYPE="DOUBLE">FminDir</FIELD>
+      <FIELD TYPE="DOUBLE">Fmean</FIELD>
+      <FIELD TYPE="DOUBLE">Fmax90</FIELD>
+      <FIELD TYPE="DOUBLE">Fmin90</FIELD>
+      <FIELD TYPE="DOUBLE">Fvol</FIELD>
+    </FIELDS>
+  </DATABASE>
+  <SOURCE></SOURCE>
+  <HISTORY saga-version="7.9.0">
+    <TOOL library="shapes_polygons" id="7" name="Polygon Shape Indices">
+      <OPTION type="boolean" id="GYROS" name="Diameter of Gyration">true</OPTION>
+      <OPTION type="boolean" id="FERET" name="Feret Diameters">true</OPTION>
+      <OPTION type="integer" id="FERET_DIRS" name="Number of Directions">18</OPTION>
+      <INPUT type="shapes" id="SHAPES" name="Shapes">
+        <TOOL library="shapes_polygons" id="7" name="Polygon Shape Indices">
+          <OPTION type="boolean" id="GYROS" name="Diameter of Gyration">true</OPTION>
+          <OPTION type="boolean" id="FERET" name="Feret Diameters">true</OPTION>
+          <OPTION type="integer" id="FERET_DIRS" name="Number of Directions">18</OPTION>
+          <INPUT type="shapes" id="SHAPES" name="Shapes">
+            <TOOL library="shapes_polygons" id="7" name="Polygon Shape Indices">
+              <OPTION type="boolean" id="GYROS" name="Diameter of Gyration">true</OPTION>
+              <OPTION type="boolean" id="FERET" name="Feret Diameters">true</OPTION>
+              <OPTION type="integer" id="FERET_DIRS" name="Number of Directions">18</OPTION>
+              <INPUT type="shapes" id="SHAPES" name="Shapes">
+                <TOOL library="shapes_polygons" id="7" name="Polygon Shape Indices">
+                  <OPTION type="boolean" id="GYROS" name="Diameter of Gyration">true</OPTION>
+                  <OPTION type="boolean" id="FERET" name="Feret Diameters">true</OPTION>
+                  <OPTION type="integer" id="FERET_DIRS" name="Number of Directions">18</OPTION>
+                  <INPUT type="shapes" id="SHAPES" name="Shapes">
+                    <TOOL library="shapes_polygons" id="7" name="Polygon Shape Indices">
+                      <OPTION type="boolean" id="GYROS" name="Diameter of Gyration">true</OPTION>
+                      <OPTION type="boolean" id="FERET" name="Feret Diameters">true</OPTION>
+                      <OPTION type="integer" id="FERET_DIRS" name="Number of Directions">18</OPTION>
+                      <INPUT type="shapes" id="SHAPES" name="Shapes">
+                        <FILE>C:/Users/kelto/Documents/iSEGMound//tmp//segments.shp</FILE>
+                      </INPUT>
+                      <OUTPUT type="shapes" id="INDEX" name="Shape Indices">segments [Shape Indices]</OUTPUT>
+                    </TOOL>
+                  </INPUT>
+                  <OUTPUT type="shapes" id="INDEX" name="Shape Indices">segments [Shape Indices]</OUTPUT>
+                </TOOL>
+              </INPUT>
+              <OUTPUT type="shapes" id="INDEX" name="Shape Indices">segments [Shape Indices]</OUTPUT>
+            </TOOL>
+          </INPUT>
+          <OUTPUT type="shapes" id="INDEX" name="Shape Indices">segments [Shape Indices]</OUTPUT>
+        </TOOL>
+      </INPUT>
+      <OUTPUT type="shapes" id="INDEX" name="Shape Indices">segments [Shape Indices]</OUTPUT>
+    </TOOL>
+  </HISTORY>
+  <FILE></FILE>
+  <DESCRIPTION></DESCRIPTION>
+  <PROJECTION>
+    <OGC_WKT>PROJCS["WGS_1984_UTM_Zone_32N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",9.0],PARAMETER["Scale_Factor",0.9996],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]</OGC_WKT>
+    <PROJ4>+proj=utm +a=6378137.000000 +b=6356752.314245 +zone=32 +no_defs</PROJ4>
+    <EPSG>-1</EPSG>
+  </PROJECTION>
+</SAGA_METADATA>

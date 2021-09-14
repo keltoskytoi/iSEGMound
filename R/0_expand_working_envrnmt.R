@@ -53,20 +53,21 @@ paths<-link2GI::initProj(projRootDir = projRootDir,
 
 #------------------------------#load library#----------------------------------#
 #The source file enables you to install and activate packages in one run
-source("C:/Users/kelto/Documents/repRCHrs/R/00_library_n_prep.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/00_library_n_prep.R")
 #----------------------------#source functions#--------------------------------#
 #for plotting the cross section of LiDAR pointclouds:
-source("C:/Users/kelto/Documents/repRCHrs/R/plot_crossection.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/plot_crossection.R")
 #for detecting mounds:
-source("C:/Users/kelto/Documents/repRCHrs/R/generate_mtpi_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/filtR.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/fill_sink_SAGA_WL.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/watershed_segmentation_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/generate_seeds_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/seeded_region_growing_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/polygonize_segments_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/compute_shape_index_SAGA.R")
-source("C:/Users/kelto/Documents/repRCHrs/R/create_regions.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/generate_mtpi_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/filtR.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/fill_sink_SAGA_WL.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/watershed_segmentation_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/generate_seeds_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/seeded_region_growing_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/polygonize_segments_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/compute_shape_index_SAGA.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/create_regions.R")
+source("C:/Users/kelto/Documents/iSEGMound/R/IoU.R")
 #------------------------#installing packages not on CRAN#---------------------#
 #if it is not possible to install certain packages via 'install.packages()'
 #please install them via github:
