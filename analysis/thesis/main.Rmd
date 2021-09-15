@@ -17,6 +17,8 @@ header-includes:
   - \usepackage{lastpage}
   - \usepackage{dcolumn}
   - \usepackage{ragged2e}
+  - \usepackage{graphicx}
+  - \graphicspath{ {./figures/} }
   - \usepackage{natbib}\bibliographystyle{agsm}
   - \usepackage[nottoc, numbib]{tocbibind}
   - \renewcommand{\contentsname}{}  
@@ -86,6 +88,24 @@ Date of Submission: 23.09.2021
 
 \end{centering}
 
+\newpage
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\begin{centering}
+
+\vspace{2cm}
+
+\normalsize
+\bf Let's see what happens!!!!!
+
+\vspace{2.5 cm}
+
+```{r Intro-image, echo=F, fig.align='center', out.width="100%", out.height="100%",}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Title.png')
+```
+\end{centering}
 \newpage
 
 \pagenumbering{roman}
