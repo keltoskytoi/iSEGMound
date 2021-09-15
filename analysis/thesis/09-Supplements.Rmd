@@ -1,0 +1,7 @@
+# Supplements
+
+```{r Table 2, echo=FALSE}
+table_2 <- read.csv(here::here('analysis/supplementary-materials/Table_2.csv'))
+knitr::kable(table_2, longtable = T, booktabs = TRUE,
+  caption = "Demo table")
+```

@@ -19,39 +19,67 @@ output:
       - --lua-filter=../templates/scholarly-metadata.lua
       - --lua-filter=../templates/author-info-blocks.lua
       - --lua-filter=../templates/pagebreak.lua
-      fontsize: 12pt
+      fontsize: 12 pt
       toc: true
       toc-depth: 5
       number_sections: true
 bibliography: "../templates/references.bib"
 csl: "../templates/antiquity.csl" # Insert path for the bib-style
-always_allow_html: true   
-
 ---
+
 \newpage
-```{r child = here::here("analysis", "thesis", "01-Intro.Rmd")}
+
+```{r acknowledgements, child = '00-Acknowledgements.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "02-Literature.Rmd")}
+
+\pagenumbering{arabic}
+
+```{r intro, child = '01-Intro.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "03-Materials.Rmd")}
+
+```{r literature, child = '02-Literature.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "04-Methods.Rmd")}
+
+```{r materials, child = '03-Materials.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "05-Results.Rmd")}
+
+```{r methods, child = '04-Methods.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "06-Discussion.Rmd")}
+
+```{r results, child = '05-Results.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "07-Conclusion.Rmd")}
+
+```{r discussion, child = '06-Discussion.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "08-Bibliography.Rmd")}
+
+```{r conclusion, child = '07-Conclusion.Rmd'}
 ```
+
 \newpage
-```{r child = here::here("analysis", "thesis", "09-Colophon.Rmd")}
+
+```{r bibliography, child = '08-Bibliography.Rmd'}
+```
+
+\newpage
+
+```{r supplements, child = '09-Supplements.Rmd'}
+```
+
+\newpage
+
+```{r colophon, child = '10-Colophon.Rmd'}
 ```

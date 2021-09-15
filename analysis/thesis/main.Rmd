@@ -1,0 +1,176 @@
+---
+title: " "
+output:
+    bookdown::pdf_book:
+      df_print: kable
+      latex_engine: lualatex
+      number_sections: TRUE
+toc: false #very important!!!!
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 12pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{ragged2e}
+  - \usepackage{natbib}\bibliographystyle{agsm}
+  - \usepackage[nottoc, numbib]{tocbibind}
+  - \renewcommand{\contentsname}{}  
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+```
+\newpage
+
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+\vspace{2cm}
+
+```{r uni_logo, echo=F, out.width="75%", out.height="75%",}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/UMR-Logo_sw.png')
+```
+
+\vspace{1cm}
+
+\normalsize
+\bf Department of Geography
+
+\vspace{1cm}
+
+\Large
+
+\doublespacing
+\bf iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived  DTMs
+
+\vspace{1 cm}
+
+\normalsize
+\singlespacing
+
+by
+
+\vspace{0.5 cm}
+
+
+\bf AGNES SCHNEIDER \\
+    Matriculation number: 
+
+\vspace{1.5 cm}
+\normalsize
+
+in partial fulfilment of the requirement \\
+for the degree of MSc in Physical Geography
+
+\vspace{1.5 cm}
+
+Supervisor: Dr. Christoph Reudenbach \\
+Second Supervisor: Dr. Karsten Lambers, Leiden University
+
+\vspace{1 cm}
+
+\normalsize
+Date of Submission: 23.09.2021 
+
+\end{centering}
+
+\newpage
+
+\pagenumbering{roman}
+
+\begin{centering}
+
+\bf Abstract
+
+\end{centering}
+
+\newpage
+
+\centering
+\raggedright
+\newpage
+\tableofcontents
+
+\newpage
+
+```{r acknowledgements, child = '00-Acknowledgements.Rmd'}
+```
+
+\newpage
+\pagenumbering{arabic}
+
+
+\vspace{5mm}
+\justifying
+
+```{r intro, child = '01-Intro.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r literature, child = '02-Literature.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r materials, child = '03-Materials.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r methods, child = '04-Methods.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r results, child = '05-Results.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r discussion, child = '06-Discussion.Rmd'}
+```
+
+\newpage
+\vspace{5mm}
+\justifying
+
+```{r conclusion, child = '07-Conclusion.Rmd'}
+```
+
+\newpage
+
+```{r bibliography, child = '08-Bibliography.Rmd'}
+```
+
+\newpage
+
+```{r supplements, child = '09-Supplements.Rmd'}
+```
+
+\newpage
+
+```{r colophon, child = '10-Colophon.Rmd'}
+```

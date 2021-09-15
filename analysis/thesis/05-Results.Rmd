@@ -14,7 +14,7 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 ```
 We know from Dobiat et al. 1994, that Site ID 35 was identified as two mounds. As in Chapter 4 discussed, the mounds visible in Figure 68 were possible to be identified on ground.  
 
-# **5.1 Results of the Training DTM**
+## **Results of the Training DTM**
 
 The workflows applied on the Training DTM are the following: 
 5a_iSEG05_WS, 5b_iSEG05_mtpi_WS, 5c_iSEG05_RG, and 5d_iSEG05_mtpi_RG.
@@ -29,7 +29,7 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 
 The first thing that catches the eyes is that both segmentation methods were able to detect Site ID 35, using the SAGA MTPI. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with morphometric derivatives. When comparing the two segmentation methods, it is apparent, that Watershed segmentation produces more segments than Region Growing. 
 
-# **5.2 Results of the Training Area**
+## **Results of the Training Area**
 
 Before discussing the results of the segmentations, first let's inspect Site ID 7 and Site ID 14. 
 
@@ -80,7 +80,7 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Fig
 ```
 
 \newpage
-# **5.3 Choosing the best fitting segmentation**
+## **Choosing the best fitting segmentation**
 
 We have seen, that it is clear, that SAGA MTPI as morphometric data preparation methods clearly enhances even the less well visible burial mounds and delineates the mounds more naturally. The remaining question is: how to choose between Watershed and Region growing Segmentation? Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. 
 
