@@ -1,16 +1,16 @@
 # Results of the iSEGMound Workflow
 
-In this Master’s thesis two data preparation methods (DTm and Multi-Scale Topographic Index) and two segmentation methods (Watershed and Region Growing) were used and compared. The four workflows were tested on the Train DTM and the Train Area to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. The most effective workflow was chosen to be applied to the five Areas of Interests: AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
+In this Master’s thesis two data preparation methods (using a plain DTM vs. a Multi-Scale Topographic Index, as described an explained in Chapter 4) and two segmentation methods (Watershed and Region Growing, as described in Chapter 2 and explained in Chapter 4) were examined, applied and compared, resulting in four workflows. The basic settings and the exact structure and process for the four workflows were tested and debugged on the Train DTM (one 1x1 km tile) and then applied and to the Train Area (five 1x1 km tile) to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. These settings were the adjusted and the most effective workflow was chosen (based on the Train Area). This was followed by the application of the selected workflow to the five Areas of Interests (AoI): AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
 
-First let's have glimpse on the morphometric derivative chosen, the Multi-Scale Topographic Index, on the example of the Train DTM: 
+First let's inspect the chosen morphometric derivative, the Multi-Scale Topographic Index (later MSTPI), on the example of the Train DTM (Figure 67). The burial mounds of Site ID 5 are clearly discernable and with a closer look also Site ID 35-1.  
 
 ```{r Figure 67, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Multi-Scale Topographic Index of the Train DTM, Scale 1:4450."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_67.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png')
 ```
 As a reminder let's see where the burial mound groups Site ID 5 (black) and Site ID 35 (blue) are located in the Training DTM:  
 
 ```{r Figure 68, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Multi-Scale Topographic Index of the Train DTM with bruial mound groups Site ID 5 and 35. Scale 1:4450."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_68.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png')
 ```
 We know from Dobiat et al. 1994, that Site ID 35 was identified as two mounds. As in Chapter 4 discussed, the mounds visible in Figure 68 were possible to be identified on ground.  
 
@@ -23,8 +23,8 @@ Let's plot the results of the Training DTM by segmentation.
 Left the Watershed Segmentation based on a DTM (iSEG05_WS, orange segments) and on the SAGA MTPI (iSEG05_mtpi_WS, lilac segments). Right  the Region Growing Segmentation based on a DTM (iSEG05_RG, light blue) and on the SAGA MTPI (iSEG05_mtpi_RG, brown):
 
 ```{r Figure 69, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="iSEG WS in orange and iSEG mtpi WS in lilac nect to iSEG RG in light blue and iSEG mtpi RG in brown, Scale 1:4450."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_69_1.png')
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_69_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.png')
 ```
 
 The first thing that catches the eyes is that both segmentation methods were able to detect Site ID 35, using the SAGA MTPI. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with morphometric derivatives. When comparing the two segmentation methods, it is apparent, that Watershed segmentation produces more segments than Region Growing. 
@@ -38,8 +38,8 @@ Site ID 7 is situated relatively near to the North of Site IDs 5 and 35. The gro
 Site ID 14 stretches a little further away to the South and consists of altogether 18 burials. This burial mound group spreads similarly elongated as Site ID 7, although a grouping can be made out in the center region of the group. What is striking about this group is, that many of the mounds - apart from mound 8, which is cut right at the middle - have been just missed or only slightly touched by service roads. The situation of burial mound Site ID 14-8 already indicated, that it is going to be hard to detect this mound properly, because it might be will be difficult to distinguish from the road which is cutting it.  
 
 ```{r Figure 70, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Site ID 7, consituted of 9 burial mounds and Site ID 14, constituted of 18 burial mounds on the DTM, Scale 1:1200 and 1:3100."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_70_1.png')
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_70_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.png')
 ```
 
 The workflows applied on the Training Area are the following: 
@@ -50,7 +50,7 @@ Because the Training Area is too big to really see details when plotting the who
 Inspecting first the results of the Watershed Segmentation of the Training Area, iSEG05_WS_ta (pink segments) and iSEG05_mtpi_WS_ta (teal segments) are plotted together. It is clearly visible from the overview, that the first impression of the Training DTM is reinforced: more segments are left over by using the SAGA MTPI, which fit to *min* to *max* descriptor range as the segments complying to the burial mound mask. This means on the other hand of course more segments to check, but also more possibility to find previously not known mounds. This will be investigated in the Discussion.  
 
 ```{r Figure 71, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG WS ta and iSEG mtpi WS ta on the DTM, Scale 1:18000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_71.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.png')
 ```
 
 When "zooming" in to the two areas (Figure 73) containing burial mounds, we can see the following: 
@@ -59,14 +59,14 @@ Looking at the Southern area (second image of Figure 74), iSEG WS workflow detec
 Although a little less accurate in the southern area, the iSEG mtpi WS workflow is more successful. 
 
 ```{r Figure 72, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG WS ta and iSEG mtpi WS ta on the DTM, Scale 1:3000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_72_1.png')
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_72_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.png')
 ```
 
 Considering the Region Growing Segmentation, the overview tells us, that after filtering generally less segments are left over, which fit to *min* to *max* descriptor range as the segments complying to the burial mound mask:
 
 ```{r Figure 73, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:18000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_73.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.png')
 ```
 
 Going into the details, iSEG_RG_ta is depicted in lime color and iSEG_mtpi_RG in grass green. It is again clear, that using the SAGA MTPI , Site ID 35 is detected, even if only the most visible one.
@@ -75,8 +75,8 @@ The iSEG mtpi RG workflow did detect all mounds from Site ID 5, but it failed to
 Between the two workflows iSEG mtpi RG is the more successful. 
 
 ```{r Figure 74, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:3000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_74_1.png')
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_74_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.png')
 ```
 
 \newpage
@@ -89,7 +89,7 @@ From the archaeological point of view the aim is to detect as many burial mounds
 The only statistical measure which was found the most approximatively fitting is the *Jaccard Index* or *Intersection over Union*. This measure is used in Deep Learning as an evaluation metric to measure the accuracy of an object detection on the original data set. That is,  
 
 ```{r Figure 75, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Values of Intersection over Union (IoU) or 'Jaccard Index'. Source: https://towardsdatascience.com/intersection-over-union-iou-calculation-for-evaluating-an-image-segmentation-model-8b22e2e84686."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Figure_75.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png')
 ```
 
 ```{r Table 10, echo=FALSE}

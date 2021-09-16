@@ -26,7 +26,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 options(tinytex.verbose = TRUE)
 ```
 \newpage
@@ -42,7 +42,7 @@ options(tinytex.verbose = TRUE)
 \vspace{2cm}
 
 ```{r uni_logo, echo=F, out.width="75%", out.height="75%",}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/UMR-Logo_sw.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png')
 ```
 
 \vspace{1cm}
@@ -103,7 +103,7 @@ Date of Submission: 23.09.2021
 \vspace{2.5 cm}
 
 ```{r Intro-image, echo=F, fig.align='center', out.width="100%", out.height="100%",}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/figures/Title.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Title.png')
 ```
 \end{centering}
 \newpage

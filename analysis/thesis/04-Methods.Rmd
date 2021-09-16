@@ -1,3 +1,51 @@
 # Applied Mound Detection
 
-In certain instances it was decided to use screenshot to be able make points clearer. It was planned to use mapview::mapview, but it does not knit nicely when exported as a PDF. 
+Chapter IV explains the development of workflow of the Master’s thesis and also the workflow itself. First the case study area (4.1) is presented with emphasis on its geomorphological characteristics, then a general workflow of automated analysis methods (4.2) is discussed. Following this, data pre-processing steps and methods are examined and the chosen method highlighted and the choice explained (4.3), similarly with the data preparation (4.4). Subsequently the data analysis methods, that is workflows used as paragons are discussed and the workflow of the Master’s thesis is explained (4.5).
+
+## **The case study area**
+The case study area used in this Master’s thesis is a 180 km2 area around Marburg, in Marburg-Biedenkopf/Hesse, Germany (Figure 18). The research area lies in the central hessian region, mainly comprised of a densely populated settlement area (Marburg and its outskirts) in the center, to the West the Gladenbacher Bergland and to the East the mountainous ridge called Lahnberge (extending from north to south between Cölbe and Hassenhausen). West of the Lahnberge, which are made of triassic medium variegated sandstone extends the Amöneburg Basin with its loess landscape (Dobiat et al 1994, 7).
+
+```{r Figure 18, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Figure 18. Location of the case study area of this Master's thesis in county Marburg-Biedenkopf/Hesse, Germany."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png')
+```
+
+The case study area was archaeologically investigated between 1983 and 1989 within the framework of a research project called “Urnenfelderzeitliche Forschungen im Marburger Raum” whose results were published in 1994 (Dobiat et al. 1994). This area constitutes the northernmost distribution of the South-German Urnfield Culture. Earlier studies led by the University of Marburg from the 1930's outlined the Marburg Group (mainly coined by Müller-Karpe 1949) which based on the investigation between 1983 and 1989 can be broken down into multiple burial mound groups which extend over multiple hundreds of meters. Dobiat et al. 1994, 9 postulated that originally more than 250 burial mounds must have existed which formed groups of up to a dozen mounds and are mainly situated along ridges looking over the Amöneburg Basin. East of Marburg, North to South sprawl the three burial mound groups Botanischer Garten, Lichter Küppel and Stempel (Figure 19).  According to the estimation of Dobiat et al. 1994, 31, the burial mound group of Botanischer Garten should have consisted of about at least 40 burial mounds while the burial groups at Lichter Küppel and Stempel of around 30 burial mounds each.
+
+```{r Figure 19, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Figure 19. The burial mound groups ‘Botanischer Garten’, ‘Lichter Küppel’ and ‘Stempel’. Dobiat et al. 1994, Supplement 1."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.png')
+```
+
+The extent of the case study area of this thesis was chosen intentionally based on the discussed area in Dobiat et al. 1994. After the 0.5 m DTM was calculated for the whole 180 km2 of the 20009/2010 LAZ files (see the workflow of the LiDAR data processing in 4.2), the attempt was made to identify all burial mounds in the Hillshade of the LiDAR derived 0.5 DTM by visual inspection in QGIS, based on the mapped burial mounds in Dobiat et al. 1994 (Map Supplement 1 & 2), also as a preparation to identify the Training Area and the Areas of Interests. Furthermore, apart from the already mentioned maps, Dobiat et al. 1994 also provides lists of burial mounds: Liste 1 contains the burial mounds of the three main burial groups East of Marburg (‘Botanischer Garten’, ‘Lichter Küppel’ and ‘Stempel’) and Liste 2 contains the burial mounds in the broader Marburg area (West to Marburg, Area of Interest 1). The exact coordinates can be found in Dobiat et al. 1994, 172-180.
+During the visual comparison of the provided lists of mapped burial mounds and the hillshade of the case study area in QGIS the following differences have been documented:
+
+```{r Table 2, echo=FALSE}
+table_2 <- read.csv(here::here('analysis/supplementary-materials/Table_2.csv'))
+knitr::kable(table_2, longtable = T, booktabs = TRUE, caption = "Table 2. Comparison of the burial mound groups documented in Dobiat et al. 1994 and the burial mound groups visible in the hillshade of the 2009/2010 LiDAR data. The sites which are marked with ? were not possible to identify in the hillshade. NB: The burial mound groups 9 and 35 (the second mound) were only possible to identify using the Whitebox Multi-Scale Topographic Position Index derivatives.")
+```
+
+The concept of the workflow for the automated analysis of this data set was developed with keeping in mind that the burial mounds marked by ‘? ‘ will not be detected with a high probability, if they are not traceable in the Hillshade, even when using profile tools in QGIS. It was clear that using a 180 km2 area to develop workflows on is overpowering the computational capacity of a regular Laptop (Tuxedo with Ubuntu 18.04.5 LTS, i7, 15.4 GB RAM, no extra graphic card) and even Desktop PC (Windows 10, i7, 36 GB physical RAM & 40.5 GB virtual RAM, NVIDIA GTX 1080), the data set was split up based on the investigation of the Hillshade of the case study area. First, all tiles were processed with 0.1 m resolution, but it was soon realized that any part of the workflow demanded exponentially more time per tile, than a tile with 0.5 m resolution, so the whole workflow is based on 0.5 m resolution.
+
+The workflow developed was debugged in two instances: the workflow was first developed on the Training DTM, and then adapted to the Training Area. Then it was tested on five different Areas of Interests, which were chosen based on where the tumuli documented in Dobiat et al. 1994 are located.
+As Training DTM tile *3dm_32482_5618_1* was chosen (white box in Figure 20, left, with *‘_xyzirnc_ground_05’* suffix), because the burial mounds (Site IDs 5, 35 and 9, Figure 21) showed the biggest variability in size and were best preserved. Although it has to be said that even the Training DTM had surprises in store: Site ID 9 presented a quite a challenge to be identified - it was only possible to do so using the Multi-Scale Topographic Index implemented in Whitebox and accessed through R.
+The Training Area (red box in Figure 20) consisting of five 1x1 tiles (*3dm_32482_5616_1_he, 3dm_32482_5617_1_he,  3dm_32482_5618_1_he, 3dm_32482_5619_1_he, 3dm_32483_5616_1_he*, all with *‘_xyzirnc_ground_05’* suffix). Affiliated to these are the mound groups of Site ID 7 to the north, and Site ID 14, to the south (Figure 20, right).  
+The five Areas of Interest (AoI) are spatially disconnected were addressed clockwise:
+Area of Interest 1: Site IDs 49, 51 & 61  in List 2, Dobiat et al. 1994, 177-178. Figure 21 & 22.
+Area of Interest 2: Site IDs 30 - 34 in List 1, Dobiat et al. 1994, 175. See Figure 21 & 22.
+Area of Interest 3: ‘Botanischer Garten’ and  ‘Lichter Küppel’, Site IDs 16 - 29 in List 1, Dobiat et al. 1994, 174-175. Figure 21 & 22.
+Area of Interest 4: ‘Stempel’, Site IDs 1 - 15 & 35 in List 1, Dobiat et al. 1994, 172-173 & 175. Figure 21 & 22.
+Apart from the burial mounds mapped and discussed in Dobiat et al. 1994, a few other burial mounds discernible in the Hillshade of the case study area were also included in the test dataset, that is AoI 5. 
+Area of Interest 5: 4 tiles west to Gisselberg, displaying 8(?) merovingian burial mounds in the west corner, but also other mound-like structures can be determined, actually throughout the whole case study area. 
+
+```{r Figure 20, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Figure 20. Left:  Map and spatial relation of the Training DTM (white), the Training Area (red) and the five Area of Interests (Area of Interest 1 = grey, Area of Interest 2 = blue, Area of Interest 3 = light green, Area of Interest 4 = grass green, Area of Interest 5 = orange). Right:The Training DTM, Training Area and the Area of Interests with the mapped burial mound sites in Dobiat et al. 1994.."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png')
+```
+
+To understand the nature and the morphological characteristics of the burial mounds in this area and also to understand if any change has happened since the LiDAR survey in 2009/2010, the Site IDs 5 and 35 were inspected in the terrain. At that time Site ID 9 was not identified in the Hillshade. It has to be noted that for the main part of the Master's thesis the QGIS plugin ‘VoGIS Profile Tool’ was used and only in a late phase of the work was the ‘Profile Tool’ QGIS plugin discovered and used, which displays minimal changes in the terrain a lot better than the previous tool. 
+On May 10th in the afternoon the author and two colleagues (Simon Seyfried, a fellow student and Bjön Schmidt, now working in the Landesamt für Denkmalpflege in Wiesbaden) surveyed the area of the Training DTM. To identify the mounds, a polygon layer created in QGIS containing all identified mounds in the Training DTM (Site IDs 5 and 35) based on the visual inspection of the 0.5 m Hillshade was exported to OruxMaps on an Android mobile phone to use as orientation and localisation. 
+
+```{r Figure 21, echo=FALSE, fig.align='center', out.width="40%", out.height="40%", fig.cap="Figure 21. Screenshot of Oruxmaps with the burial mounds with Site IDs 35 (to the West in the field), 5 (to the East in the forest), 7 (to the North, not investigated in the field). Only Site IDs 5 and 35 were investigated which can be found in the area of Training DTM."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg')
+```
+
+

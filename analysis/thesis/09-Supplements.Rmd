@@ -1,11 +1,5 @@
 # Supplements
 
-```{r Table 2, echo=FALSE}
-table_2 <- read.csv(here::here('analysis/supplementary-materials/Table_2.csv'))
-knitr::kable(table_2, longtable = T, booktabs = TRUE,
-  caption = "Table 2: ")
-```
-
 ```{r Table 3, echo=FALSE}
 table_3 <- read.csv(here::here('analysis/supplementary-materials/Table_3.csv'))
 knitr::kable(table_3, longtable = T, booktabs = TRUE,
