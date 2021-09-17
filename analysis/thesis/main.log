@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.16)  16 SEP 2021 23:50
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.9.16)  18 SEP 2021 00:58
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -639,6 +639,49 @@ Package tocbibind Info: The document has section divisions on input line 50.
 
 Package tocbibind Note: Using section or other style headings.
 
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfig/subfig.st
+y
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.st
+y
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.s
+ty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen184
+\captionmargin@=\dimen185
+\captionwidth=\dimen186
+\caption@tempdima=\dimen187
+\caption@indent=\dimen188
+\caption@parindent=\dimen189
+\caption@hangindent=\dimen190
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count308
+\c@continuedfloat=\count309
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.
+sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+))
+\c@KVtest=\count310
+\sf@farskip=\skip91
+\sf@captopadj=\dimen191
+\sf@capskip=\skip92
+\sf@nearskip=\skip93
+\c@subfigure=\count311
+\c@subfigure@save=\count312
+\c@lofdepth=\count313
+\c@subtable=\count314
+\c@subtable@save=\count315
+\c@lotdepth=\count316
+\sf@top=\skip94
+\sf@bottom=\skip95
 )
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/lualatex/selnolig/selnol
 ig.sty
@@ -652,7 +695,7 @@ Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/ctablestack/ctabl
 estack.sty
 Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
-\@catcodetablestackcnt=\count308
+\@catcodetablestackcnt=\count317
 )
 \CatcodeTableOther=\catcodetable12
 \CatcodeTableExpl=\catcodetable13
@@ -661,40 +704,40 @@ Inserting `Suppress ligatures selectively' at position 1 in `ligaturing'.) (./m
 ain.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 91.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 91.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 91.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 91.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 91.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 91.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 91.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 92.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -729,7 +772,7 @@ se;script=math;language=dflt;"
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 91.
+(Font)              scaled to size 12.0pt on input line 92.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -773,17 +816,17 @@ se;script=math;language=dflt;"
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 91.
+(Font)              scaled to size 12.0pt on input line 92.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 91.
+(Font)              `operators' in the math version `normal' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 91.
+ line 92.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 91.
+(Font)              `operators' in the math version `bold' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 91.
+t line 92.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -873,15 +916,15 @@ e;script=math;language=dflt;"
 (fontspec)             21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 91.
+(Font)              `symbols' in the math version `normal' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 91.
+t line 92.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 91.
+(Font)              `symbols' in the math version `bold' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 91.
+t line 92.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -954,43 +997,43 @@ se;script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 9
-1.
+2.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 91.
+t line 92.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 91.
+(Font)              `largesymbols' in the math version `bold' on input line 92.
 
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 91.
+t line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 91.
+(Font)              scaled to size 8.4pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 91.
+(Font)              scaled to size 6.0pt on input line 92.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-1.
+2.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 91.
+(Font)              scaled to size 12.0011pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 91.
+(Font)              scaled to size 8.40076pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 91.
+(Font)              scaled to size 6.00055pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 91.
+(Font)              scaled to size 11.99872pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 91.
+(Font)              scaled to size 8.3991pt on input line 92.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 91.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
+(Font)              scaled to size 5.99936pt on input line 92.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 92.
 
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
 
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1006,7 +1049,7 @@ df-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 91.
+Package hyperref Info: Link coloring OFF on input line 92.
 
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -1020,11 +1063,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count309
+\c@section@level=\count318
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 92.
+LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \nameref on input line 92.
 (./main.out) (./main.out)
 \@outlinefile=\write3
 
@@ -1065,28 +1108,31 @@ LaTeX Info: Redefining \nameref on input line 91.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 91.
+(lastpage)             ! on input line 92.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png, id
-=64, 219.7008pt x 75.1608pt>
+=68, 219.7008pt x 75.1608pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/UMR-Logo_sw.png  used on input line 106.
+ures/UMR-Logo_sw.png  used on input line 107.
 (luatex.def)             Requested size: 364.71327pt x 124.77031pt.
 [1
 
 {c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map}<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png
 >]
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Title.png, id=72, 6
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Title.png, id=76, 6
 40.3925pt x 641.39626pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Title.png Grap
 hic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Title.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Title.png  used on input line 166.
+ures/Title.png  used on input line 167.
 (luatex.def)             Requested size: 486.26363pt x 487.0258pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -1098,442 +1144,586 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 Missing character: There is no ˗ (U+02D7) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no ˗ (U+02D7) in font [lmroman12-regular]:+tlig;!
 ] [2]
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.png, id=11
-9, 506.89375pt x 468.75125pt>
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.png, id=12
+4, 506.89375pt x 468.75125pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.png G
 raphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_1.png  used on input line 212.
+ures/Figure_1.png  used on input line 213.
 (luatex.def)             Requested size: 243.12834pt x 224.83353pt.
-[3] [4
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.PNG>]
+[3] [4<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_1.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_2.png, id=13
-0, 910.40125pt x 344.78813pt>
+5, 910.40125pt x 344.78813pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_2.png G
 raphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_2.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_2.png  used on input line 227.
+ures/Figure_2.png  used on input line 228.
 (luatex.def)             Requested size: 364.69582pt x 138.11798pt.
-[5] [6
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.2'
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_2.PNG>] [7] 
-[8]
-<main_files/figure-latex/Figure 3-1.pdf, id=152, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 3-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 3-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 3-1.pdf  used on input 
-line 270.
+[5] [6<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_2.PNG>] [7]
+<main_files/figure-latex/Figure3-1.pdf, id=153, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure3-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure3-1.pdf  used on input l
+ine 272.
 (luatex.def)             Requested size: 469.75386pt x 325.2142pt.
-[9
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.3'
-<./main_files/figure-latex/Figure 3-1.pdf>] [10]
+[8<./main_files/figure-latex/Figure3-1.pdf>] [9]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_4.png, id=17
-7, 1302.8675pt x 700.6175pt>
+8, 1302.8675pt x 700.6175pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_4.png G
 raphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_4.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_4.png  used on input line 309.
+ures/Figure_4.png  used on input line 311.
 (luatex.def)             Requested size: 243.11412pt x 130.73471pt.
-[11
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.4'
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_4.png>]
-<main_files/figure-latex/Figure 5-1.pdf, id=184, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 5-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 5-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 5-1.pdf  used on input 
-line 329.
+[10<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_4.png>]
+<main_files/figure-latex/Figure5-1.pdf, id=185, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure5-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure5-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure5-1.pdf  used on input l
+ine 331.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[12]
-<main_files/figure-latex/Figure 6-1.pdf, id=190, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 6-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 6-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 6-1.pdf  used on input 
-line 344.
+[11]
+<main_files/figure-latex/Figure6-1.pdf, id=191, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure6-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure6-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure6-1.pdf  used on input l
+ine 346.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[13
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.5'
-<./main_files/figure-latex/Figure 5-1.pdf>] [14
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.6'
-<./main_files/figure-latex/Figure 6-1.pdf>]
+[12<./main_files/figure-latex/Figure5-1.pdf>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_7.png, id=20
-9, 480.29437pt x 147.55125pt>
+1, 480.29437pt x 147.55125pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_7.png G
 raphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_7.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_7.png  used on input line 357.
+ures/Figure_7.png  used on input line 359.
 (luatex.def)             Requested size: 480.3005pt x 147.55312pt.
+[13<./main_files/figure-latex/Figure6-1.pdf>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_8.png, id=21
-0, 488.82625pt x 451.6875pt>
+1, 488.82625pt x 451.6875pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_8.png G
 raphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_8.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_8.png  used on input line 368.
+ures/Figure_8.png  used on input line 370.
 (luatex.def)             Requested size: 364.70184pt x 336.99348pt.
-[15
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.7'
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_7.png>] [16
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.8'
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_8.png>]
-<main_files/figure-latex/Figure 9-1.pdf, id=222, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 9-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 9-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 9-1.pdf  used on input 
-line 384.
+[14<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_7.png>] [
+15<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_8.png>]
+<main_files/figure-latex/Figure9-1.pdf, id=222, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure9-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure9-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure9-1.pdf  used on input l
+ine 386.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[17
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.9'
-<./main_files/figure-latex/Figure 9-1.pdf>]
+[16<./main_files/figure-latex/Figure9-1.pdf>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_10.png, id=2
-32, 887.315pt x 685.56125pt>
+33, 887.315pt x 685.56125pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_10.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_10.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_10.png  used on input line 397.
+ures/Figure_10.png  used on input line 399.
 (luatex.def)             Requested size: 243.12555pt x 187.84474pt.
-<main_files/figure-latex/Figure 11-1.pdf, id=233, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 11-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 11-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 11-1.pdf  used on input
- line 412.
+<main_files/figure-latex/Figure11-1.pdf, id=234, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure11-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure11-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure11-1.pdf  used on input 
+line 414.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[18
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.10'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_10.png>]
-<main_files/figure-latex/Figure 12-1.pdf, id=240, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 12-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 12-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 12-1.pdf  used on input
- line 428.
+[17<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_10.png>]
+<main_files/figure-latex/Figure12-1.pdf, id=241, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure12-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure12-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure12-1.pdf  used on input 
+line 430.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[19
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.11'
-
-<./main_files/figure-latex/Figure 11-1.pdf>]
-<main_files/figure-latex/Figure 13-1.pdf, id=250, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 13-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 13-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 13-1.pdf  used on input
- line 439.
+<main_files/figure-latex/Figure13-1.pdf, id=242, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure13-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure13-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure13-1.pdf  used on input 
+line 441.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[20
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.12'
-
-<./main_files/figure-latex/Figure 12-1.pdf>]
-<main_files/figure-latex/Figure 14-1.pdf, id=260, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 14-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 14-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 14-1.pdf  used on input
- line 452.
+[18<./main_files/figure-latex/Figure11-1.pdf>] [19<./main_files/figure-latex/Fig
+ure12-1.pdf><./main_files/figure-latex/Figure13-1.pdf>]
+<main_files/figure-latex/Figure14-1.pdf, id=266, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure14-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure14-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure14-1.pdf  used on input 
+line 454.
 (luatex.def)             Requested size: 364.6943pt x 252.48067pt.
-[21
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.13'
-
-<./main_files/figure-latex/Figure 13-1.pdf>]
-<main_files/figure-latex/Figure 15-1.pdf, id=270, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 15-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 15-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 15-1.pdf  used on input
- line 464.
+[20<./main_files/figure-latex/Figure14-1.pdf>]
+<main_files/figure-latex/Figure15-1.pdf, id=276, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure15-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure15-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure15-1.pdf  used on input 
+line 466.
 (luatex.def)             Requested size: 469.75386pt x 325.2142pt.
-[22
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.14'
-
-<./main_files/figure-latex/Figure 14-1.pdf>] [23
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.15'
-
-<./main_files/figure-latex/Figure 15-1.pdf>]
-<main_files/figure-latex/Figure 16-1.pdf, id=289, 469.755pt x 325.215pt>
-File: main_files/figure-latex/Figure 16-1.pdf Graphic file (type pdf)
-<use main_files/figure-latex/Figure 16-1.pdf>
-Package luatex.def Info: main_files/figure-latex/Figure 16-1.pdf  used on input
- line 475.
+<main_files/figure-latex/Figure16-1.pdf, id=277, 469.755pt x 325.215pt>
+File: main_files/figure-latex/Figure16-1.pdf Graphic file (type pdf)
+<use main_files/figure-latex/Figure16-1.pdf>
+Package luatex.def Info: main_files/figure-latex/Figure16-1.pdf  used on input 
+line 477.
 (luatex.def)             Requested size: 469.75386pt x 325.2142pt.
-[24
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.16'
-
-<./main_files/figure-latex/Figure 16-1.pdf>] [25] [26]
+[21] [22<./main_files/figure-latex/Figure15-1.pdf>] [23<./main_files/figure-late
+x/Figure16-1.pdf>] [24] [25]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.png, id=3
 15, 179.16937pt x 423.08063pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_17.png  used on input line 513.
+ures/Figure_17.png  used on input line 516.
 (luatex.def)             Requested size: 144.23514pt x 340.58888pt.
-[27] [28
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.17'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.PNG>] [29
-] [30]
+[26] [27<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.PN
+G>] [28] [29]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png, id=3
-38, 1160.335pt x 919.435pt>
+39, 454.19687pt x 566.115pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_18.png  used on input line 549.
-(luatex.def)             Requested size: 486.25735pt x 385.30428pt.
+ures/Figure_18.png  used on input line 553.
+(luatex.def)             Requested size: 486.26306pt x 606.0826pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.png, id=3
-39, 331.2375pt x 455.7025pt>
+40, 331.2375pt x 455.7025pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_19.png  used on input line 560.
-(luatex.def)             Requested size: 243.12556pt x 334.48186pt.
-[31] [32
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.18'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png>] [33
-
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.19'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.PNG>] [34
-] [35]
+ures/Figure_19.png  used on input line 564.
+(luatex.def)             Requested size: 364.7111pt x 501.75407pt.
+[30] [31<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.pn
+g>] [32] [33] [34<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Fig
+ure_19.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.png, id
-=366, 518.93875pt x 831.105pt>
+=368, 452.18938pt x 581.67313pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_20_1.png  used on input line 637.
-(luatex.def)             Requested size: 212.65541pt x 340.57771pt.
+ures/Figure_20_1.png  used on input line 641.
+(luatex.def)             Requested size: 243.12294pt x 312.74084pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png, id
-=367, 697.60625pt x 1180.41pt>
+=369, 456.20438pt x 580.1675pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_20_2.png  used on input line 637.
-(luatex.def)             Requested size: 201.2681pt x 340.56302pt.
-[36] [37
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.20'
+ures/Figure_20_2.png  used on input line 641.
+(luatex.def)             Requested size: 243.12369pt x 309.187pt.
 
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.png><c:/
-Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png>]
+Overfull \hbox (2.59702pt too wide) in paragraph at lines 641--641
+[][] [] 
+ []
+
+[35]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg, id=3
-78, 1084.05pt x 2409.0pt>
+74, 1084.05pt x 2409.0pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg 
 Graphic file (type jpg)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_21.jpg  used on input line 645.
+ures/Figure_21.jpg  used on input line 649.
 (luatex.def)             Requested size: 122.60374pt x 272.45276pt.
-[38
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.21'
+[36<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_1.png><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png>]
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_1.png, id
+=383, 740.7675pt x 370.38374pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_1.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_1.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_22_1.png  used on input line 659.
+(luatex.def)             Requested size: 243.12025pt x 121.56012pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_2.png, id
+=384, 626.84187pt x 98.3675pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_2.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_2.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_22_2.png  used on input line 659.
+(luatex.def)             Requested size: 243.12827pt x 38.15302pt.
 
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg>]
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png, id=3
-84, 639.89063pt x 641.89813pt>
+Overfull \hbox (2.5989pt too wide) in paragraph at lines 659--659
+[][] [] 
+ []
+
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_23.jpg, id=3
+85, 4015.0pt x 3011.25pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_23.jpg 
+Graphic file (type jpg)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_23.jpg>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_23.jpg  used on input line 663.
+(luatex.def)             Requested size: 340.32089pt x 255.24068pt.
+[37<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg>] 
+[38<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_2.PNG><c:/U
+sers/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_23.jpg>]
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_1.png, id
+=399, 742.775pt x 372.89313pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_1.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_1.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_24_1.png  used on input line 674.
+(luatex.def)             Requested size: 243.12175pt x 122.05368pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_2.png, id
+=400, 400.99812pt x 98.3675pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_2.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_2.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_24_2.png  used on input line 674.
+(luatex.def)             Requested size: 243.13388pt x 59.64233pt.
+
+Overfull \hbox (2.60602pt too wide) in paragraph at lines 674--674
+[][] [] 
+ []
+
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_1.png, id
+=401, 746.79pt x 380.42125pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_1.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_1.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_25_1.png  used on input line 680.
+(luatex.def)             Requested size: 243.12549pt x 123.8502pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_2.png, id
+=402, 745.28438pt x 379.4175pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_2.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_2.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_25_2.png  used on input line 680.
+(luatex.def)             Requested size: 243.12431pt x 123.77237pt.
+
+Overfull \hbox (2.60019pt too wide) in paragraph at lines 680--680
+[][] [] 
+ []
+
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.png, id
+=403, 885.3075pt x 432.61626pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_1.png  used on input line 684.
+(luatex.def)             Requested size: 243.12935pt x 118.8081pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_2.png, id
+=404, 499.8675pt x 99.87312pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_2.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_2.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_2.png  used on input line 684.
+(luatex.def)             Requested size: 243.12953pt x 48.57707pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_3.png, id
+=405, 888.31876pt x 435.12563pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_3.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_3.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_3.png  used on input line 684.
+(luatex.def)             Requested size: 243.12949pt x 119.09224pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_4.png, id
+=406, 499.8675pt x 99.87312pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_4.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_4.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_4.png  used on input line 684.
+(luatex.def)             Requested size: 243.12953pt x 48.57707pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_5.png, id
+=407, 886.31125pt x 433.62pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_5.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_5.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_5.png  used on input line 684.
+(luatex.def)             Requested size: 243.121pt x 118.94481pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_6.png, id
+=408, 499.8675pt x 99.87312pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_6.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_6.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_6.png  used on input line 684.
+(luatex.def)             Requested size: 243.12953pt x 48.57707pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_7.png, id
+=409, 885.80937pt x 432.11438pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_7.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_7.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_7.png  used on input line 684.
+(luatex.def)             Requested size: 243.1185pt x 118.59775pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_8.png, id
+=410, 499.8675pt x 99.87312pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_8.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_8.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_8.png  used on input line 684.
+(luatex.def)             Requested size: 243.12953pt x 48.57707pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_9.png, id
+=411, 269.50688pt x 168.12813pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_9.pn
+g Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_9.png
+>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_9.png  used on input line 684.
+(luatex.def)             Requested size: 243.13377pt x 151.67563pt.
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_10.png, i
+d=412, 499.8675pt x 99.87312pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_10.p
+ng Graphic file (type png)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_10.pn
+g>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_26_10.png  used on input line 684.
+(luatex.def)             Requested size: 243.12953pt x 48.57707pt.
+
+Overfull \hbox (2.60927pt too wide) in paragraph at lines 684--684
+[][] []
+ []
+
+
+Overfull \hbox (2.6094pt too wide) in paragraph at lines 684--684
+[] []
+ []
+
+
+Overfull \hbox (2.60092pt too wide) in paragraph at lines 684--684
+[] []
+ []
+
+
+Overfull \hbox (2.59842pt too wide) in paragraph at lines 684--684
+[] []
+ []
+
+
+Overfull \hbox (2.6137pt too wide) in paragraph at lines 684--684
+[] [] 
+ []
+
+[39<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_2.png>]
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg, id=4
+20, 4015.0pt x 3011.25pt>
+File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg 
+Graphic file (type jpg)
+<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg>
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
+ures/Figure_27.jpg  used on input line 692.
+(luatex.def)             Requested size: 194.45158pt x 145.83868pt.
+[40<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_2.PNG>] [4
+1<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.PNG><c:
+/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_2.png><c:/Use
+rs/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_3.PNG><c:/Users/k
+elto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_4.png><c:/Users/kelto
+/Documents/iSEGMound/analysis/thesis/figures/Figure_26_5.PNG><c:/Users/kelto/Doc
+uments/iSEGMound/analysis/thesis/figures/Figure_26_6.png><c:/Users/kelto/Documen
+ts/iSEGMound/analysis/thesis/figures/Figure_26_7.PNG><c:/Users/kelto/Documents/i
+SEGMound/analysis/thesis/figures/Figure_26_8.png><c:/Users/kelto/Documents/iSEGM
+ound/analysis/thesis/figures/Figure_26_9.PNG><c:/Users/kelto/Documents/iSEGMound
+/analysis/thesis/figures/Figure_26_10.png>]
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png, id=4
+44, 639.89063pt x 641.89813pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_67.png  used on input line 665.
+ures/Figure_67.png  used on input line 716.
 (luatex.def)             Requested size: 486.26334pt x 487.78888pt.
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png, id=3
-85, 641.89813pt x 640.89438pt>
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png, id=4
+45, 641.89813pt x 640.89438pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_68.png  used on input line 676.
+ures/Figure_68.png  used on input line 727.
 (luatex.def)             Requested size: 243.13046pt x 242.75027pt.
 
-Underfull \hbox (badness 3019) in paragraph at lines 688--690
+Underfull \hbox (badness 3019) in paragraph at lines 739--741
 \TU/lmr/m/n/12 The work-flows ap-plied on the Train-ing DTM are the fol-low-ing:
  5a_iSEG05_WS,
  []
 
+[42<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg>] 
+[43<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.png, id
-=386, 641.89813pt x 642.4pt>
+=459, 641.89813pt x 642.4pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_69_1.png  used on input line 695.
+ures/Figure_69_1.png  used on input line 746.
 (luatex.def)             Requested size: 243.13046pt x 243.32056pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.png, id
-=387, 641.39626pt x 640.89438pt>
+=460, 641.39626pt x 640.89438pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_69_2.png  used on input line 695.
+ures/Figure_69_2.png  used on input line 746.
 (luatex.def)             Requested size: 243.12631pt x 242.93608pt.
 
-Overfull \hbox (2.60716pt too wide) in paragraph at lines 695--695
-[][] []
+Overfull \hbox (2.60716pt too wide) in paragraph at lines 746--746
+[][] [] 
  []
 
-[39] [40
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.22'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.PNG>] [41
-
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.23'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.24'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.PNG><c:/Us
-ers/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.PNG><c:/Users/
-kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.PNG>]
+[44<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.png, id
-=409, 915.42pt x 642.90187pt>
+=468, 915.42pt x 642.90187pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_70_1.png  used on input line 710.
+ures/Figure_70_1.png  used on input line 761.
 (luatex.def)             Requested size: 243.1299pt x 170.75076pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.png, id
-=410, 913.4125pt x 641.89813pt>
+=469, 913.4125pt x 641.89813pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_70_2.png  used on input line 710.
+ures/Figure_70_2.png  used on input line 761.
 (luatex.def)             Requested size: 243.12634pt x 170.85637pt.
 
-Overfull \hbox (2.60663pt too wide) in paragraph at lines 710--710
-[][] []
+Overfull \hbox (2.60663pt too wide) in paragraph at lines 761--761
+[][] [] 
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 713--715
+Underfull \hbox (badness 1371) in paragraph at lines 764--766
 []\TU/lmr/m/n/12 The work-flows ap-plied on the Train-ing Area are the fol-low-i
 ng: 6a_iSEG05_WS_ta,
  []
 
-
-Overfull \hbox (0.21947pt too wide) in paragraph at lines 718--719
+[45<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.PNG>]
+Overfull \hbox (0.21947pt too wide) in paragraph at lines 769--770
 []\TU/lmr/m/n/12 In-spect-ing first the re-sults of the Wa-ter-shed Seg-men-ta-t
 ion of the Train-ing Area, iSEG05_WS_ta
  []
 
-[42]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.png, id=4
-16, 327.72438pt x 641.39626pt>
+78, 327.72438pt x 641.39626pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_71.png  used on input line 722.
+ures/Figure_71.png  used on input line 773.
 (luatex.def)             Requested size: 174.02313pt x 340.58432pt.
+[46<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.PNG>] [4
+7<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.png, id
-=417, 915.92188pt x 643.90562pt>
+=493, 915.92188pt x 643.90562pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_72_1.png  used on input line 735.
+ures/Figure_72_1.png  used on input line 786.
 (luatex.def)             Requested size: 243.12344pt x 170.9191pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.png, id
-=418, 916.42375pt x 644.4075pt>
+=494, 916.42375pt x 644.4075pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_72_2.png  used on input line 735.
+ures/Figure_72_2.png  used on input line 786.
 (luatex.def)             Requested size: 243.13081pt x 170.96382pt.
 
-Overfull \hbox (2.60464pt too wide) in paragraph at lines 735--735
-[][] []
+Overfull \hbox (2.60464pt too wide) in paragraph at lines 786--786
+[][] [] 
  []
 
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.png, id=4
-19, 326.72063pt x 640.3925pt>
+95, 326.72063pt x 640.3925pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_73.png  used on input line 742.
+ures/Figure_73.png  used on input line 793.
 (luatex.def)             Requested size: 173.75934pt x 340.579pt.
-[43
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.25'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.PNG><c:/
-Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.PNG>] [44
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.26'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.27'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.PNG><c:/Us
-ers/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.PNG><c:/Users/
-kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.PNG>] [45
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.28'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.PNG>]
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.png, id
-=442, 914.91812pt x 645.91313pt>
+=496, 914.91812pt x 645.91313pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_74_1.png  used on input line 755.
+ures/Figure_74_1.png  used on input line 806.
 (luatex.def)             Requested size: 243.12225pt x 171.63924pt.
 <C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.png, id
-=443, 914.91812pt x 643.40375pt>
+=497, 914.91812pt x 643.40375pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.pn
 g Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.png
 >
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_74_2.png  used on input line 755.
+ures/Figure_74_2.png  used on input line 806.
 (luatex.def)             Requested size: 243.12225pt x 170.97241pt.
 
-Overfull \hbox (2.5949pt too wide) in paragraph at lines 755--755
-[][] []
+Overfull \hbox (2.5949pt too wide) in paragraph at lines 806--806
+[][] [] 
  []
 
-[46
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.29'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.PNG><c:/
-Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.PNG>]
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png, id=4
-52, 544.0325pt x 199.24437pt>
+[48<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.PNG><
+c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.PNG>] [4
+9<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.PNG><c:/U
+sers/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.PNG><c:/Users
+/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.PNG>]
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png, id=5
+14, 544.0325pt x 199.24437pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png 
 Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png>
 Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/fig
-ures/Figure_75.png  used on input line 771.
+ures/Figure_75.png  used on input line 822.
 (luatex.def)             Requested size: 243.13551pt x 89.04501pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 775--775
+Underfull \hbox (badness 10000) in paragraph at lines 826--826
 \TU/lmr/m/n/12 data-science.com/intersection-over-union-iou-calculation-for-eval
 uating-an-image-segmentation-
  []
 
-[47
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.30'
-
-<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.PNG>] [48
-] [49] [50] [51] [52]
-Overfull \hbox (907.50328pt too wide) in alignment at lines 875--960
+[50<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.PNG>] 
+[51] [52] [53] [54] [55]
+Overfull \hbox (907.50328pt too wide) in alignment at lines 928--1013
  [][][][][][] 
  []
 
-[53
+[56
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
@@ -1545,7 +1735,8 @@ Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
-] [54
+Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
+] [57
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
@@ -1554,27 +1745,26 @@ Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
-Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
-] [55
+] [58
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 Missing character: There is no  (U+009D) in font [lmroman12-regular]:+tlig;!
 ]
-Overfull \hbox (14.3218pt too wide) in paragraph at lines 1046--1046
+Overfull \hbox (14.3218pt too wide) in paragraph at lines 1099--1099
 []\TU/lmtt/m/n/12 ## - Session info --------------------------------------------
 -------------------[] 
  []
 
 
-Overfull \hbox (14.3218pt too wide) in paragraph at lines 1046--1046
+Overfull \hbox (14.3218pt too wide) in paragraph at lines 1099--1099
 []\TU/lmtt/m/n/12 ## - Packages ------------------------------------------------
 -------------------[] 
  []
 
-[56] [57] 
+[59] [60] 
 AED: lastpage setting LastPage
-[58] (./main.aux)
+[61] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2E4B309EDCAC9912A7494530E7AC59FE;3305.
+(rerunfilecheck)             Checksum: 91F697AD476671C35E7277857F2625AA;3580.
 )
 (\end occurred inside a group at level 1)
 
@@ -1582,16 +1772,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 ### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 19426 strings out of 478112
+ 21302 strings out of 478112
  125086,953878 words of node,token memory allocated
- 776 words of node memory still in use:
-   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 13 attribute, 95 glue_spec
+ 791 words of node memory still in use:
+   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 13 attribute, 98 glue_spec
 , 13 attribute_list, 2 write, 1 user_defined, 4 pdf_action nodes
-   avail lists: 1:4,2:1713,3:1165,4:62,5:520,6:63,7:12116,8:84,9:1144,10:30,11:1
+   avail lists: 1:2,2:1737,3:1165,4:62,5:526,6:63,7:12126,8:84,9:1154,10:30,11:1
 042
- 38558 multiletter control sequences out of 65536+600000
- 52 fonts using 9931263 bytes
- 87i,6n,120p,2601b,2619s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40159 multiletter control sequences out of 65536+600000
+ 52 fonts using 9931183 bytes
+ 87i,9n,120p,2601b,3830s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmro
 man10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/op
 entype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/te
@@ -1599,10 +1789,10 @@ xmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Use
 rs/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-b
 old.otf>
-Output written on main.pdf (63 pages, 27623366 bytes).
+Output written on main.pdf (66 pages, 48247395 bytes).
 
-PDF statistics: 555 PDF objects out of 1000 (max. 8388607)
- 402 compressed objects within 5 object streams
- 136 named destinations out of 1000 (max. 131072)
- 121 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 616 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 147 named destinations out of 1000 (max. 131072)
+ 129 words of extra memory for PDF output out of 10000 (max. 100000000)
 

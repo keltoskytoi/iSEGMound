@@ -1,4 +1,4 @@
-# The Necessity of a Paradigm Shift in Archaeological Remote Sensing practice by means of Tool-driven Automated Analysis
+# Towards a Paradigm Shift in Archaeological Remote Sensing practice by means of Tool-driven Automated Analysis
 
 In Chapter II the arguments of reproducibility and replicability have been addressed regarding the accessibility of data, code and workflow of the investigated studies. It was demonstrated that only 2 out of 31 studies have disclosed all three elements and are reproducible. It is important to discuss the exact definition of both expressions. In this Master’s thesis mainly the definitions of Marwick 2017 are followed.
 Reproducibility means that code and workflow of an analysis reproduces all results and figures in the respective publication from its original raw data. Replicability stands for the replication of the workflow (from data collection to data analysis) onto a new dataset. It was mentioned in the introduction that optimal reproducible open science would incorporate version controlled open code, clear workflows and open datasets or at least training datasets.
@@ -17,7 +17,7 @@ Based on the reproducibility of these studies and on the personal experience and
 
 The optimal outline for a complex research compendium in an R environment is reproduced from Marwick et al. 2018, Figure 4:
 
-```{r Figure 17, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Figure 17. Schematized modus operandi of the Random Forest algorithm."}
+```{r Figure17, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Schematized modus operandi of the Random Forest algorithm."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_17.png')
 ```
 
