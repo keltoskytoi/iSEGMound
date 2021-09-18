@@ -73,7 +73,20 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_2.png')
 ```
 
-```{r Figure26, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left: Hillshade of Site ID 5. Right: Hillshade of Site ID 5 overlayed by transparent mound polygons. Scale 1:1500"}
+The approximative height measurements of the burial mounds are as follows: 
+Site ID 5-1 ~ 120 cm
+Site ID 5-2 ~ 40 cm
+Site ID 5-3 ~ 38 cm
+Site ID 5-4 ~ 42 cm
+Site ID 5-5 ~ 50 cm
+Site ID 5-6 ~ 60 cm
+Site ID 5-7 ~ 50 cm
+Site ID 5-8 ~ 45 cm
+Site ID 5-9 ~ 40 cm 
+
+Below the profiles and the location of the profiles of the individual burial mounds are depicted for clarification (Figure 26-1 to 26-10.)
+
+```{r Figure26, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left row: Hillshade of Site ID 5-1 to 9. Right row: Profile of Site ID 5 5-1 to 9 overlayed by transparent mound polygons. Scale 1:1500"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_2.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_3.png')
@@ -88,8 +101,40 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 To sum up it can be said that most of the burial mounds of Site ID 5 were easily identified in the terrain, apart from Site ID 5-9. In Figures 26-9 and 26-10 traces of big agricultural machines are visible which makes sense, given that there is a concrete road in the vicinity as seen in Figure 27. The situation discernable in the Hillshade has apparently worsened in the last 10 years. Figure 27 illustrates the local topography of Site ID 5-9 (center illustrated with red stick) to demonstrate that if it weren’t for Oruxmaps and the shapefile of the burial mounds, the field identification of the mound would've been completely missed. This also suggests that other less well preserved or barely visible sites in the LiDAR data from 2009/10 might also be more eroded or even completely diminished.
 All this information has to be kept in mind when choosing automated analysis methods. Only because a certain method is working for burial mounds or mound-like archaeological objects in a certain region, it might not be true for other regions. Because topography in general, the micro-topography and especially geomorphology (and their way of erosion) play a very important role in how archaeological objects change with time and also how they are preserved in the present state when they are being investigated. In these cases a compromise has to be made to successfully detect barrows as will be demonstrated in the following sub-chapters.  
 
-```{r Figure27, echo=FALSE, fig.align='center', out.width="40%", out.height="40%", fig.cap="Documentation of burial mound group Site ID 5-9 in the field."}
+```{r Figure27, echo=FALSE, fig.align='center', out.width="70%", out.height="70%", fig.cap="Documentation of burial mound group Site ID 5-9 in the field."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg')
 ```
 
 ## **The general workflow of Automated Analysis Methods**
+
+When undertaking automated analysis of remote sensing data, there are certain general steps to be followed - clearly outlining themselves in the surveyed studies and depending on what data type is at disposal. If DTM/DEM raster are available, Data Pre-Processing (step i) would be unnecessary. Also, some methods and workflows do not require data preparation (they directly use the DEM/DTMs) and start right away with Data Analysis (iii), which can be (as already detailed in Chapter 2) a combination of Geometric knowledge-based Analysis, GeOBIA and/or Machine Learning or single methods. In step iii the respective methods used in this thesis are investigated and discussed (iii-i and iii-ii). The last step (iv) is of course the verification of the results. A generalized workflow would look the following (see also Figure 28):
+
+```{r Figure28, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Generalized workflow of automated analysis of archaeological remote sensing datasets."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_28.png')
+```
+
+## **Data Pre-Processing**
+
+The LiDAR dataset from 2009/2010 of the case study area is processed by the state-of-the art point-cloud oriented lidR package (Roussel et al.  2020) which makes it easy to manipulate and analyse LiDAR datasets and is FOSS. Multiple functions, algorithms, methods and workflows presented in peer-reviewed literature are implemented and thus lidR enables users to make specialized workflows and thus functions as a toolbox (Roussel et al. 2020).
+
+### **DTM generation by testing different algorithms**
+
+As a first step it was tested which ground point re-/classification and spatial interpolation should be used to generate a DTM which can capture all geomorphological details in the terrain that can be used to detect burial mounds. The processing of LiDAR data is a basic but very important part of the workflow. Still, it is only a means to an end so it will be kept brief (but in the necessary length to provide ideas to others who want to process LiDAR data for archaeological use using the lidR package) so that the focus can be oriented towards the detection of burial mounds. 
+
+```{r Figure29, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Workflow of the LiDAR data processing."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_28.png')
+```
+
+For the comparison of the algorithms one random LAS tile was processed to understand the needed steps to generate at a DTM with as few artifacts and noise as possible, but detailed enough to still contain the information important for the Objects of Interest. A random tile was chosen, because when getting a point cloud data set we do not know yet where exactly our Objects of Interests are. 
+The  steps undertaken and tested  are depicted and summarized in Figure 29. The code for this subchapter can be found in script **2_LiDAR_data_processing_tile_1.R**.
+
+#### **Get to know the point cloud**
+
+LAS files store x,y,z for each point and many other information/attributes and this can claim a lot of memory from the PC.
+
+```{r code-block-1, echo=TRUE, results='asis'}
+lsLIDAR_2009_10 <- list.files(here::here("C:/Users/kelto/Documents/reRCHrs_REPO/LiDAR_2009_10"),
+                        pattern = glob2rx("*.laz"), full.names = TRUE)
+LIDR_200910_1 <- lidR::readLAS(lsLIDAR_2009_10[1])
+names(LIDR_200910_1@data)
+```

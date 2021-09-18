@@ -99,7 +99,6 @@ sequenceDiagram
     iii Data Analysis->>iv Data interpretation/verification: iii-i Geometric-knowledge-based
     iii Data Analysis->>iv Data interpretation/verification: iii-ii GeOBIA
     iii Data Analysis->>iv Data interpretation/verification: iii-iii Machine Learning
-    iii Data Analysis->>iv Data interpretation/verification: iii-iv Deep Learning
   end
 ")
 
