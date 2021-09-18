@@ -1,7 +1,27 @@
 # Supplements
 
-```{r Table 3, echo=FALSE}
-table_3 <- read.csv(here::here('analysis/supplementary-materials/Table_3.csv'))
-knitr::kable(table_3, longtable = T, booktabs = TRUE,
-  caption = "Table 3: Code snipets for processing derivatives in R")
+```{r Table 4, echo=FALSE}
+table_4 <- read.csv(here::here('analysis/supplementary-materials/Table_4.csv'))
+knitr::kable(table_4, longtable = T, booktabs = TRUE,
+  caption = "Table 4: Code snipets for processing derivatives in R")
+```
+
+```{r Figure35, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation with default settings. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_35.png')
+```
+
+```{r Figure36, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation with IDW05-2 settings. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_36.png')
+```
+
+```{r Figure37, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation with IDW05-3 settings. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_37.png')
+```
+
+```{r Figure38, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation with IDW05-4 settings. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_38.png')
+```
+
+```{r Figure39, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation with IDW05-5 settings. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_39.png')
 ```

@@ -115,37 +115,332 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 
 ## **Data Pre-Processing**
 
-The LiDAR dataset from 2009/2010 of the case study area is processed by the state-of-the art point-cloud oriented lidR package (Roussel et al.  2020) which makes it easy to manipulate and analyse LiDAR datasets and is FOSS. Multiple functions, algorithms, methods and workflows presented in peer-reviewed literature are implemented and thus lidR enables users to make specialized workflows and thus functions as a toolbox (Roussel et al. 2020).
+The LiDAR dataset from 2009/2010 of the case study area is processed by the state-of-the art point-cloud oriented `lidR package` (Roussel et al.  2020) which makes it easy to manipulate and analyse LiDAR datasets and is FOSS. Multiple functions, algorithms, methods and workflows presented in peer-reviewed literature are implemented and thus `lidR` enables users to make specialized workflows and thus functions as a toolbox (Roussel et al. 2020). 
+It has to be mentioned, that according personal communication with the "Hessisches Landesamt für Bodenmanagement und Geoinformation" no metadata exists for the LiDAR data set from 2009/10, thus all inofrmation exisits it converyed in the .LAZ header and can be accessed using the `lidR package`.
 
 ### **DTM generation by testing different algorithms**
 
-As a first step it was tested which ground point re-/classification and spatial interpolation should be used to generate a DTM which can capture all geomorphological details in the terrain that can be used to detect burial mounds. The processing of LiDAR data is a basic but very important part of the workflow. Still, it is only a means to an end so it will be kept brief (but in the necessary length to provide ideas to others who want to process LiDAR data for archaeological use using the lidR package) so that the focus can be oriented towards the detection of burial mounds. 
+As a first step it was tested which ground point re-/classification and spatial interpolation should be used to generate a DTM which can capture all geomorphological details in the terrain that can be used to detect burial mounds. The processing of LiDAR data is a basic but very important part of the workflow. Still, it is only a means to an end so it will be kept brief (but in the necessary length to provide ideas to others who want to process LiDAR data for archaeological use using the `lidR package`) so that the focus can be oriented towards the detection of burial mounds. 
 
 ```{r Figure29, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Workflow of the LiDAR data processing."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_28.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_29.png')
 ```
 
 For the comparison of the algorithms one random LAS tile was processed to understand the needed steps to generate at a DTM with as few artifacts and noise as possible, but detailed enough to still contain the information important for the Objects of Interest. A random tile was chosen, because when getting a point cloud data set we do not know yet where exactly our Objects of Interests are. 
 The  steps undertaken and tested  are depicted and summarized in Figure 29. The complete code for this subchapter can be found in script **2_LiDAR_data_processing_tile_1.R**. Here only relevant chunks are displayed.
 
-#### **Get to know the point cloud**
-
+**4.3.1.0 Get to know the point cloud**  
+\newline
 LAS files store x,y,z for each point and many other information/attributes and this can claim a lot of memory from the PC.
 
-`names(LIDR_200910_1@data)`
+```{r code-block-1, echo= TRUE, eval=FALSE}
+names(LIDR_200910_1@data)
 #[1] "X"                 "Y"                 "Z"                 "gpstime"
-#[5] "Intensity"         "ReturnNumber"      "NumberOfReturns"   "ScanDirectionFlag"
+#[5] "Intensity"         "ReturnNumber"      "NumberOfReturns" #"ScanDirectionFlag"
 #[9] "EdgeOfFlightline"  "Classification"    "Synthetic_flag"    "Keypoint_flag"
-#[13] "Withheld_flag"     "ScanAngleRank"     "UserData"          "PointSourceID"`
+#[13] "Withheld_flag"     "ScanAngleRank"     "UserData"         "PointSourceID"
+```
 
-The 'select' argument enables you to choose between attributes/columns. The queries are: `t - gpstime, a - scan angle, i - intensity, n - number of returns, r - return number, c - classification, s - synthetic flag, k - keypoint flag, w - withheld flag, o - overlap flag (format 6+), u - user data, p - point source #ID, e - edge of flight line flag, d - direction of scan flag`
+The 'select' argument enables you to choose between attributes/columns. The queries are: 
+\newline
+`t - gpstime, a - scan angle, i - intensity, n - number of returns, r - return number, c - classification, s - synthetic flag, k - keypoint flag, w - withheld flag, o - overlap flag (format 6+), u - user data, p - point source #ID, e - edge of flight line flag, d - direction of scan flag`
 
 The 'filter' argument enables you to choose between the rows/points with specific attributes. The filter options can be accessed by: `read.las(filter = "-help")`
 
 *Note: when using the select and filter arguments with readLAS, it allows you to filter while reading the LAS file thus saving memory and computation time - it is the same as reading the LAS  file and then filtering the point cloud but saving memory and computation time.*
 
-On this ground it was decided that the following arguments are needed: *x,y,z, return number and number of returns, intensity, classification.*
+On this ground it was decided that the following arguments are needed: *x,y,z, return number and number of returns, intensity, classification:*
 
-`
-`
+```{r code-block-2, echo= TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc <- lidR::readLAS(lsLIDAR_2009_10[1], select = "xyzirnc")
+```
+
+**4.3.1.1 Ground point re/classification**
+\newline
+The next step involves the re/classification of the ground points of the LiDAR point cloud. This serves as a foundation for the DTM generation. 
+LAS point clouds already have a classification (as noted above) according to the ASPRS Society, which has explicit LAS specifications [LAS specifications](https://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf). Class 2 corresponds to the ground points. 
+Two ground (re)classification algorithms are implemented in `lidR`: the Progressive Morphological Filter (PMF) and the Cloth Simulation Function (CSF). Both reclassify the classified ground point as unclassified before (re)classifying them. 
+The aim of this chapter is to understand if the existing ground classification can be improved by reclassifying the point cloud and if the amount of testing is worth the time. Thus the PMF and CSF algorithms and the existing ground classification are compared if they can return an even more accurate model of the ground surface.
+
+**A) Ground Classification**
+\newline
+***i LIDR_200910_1_ground***
+```{r code-block-3, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground <- lidR::readLAS(lsLIDAR_2009_10[1], select = "xyzirnc", filter ="keep_class 2")
+```
+We can check the results by making a transect (2 x 500 m to be able do discern points) and plotting the cross section (green stands for class ground (2)): 
+
+```{r Figure30, echo=FALSE, fig.show='hold', fig.align = "default", out.width="100%", out.height="70%", fig.cap="Plot of the sections of the ground classification of the test tile."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_30_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_30_2.png')
+```
+Cross sections were plotted for all point re/classifications, but the sections are best observed by zooming in. Thus the cross section plots are depicted in the Supplements (Chapter 9).
+
+**B) Progressive Morphological Filter (PMF)**
+\newline
+**PMF** (Zhang et al. 2003) generates a raster surface from the point cloud which then is processed by multiple morphological operations until stability is reached (Roussel et al. 2020, 4., [lidRbook] (https://jean-romain.github.io/lidRbook/gnd.html#pmf))
+
+```{r Figure31, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="The workflow of the PMF algorithm."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_31.png')
+```
+
+Multiple algorithms settings were tested. `ws` controls the window size of the moving window of the algorithm in meters. `th` is the threshold for point heights above the ground surface to be considered a ground return, also in meters.
+
+***iia LIDR_200910_1_xyzirnc_pmf***
+```{r code-block-4, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf <- lidR::classify_ground(LIDR_200910_1_xyzirnc, algorithm = pmf(ws = 5, th = 3))
+```
+
+***iib LIDR_200910_1_xyzirnc_pmf_th1***
+\newline
+The height threshold was set to 1 m to avoid vegetation and outliers but include scattered ground points:
+```{r code-block-5, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th1 <- lidR::classify_ground(LIDR_200910_1_xyzirnc, algorithm = pmf(ws = 5, th = 1))
+```
+
+***iic LIDR_200910_1_xyzirnc_pmf_th05***
+\newline
+The height threshold was set to  0.5 m to avoid vegetation and outliers and to approach the ground surface:
+```{r code-block-6, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th05 <- lidR::classify_ground(LIDR_200910_1_xyzirnc, algorithm = pmf(ws = 5, th = 0.5))
+```
+
+***iid LIDR_200910_1_xyzirnc_pmf_th005***
+\newline
+The height threshold was set to  0.05 m to avoid vegetation and outliers and to get the ground surface as good as possible including possible backscatter of the LiDAR beam. When a height threshold of 0 was chosen, no ground points were (re)classified. 
+```{r code-block-7, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th005 <- lidR::classify_ground(LIDR_200910_1_xyzirnc, algorithm = pmf(ws = 5, th = 0.05))
+```
+Comparing the section of **iid** with a threshold of 5 cm (0.05 m) with the sections of  **iic**, with a threshold of 50 cm (0.5 m) is clearly visible that in the case of **iid** many of the actual ground points have not been classified as such because of the low threshold. 
+
+**C) Cloth Simulation Function (CSF)**
+\newline
+**CSF** (Zhang et al. 2016) simulates a cloth which is dropped on the inverted point cloud and the ground points are classified by analyzing the interactions between the points of the cloth and the inverted surface (Roussel et al. 2020, 5; [lidRbook] (https://jean-romain.github.io/lidRbook/gnd.html#csf))
+
+```{r Figure32, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="The workflow of the CSF algorithm."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_32.png')
+```
+
+***iiia LIDR_200910_1_xyzirnc_csf***
+\newline
+First the default settings were tested:
+```{r code-block-8, echo = TRUE, eval=FALSE}
+csf(sloop_smooth = FALSE,
+     class_threshold = 0.5,
+     cloth_resolution = 0.5,
+     rigidness = 1L,
+     iterations = 500L,
+     time_step = 0.65)
+```
+Where `sloop_smooth= TRUE` reduces errors during post-processing; `class_threshold` is the distance to the simulated cloth to classify a point cloud into ground and non-ground; `cloth_resolution` is the distance between points in the cloth; `rigidness` stands for the rigidness of the cloth: 1 very soft (to fit rugged terrain), 2 medium, and 3 hard cloth (for flat terrain); `time_step` simulates the cloth under gravity. The default value is 0.65 and is suitable for most cases. (`lidR` vignette for the csf function).
+    
+```{r code-block-9, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_csf <- lidR::classify_ground(LIDR_200910_1_xyzirnc, algorithm = csf())
+```
+
+***iiib LIDR_200910_1_xyzirnc_csf2***
+\newline
+Because we are interested in depicting the ground surface in detail we are setting `sloop_smooth= TRUE` and leave the other parameter at default.
+
+```{r code-block-10, echo = TRUE, eval=FALSE}
+csf_1 <- csf(sloop_smooth = TRUE, class_threshold = 0.5, 
+             cloth_resolution = 0.5, rigidness = 1, 
+             iterations = 500, time_step = 0.65)
+LIDR_200910_1_xyzirnc_csf2 <- lidR::classify_ground(LIDR_200910_1_xyzirnc, csf_1)
+```
+***iic LIDR_200910_1_xyzirnc_csf3***
+\newline
+In a last attempt `rigidness` was set to 2, because the region of Hessen is quite flat but still hilly and thus later we can compare which of the two settings yield better results - also compared to all of the ground segmentation methods.
+
+**4.3.1.2 Spatial Interpolation**
+\newline
+In the step before the LAS point cloud has been reclassified (by different methods). In this step the classified points are interpolated to create a terrain model.
+
+Based on the specificities of the Objects of Interest in question, that is the barrows, it is clear that a resolution should be chosen which is detailed enough to also detect small mounds or destroyed ones by plowing, but which is not so high that it results in a big .tif file. Thus first resolutions between 0.5 and 0.05 meters have been tested (0.5, 0.2, 0.1 and 0.05).
+A DTM of 0.5 m resolution is between 12,000 and 13,000 KB. A DTM of 0.2 m resolution is between 73,000 and 75,000 KB and a DTM of 0.1 m resolution is between 270,000 and 280,000 KB. If calculating a DTM of 0.05 m = 5 cm resolution, the size of a tile of 1 km is more than 1 GB, which is way too much considering that the 2014 dataset consists of 209 1 km LAS tiles. First the resolution of 0.1 m was chosen, but it had to be realized that without HCP possibility, 0.5m is the best and fastest resolution and option a laptop and a quite good Desktop PC can go processing a rather large dataset.
+
+Three interpolation algorithms are implemented in `lidR`: Triangulated Irregular Networks (TIN), Inverse Distance Weighing (IDW) and Kriging. In the following the tested settings are demonstrated only on the existing ground classification (`LIDR_200910_1_ground`). 
+
+**A) Triangulated Irregular Networks (TIN)**
+\newline
+This algorithm uses the Delaunay triangulation to generate a triangular irregular network from the classified point data. The resulting DTM presents an irregular surface based on non-overlapping triangles. The accuracy depends on the amount and density of points available in the point cloud. The more isolated the points are, the bigger the triangles get thus leading to abrupt elevation changes in the surface and thus to a distorted representation of the ground surface, resulting in edge artifacts.
+After testing the resolutions of 0.05, 0.1, 0.2 and 0.5 m, the default settings `tin()` were used with 0.5m resolution:
+
+***iva LIDR_200910_1_ground_tin05***
+```{r code-block-11, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground_tin05 <- lidR::grid_terrain(LIDR_200910_1_ground, res = 0.5, algorithm = tin())
+````
+Subsequently followed by: 
+***ivb LIDR_200910_1_xyzirnc_pmf_th03_tin05***
+```{r code-block-12, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th03_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_pmf_th03, res = 0.5, algorithm = tin())
+````
+***ivc LIDR_200910_1_xyzirnc_pmf_th1_tin05***
+```{r code-block-13, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th1_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_pmf_th1, res = 0.5, algorithm = tin())
+````
+***ivd LIDR_200910_1_xyzirnc_pmf_th05_tin05***
+```{r code-block-14, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th05_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_pmf_th05, res = 0.5, algorithm = tin())
+````
+***ive LIDR_200910_1_xyzirnc_pmf_th005_tin05***
+```{r code-block-15, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_pmf_th005_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_pmf_th005, res = 0.5, algorithm = tin())
+````
+***ivf LIDR_200910_1_xyzirnc_csf_tin05***
+```{r code-block-16, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_csf_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_csf, res = 0.5, algorithm = tin())
+````
+***ivg LIDR_200910_1_xyzirnc_csf2_tin05***
+```{r code-block-17, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_csf2_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_csf2, res = 0.5, algorithm = tin())
+````
+and:
+\newline
+***ivh LIDR_200910_1_xyzirnc_csf3_tin05***
+```{r code-block-18, echo = TRUE, eval=FALSE}
+LIDR_200910_1_xyzirnc_csf3_tin05 <- lidR::grid_terrain(LIDR_200910_1_xyzirnc_csf3, res = 0.5, algorithm = tin())
+````
+
+**B) Inverse Distance Weighing (IDW)**
+\newline
+This algorithm predicts point values based on the spatial distance on known points, during which the nearer points are given larger weights than further ones. This weight is controlled by the parameter p (power). A low p distributes the weights between the nearer and the distant points and thus smoothes the surface. A higher p takes the nearer point stronger in account than the distant ones and can distort the result. 
+
+The default setting is: 
+```{r code-block-19, echo = TRUE, eval=FALSE}
+knnidw(k = 10, p = 2, rmax = 50)
+````
+where `k` is the number of the (k-)nearest neighbours, `p` is the power and `rmax` is the maximum radius to choose the k-nearest neighbours. 
+
+***va LIDR_200910_1_ground_idw05***
+\newline
+First the default settings have been tested:
+```{r code-block-20, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground_idw05 <- lidR::grid_terrain(LIDR_200910_1_ground, res= 0.5, algorithm = knnidw(k = 10L, p = 2, rmax = 50)) 
+````
+
+***vb LIDR_200910_1_ground_idw05_2***
+\newline
+Secondly the settings used by [Chris](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR) were tested:
+```{r code-block-21, echo = TRUE, eval=FALSE}
+LLIDR_200910_1_ground_idw05_2 <- lidR::grid_terrain(LIDR_200910_1_ground, res= 0.1, algorithm = knnidw(k = 50L, p = 3))
+````
+
+***vc LIDR_200910_1_ground_idw05_3***
+\newline
+Thirdly, the default setting have been cut in half for comparison:
+```{r code-block-22, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground_idw05_3 <- lidR::grid_terrain(LIDR_200910_1_ground, res=0.5, algorithm = knnidw(k = 5L, p = 2, rmax = 25)) 
+````
+***vd LIDR_200910_1_ground_idw05_4***
+\newline
+Fourthly, the default settings have been doubled for comparison - to see how the power influences the smoothness:
+```{r code-block-23, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground_idw05_4 <- lidR::grid_terrain(LIDR_200910_1_ground, res=0.5, algorithm = knnidw(k = 20L, p = 4, rmax = 50))
+````
+***ve LIDR_200910_1_ground_idw05_5***
+\newline
+Fifthly, the default k and p parameters have been multiplied and the radius has been lowered.
+```{r code-block-24, echo = TRUE, eval=FALSE}
+LIDR_200910_1_ground_idw05_5 <- lidR::grid_terrain(LIDR_200910_1_ground, res=0.1, algorithm = knnidw(k = 50L, p = 6, rmax = 25)) 
+````
+he same variable has been applied to the other point-cloud classifications (PMF & CSF: vf ⎯  ) which is not detailed in this instance but analysed below (Table ).
+
+**4.3.1.3 Algorithm comparison and choice**
+\newline
+The last step is to compare the generated DTMs to choose which is best representing the actual ground surface and is thus suitable for mound detection. The (point cloud classification and spatial interpolation) algorithms chosen will be applied to the LiDAR data from 2009/2010. 
+
+To choose the suitable (point cloud classification and spatial interpolation) algorithms for DTM generation one LAS tile was processed with the different algorithms detailed above. To emphasize the differences between these algorithms a 300 x 250 m section was chosen which features forested and open areas as well as a settlement area. A smaller region of this section (in a red square in Figure 33) is especially important for the algorithm selection, where the understorey of the forest is too dense to be able to let enough laser beams past. In these cases the spatial interpolation algorithm of the classified point cloud is extremely important. The matter is sensitive because the spatial interpolation method has control over the microtopography and geomorphology of the ground surface.  
+
+```{r Figure33, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of the test section of LAS tile 32478-5616, displayed on OpenStreetMap (left) and ground point classification interpolated by IDW with default settings. A forested area, a field and a meadow, including a settlement is visible. It offers an excellent fundament for algorithm comparison. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_33.png')
+```
+
+The results are compared on two levels: first on point cloud level (point cloud classification) and on raster level (spatial interpolation of the ground points). A summary of the used settings is comprehensible from Table 3.
+
+```{r Table3, echo=FALSE}
+table_3 <- read.csv(here::here('analysis/supplementary-materials/Table_3.csv'))
+names(table_3)
+knitr::kable(table_3, longtable = T, booktabs = TRUE,
+  caption = "Table 3: Summary of the re/classification and interpolation functions and algorithms used.")
+```
+
+First of all let’s discuss both the Progressive Morphological Filter (PMF) and the Cloth Simulation Function (CSF) algorithms. In the case of the PMF algorithm the size of the moving window (ws) of the algorithm and the height threshold (th) for the points to be classified can be modified. In the case of the CSF algorithm the texture and mass of the cloth/surface can be manipulated with other various parameters (including a class threshold) (see Table 3) Thus both algorithms approach the same from different directions. 
+For comparison purposes the results are compared according to the spatial interpolation methods used. TIN is implemented with parameter-free Delaunay triangulation and is the most simple linear interpolation method in `lidR`.  The result of the interpolation method is quite clear and thus it is used to highlight the basic differences between the two point cloud classification methods.
+
+Figure 34 shows very clearly that PMF (bottom row) can deal with the artifacts very effectively by changing the height threshold. The threshold heights used were: 3, 1, 0.5, and 0.05 meters. It is clearly visible that heights near the surface (0.5 and 0.05 m) return a very natural ground surface and the perfect value lies somewhere between 0.5 and 0.05 (`th = 0.05` purges the surface too much and thus distorts the microtopography). A window size of 5 meters in a 1000 m x 1000 m tile seems reasonably accurate (small enough but not too much) so this parameter has not been changed. It also catches the eye that PMF is the simpler method, being able to control basically only one spatial variable. 
+
+```{r Figure34, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Comparison of different point-cloud classification algorithms using TIN spatial interpolation. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_34.png')
+```
+
+CSF on the other hand already returns with the default settings a quite natural ground surface with only a few (but still crucial) artifacts. There is not much difference if `sloop_smooth = TRUE` or `FALSE`, but there is a small difference if `rigidness = 1` or ` 2`, but because the terrain is quite flat the difference is almost invisible. 
+In the case of PMF and CSF the artifacts on the ground are still existing and thus do not yield better results than spatially interpolating the existing ground classification.
+TIN creates strong edges which can deform round objects which are in the focus of this study, thus this method was screened out in favor of IDW.
+
+IDW is more robust to edge artifacts and thus is the preferred interpolation method. As explained previously this interpolation method can be controlled by 3 parameters:  `k`  (number of the nearest neighbours involved in the interpolation),  `p`  (power) and  `rmax` (the maximum radius to choose the k nearest neighbours from). The value of `p` steers the influence of points on the interpolation and can lead to smoothed or distorted surfaces. Five different settings were tested (see Table 3 above and Figures 35 to 39, which are displayed in the Supplements). 
+
+First the default settings (`k = 10, p = 2, rmax =  50`) were applied (Figure 35).
+Secondly the settings used by Chris were tested (`k = 50, p = 3, rmax = 50`, Figure 36).
+Thirdly, to test the effect of the number of nearest neighbours, the default settings have been divided in half (`k = 5, p = 2, rmax = 25`, Figure 37).
+Fourthly, to understand the effect of the number of nearest neighbours and the power even better, the default settings have been doubled, except for `rmax` (`k = 20, p = 4, rmax = 50`, Figure 38.)
+Fifthly, the default k and p parameters have been multiplied and the radius has been lowered (`k = 50, p = 6, rmax = 25`, Figure 39).
+
+Comparing the settings of IDW05_2 and IDW05_5 (`k = 50, p = 3, rmax = 50` vs. `k = 50, p = 6, rmax = 25`) it can be said that IDW01_2 appears more smoothed (bigger radius and half the power) and IDW05_5 more jagged (same number of neighbours, half the radius and double power) and results in overall distributed artifacts. These effects can be seen in the settlement area and a suffrage in the bottom middle of the test area.
+Comparing the settings of  IDW05 and IDW05_3 (`k = 10, p = 2, rmax = 50` vs. `k = 5, p = 2, rmax = 25`) it can be said that IDW05_3 appears more jagged (half the neighbours, half the radius and same power).
+The settings of IDW05_4 (`k = 20, p = 4, rmax = 50`) are the double of IDW05 in terms of neighbours and power and appear more jagged than IDW05.
+
+Based on these comparisons, the size of the radius of the `k` neighbours and the strength of power contributes strongly to the jagged or smooth appearance of an area. The smaller the area to choose the k neighbours from the smaller the variation and thus the ability to flatten a surface and the higher the ruggedness/jaggedness. Also: if the power is stronger in a smaller radius and/or less neighbours, the more jagged the area gets.
+
+Thus the bottom line is that the default settings of IDW05 delivered the most balanced ground surface. At a later point, during the development of the actual workflow - when calculating with the resulting DTMs - it became clear that the resolution had to be decreased to 0.5 meters. The default settings of IDW01 remained the same. 
+
+Kriging has not been tested because it took too long for one tile with default settings and thus the 2009/2010 LAZ files would take enormously long to be processed.
+
+This analysis showed that it is possible to look for the perfect settings of point cloud classification and spatial interpolation methods but it is time consuming. The already available ground classification of the LAS format is definitely reliable. The type (in forested areas) and density of the vegetation (especially near the ground surface) and the time of data collection (possibly in a vegetation free period - in the case of the 2009/2010 LAZ files no metadata is available) is very crucial in order to obtain reliable data. In case of blind areas or areas with less points a well-chosen spatial interpolation method can counteract (at least up to a certain degree) the missing information. 
+For the processing of the LiDAR data sets the ground classification and the IDW spatial interpolation with default settings has been chosen.
+
+### **Processing LAZ/LAS datasets with LAScatalog**
+
+The LAScatalog function in lidR enables the user to work with big LAS/LAZ datasets and thus to process large areas, without loading the entire dataset into the computer memory. When working with LAScatalogs, functions can be applied over the entire case study area (batch-processing).  Several processing options can be set for the LAScatalog, like chunk processing (splitting the data in multiple part and process them iteratively - sequentially or parallel), creating a buffer around each chunk to ensure output without edge artifacts, merging computed outputs into a single product, logging and return of partial outputs in case of crash, real-time progress estimation monitoring and an error-handling manager (Roussel et al. 2020).
+
+```{r Figure40, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Schematic visualization of the work process of a LAScatalog in lidR. Roussel et al. 2020, 10, Fig 7."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_40.png')
+```
+First the whole case study area was processed as a LAScatalog and exported tile-by-tile, otherwise the Laptop and even the Desktop PC would have flatlined. These 180 tiles were visually investigated and compared to the Liste 1 and 2 of Dobiat et al. 1994, as described in the previous subchapter. The code for this subchapter can be found in script **3a_LiDAR_data_processing_catalogue.R**
+
+```{r code-block-25, echo = TRUE, eval=FALSE}
+#shortcut to the repository with the LiDAR tiles outside the project
+lsLIDAR_2009_10 <- list.files(("C:/Users/kelto/Documents/reRCHrs_REPO/LiDAR_2009_10", pattern = glob2rx("*.laz"), full.names = TRUE)
+#read LAZ files
+LIDAR_200910_catalog <-  lidR::readLAScatalog(lsLIDAR_2009_10, 
+                                              select = "xyzirnc", filter ="keep_class 2")
+#set the projection of the lidR catalog
+sp::proj4string(LIDAR_200910_catalog) <- "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"
+#parallelize work
+future::plan(multisession, workers = 2L)
+#set the number of threads lidR should use
+lidR::set_lidr_threads(4)
+#set chunk buffer 
+lidR::opt_chunk_buffer(LIDAR_200910_catalog) <- 50# default: 30
+#set output path
+opt_output_files(LIDAR_200910_catalog) <- 
+paste0(path_analysis_data_dtm_200910, "/{*}_xyzirnc_ground_01")
+#enable to overwrite the results when processed again
+LIDAR_200910_catalog@output_options$drivers$Raster$param$overwrite <- TRUE
+#apply terrain gridding
+ground_class_CAT200910 <- lidR::grid_terrain(LIDAR_200910_catalog, res=0.5, algorithm = knnidw(k = 20L, p = 3, rmax = 50)) 
+````
+
+Based on the identification of the burial mound groups in the DTM the Areas of Interest (AoI 1-5) and the Train Area were chosen. Subsequently each data set of the Areas of Interests and the Train Area was processed as a separate `LAScatalog` and all tiles were exported separately but also as a single **.tif** file. The code for the processing of the different Areas of Interests and the Train Area can be find in script 
+**3b_LiDAR_data_processing_AOI_train_area_catalogues.R**
+
+## **Data Preparation**
+
+In order to be able to approach the Objects of Interest (OoI), first these have to be prepared by Geometric knowledge-based methods, thus enhanced in relation to their environment by maximizing the contrast between them and their surroundings to generate more coherent areas which are easier to distinguish (for the computer and the human eye). Lately more and more complex methods have been elaborated or endorsed specifically for archaeological use (e.g. Mayoral et al. 2017, Orengo and Petrie 2018, Guyot et al. 2018). Recent studies (Verschoof-van der Vaart and Landauer 2020, 4) found that it is not always required to prepare the dataset. Thus it was decided to test two approaches: one workflow with data preparation and one without. To find the best suitable data preparation method, several methods (all together 91 derivatives) were investigated (script `4_generate_derivatives.R` - the order of derivatives and methods in the R script does not correspond to the order of methods discussed here, but the numbers are corresponding).
+First it was checked which native R  packages provide functions that can be used for data preparation. Two packages we found to be extremely useful: `raster` and `spatialEco`. Furthermore R interfaces exist to external FOSS GIS Software. Amongst others to **SAGA** (the package `RSAGA`), **GRASS GIS** (the package `rgrass7`) and **Whitebox GAT** (the package `whitebox`). Of course not all corresponding methods in all R packages were calculated or worked - it would’ve been a lot more than 91 derivatives.
+
+A special interest was given to **morphometric textural analysis and enhancement methods**, because the case study area is slightly hilly with multiple shallow plateaus which are of similar height as the burial mounds (0.38 m to max. 1.2 m, discussed above). Thus in the second approach the attempt is made to enhance and exaggerate the poorly preserved burial mounds by generating an appropriate derivative.
+In the following, methods which would be usually applied in the data preparation step, are presented in tables. They are grouped according to the used function and package and based on the type of transformation the dataset has undergone: targeting the raster as a whole or by enhancing only certain areas or regions of the raster. It can be generally said that it is not easy to group data preparation methods because they do overlap in their tools and results and some fit into multiple categories. Thus this grouping cannot and does not try to be conclusive and definitive by any means. 
+
+### **Visulaisation methods**
 

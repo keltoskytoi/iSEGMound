@@ -22,7 +22,7 @@ header-includes:
   - \graphicspath{ {./figures/} }
   - \usepackage{natbib}\bibliographystyle{agsm}
   - \usepackage[nottoc, numbib]{tocbibind}
-  - \renewcommand{\contentsname}{}  
+  - \renewcommand{\contentsname}{} 
 bibliography: references.bib
 ---
 

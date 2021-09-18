@@ -1,68 +1,23 @@
-Derivative ,RGRASS::,whitebox::,raster::,spatialEco::,RSAGA::
-59 Local Relief Model,r.local.relief,,,,
-"52-57 Max Elevation Deviation: local, meso, broad scale ",,wbt_max_elevation_deviation,,,
-35-36 Deviation from Trend,,,,"raster.deviation (type = “trend”, global = TRUE/FALSE)",
-37-38 Deviation from Minimum,,,,"raster.deviation (type = “min”, global = TRUE/FALSE)",
-39-40 Deviation from Maximum,,,,"raster.deviation (type = “max”, global = TRUE/FALSE)",
-41-42 Deviation from Mean,,,,"raster.deviation (type = “mean”, global = TRUE/FALSE)",
-43 Deviation from Median,,,,"raster.deviation (type = “median”, global = FALSE)",
-44-45 Deviation from SD,,,,"raster.deviation (type = “sd”, global = TRUE/FALSE)",
-58 Multiscale Topographic Index,,wbt_multiscale_topographic_position_image,,,
-85-89 Multi-Scale Topographic Index,,,,,ta_morphometry module 28 
-1-2 sum filter,,,focal(fun = sum),,
-3-4 min filter,,,focal(fun = min),,
-5-6 max filter,,,focal(fun = max),,
-7-8 mean filter,,,focal(fun = mean),,
-9-10 median filter,,,focal(fun = median),,
-11-12 modal filter,,,focal(fun = modal),,
-13-14 sd filter,,,focal(fun = sd),,
-15-16 sobel (horizontal & vertical) f,,,focal(fun = sobel),,
-47 Sobal intensity filter,,,,sobal(method = “intensity”),
-48 Sobal direction filter,,,,sobal(method = “direction”),
-49 Sobal edge filter ,,,,sobal(method = “edge”),
-46 Gaussian Smoothing filter,,,,raster.gaussian.smooth(),
-17/23/66 Terrain Ruggedness Index ,,,terrain(opt = “TRI”),tri(),ta_morphometry module 16  
-18/24 Topographic Position Index,,,terrain(opt = “TPI”),tpi(),
-19 Roughness,,,terrain(opt = “roughness”),,
-20/71 Slope,,,terrain(opt = “slope”),,ta_morphometry module 23
-21/72 Aspect,,,terrain(opt = “aspect”),,ta_morphometry module 23
-22 Flowdirection,,,terrain(opt = “flowdir”),,
-25/67 Vector Ruggedness Measure,,,,vrm(),ta_morphometry module 17
-26/73 Profile Curvature ,,,,curvature(type = “profile”),ta_morphometry module 23
-27 Total Curvature,,,,curvature(type = “total”),
-28 McNab Curvature,,,,curvature(type = “mcnab”),
-29 Boldstad Curvature,,,,curvature(type = “bolstad”),
-30 Surface Relief Ratio,,,,srr(),
-31 Surface Area Ratio,,,,sar(),
-32 Dissection,,,,dissection,
-33 Hierarchical Slope Position,,,,hsp(),
-34 Raster Multidimensional Scaling,,,,raster.mds,
-50 Spherical Variance of Surface,,,,spherical.sd(variance = FALSE),
-51 Standard Deviation of Surface,,,,spherical.sd(variance = TRUE),
-,,,,,lib = “ta_morphometry”
-60 Convergence Index,,,,,module 2 Convergence Index (Search Radius) 
-61 Slope Height,,,,,module 14 Relative Heights & Slope Positions
-62 Valley Depth ,,,,,module 14 Relative Heights & Slope Positions
-63 Normalized Height ,,,,,module 14 Relative Heights & Slope Positions
-64 Standardized Height,,,,,module 14 Relative Heights & Slope Positions
-65 Mid-Slope Position,,,,,module 14 Relative Heights & Slope Positions
-"68 Terrain Surface Texture       
-       resampled",,,,,module 20 Terrain Surface Texture
-"69 Terrain Surface Texture 
-      counting cells",,,,,module 20 Terrain Surface Texture
-70 Terrain Surface Convexity,,,,,module 21 Terrain Surface Convexity
-74 Plan Curvature,,,,,module 23 Morphometric Features
-75 Longitudinal Curvature,,,,,module 23 Morphometric Features
-76 Cross-Sectional Curvature ,,,,,module 23 Morphometric Features
-77 Maximum Curvature,,,,,module 23 Morphometric Features
-78 Minimum Curvature,,,,,module 23 Morphometric Features
-79 Local Curvature,,,,,module 26 Upslope/Downslope Curvature
-80 Upward Curvature ,,,,,module 26 Upslope/Downslope Curvature
-81 Upward Local Curvature,,,,,module 26 Upslope/Downslope Curvature
-82 Down Curvature,,,,,module 26 Upslope/Downslope Curvature
-83 Downward Local Curvature,,,,,module 26 Upslope/Downslope Curvature
-84 Wind Exposition Index ,,,,,module 27 Wind Exposition Index
-,,,,,lib = “ta_hydrology”
-90 SAGA Wetness index ,,,,,module 15 SAGA Wetness Index 
-,,,,,lib = “ta_lightning”
-91 Negative Openness,,,,,module 5 Topographic Openness
+,,,,,,
+POINT CLOUD CLASSIFICATION,,,,,,
+Progressive Morphological Filter,,,,,,
+,ws,th,,,,
+pmf ,5,3,,,,
+pmf_th1,5,1,,,,
+pmf_th05,5,0.5,,,,
+pmf_th005,5,0.05,,,,
+Cloth Simulation Function,,,,,,
+,sloop_smooth,class_threshold,cloth_resolution,rigidness,iterations,time_step
+csf,FALSE,0.5,0.5,1,500,0.65
+csf2,TRUE,0.5,0.5,1,500,0.65
+csf3,TRUE,0.5,0.5,2,500,0.65
+SPATIAL INTERPOLATION,,,,,,
+Traingulated Irregular Network (TIN),,,,,,
+_tin05,default,,,,,
+Inverse Distance Weighing,,,,,,
+,k,p,rmax,,,
+_idw05,10,2,50,,,
+_idw05_2,50,3,50,,,
+_idw05_3,5,2,25,,,
+_idw05_4,20,4,50,,,
+_idw05_5,50,6,25,,,
