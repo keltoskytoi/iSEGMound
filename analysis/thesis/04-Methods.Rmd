@@ -126,15 +126,26 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 ```
 
 For the comparison of the algorithms one random LAS tile was processed to understand the needed steps to generate at a DTM with as few artifacts and noise as possible, but detailed enough to still contain the information important for the Objects of Interest. A random tile was chosen, because when getting a point cloud data set we do not know yet where exactly our Objects of Interests are. 
-The  steps undertaken and tested  are depicted and summarized in Figure 29. The code for this subchapter can be found in script **2_LiDAR_data_processing_tile_1.R**.
+The  steps undertaken and tested  are depicted and summarized in Figure 29. The complete code for this subchapter can be found in script **2_LiDAR_data_processing_tile_1.R**. Here only relevant chunks are displayed.
 
 #### **Get to know the point cloud**
 
 LAS files store x,y,z for each point and many other information/attributes and this can claim a lot of memory from the PC.
 
-```{r code-block-1, echo=TRUE, results='asis'}
-lsLIDAR_2009_10 <- list.files(here::here("C:/Users/kelto/Documents/reRCHrs_REPO/LiDAR_2009_10"),
-                        pattern = glob2rx("*.laz"), full.names = TRUE)
-LIDR_200910_1 <- lidR::readLAS(lsLIDAR_2009_10[1])
-names(LIDR_200910_1@data)
-```
+`names(LIDR_200910_1@data)`
+#[1] "X"                 "Y"                 "Z"                 "gpstime"
+#[5] "Intensity"         "ReturnNumber"      "NumberOfReturns"   "ScanDirectionFlag"
+#[9] "EdgeOfFlightline"  "Classification"    "Synthetic_flag"    "Keypoint_flag"
+#[13] "Withheld_flag"     "ScanAngleRank"     "UserData"          "PointSourceID"`
+
+The 'select' argument enables you to choose between attributes/columns. The queries are: `t - gpstime, a - scan angle, i - intensity, n - number of returns, r - return number, c - classification, s - synthetic flag, k - keypoint flag, w - withheld flag, o - overlap flag (format 6+), u - user data, p - point source #ID, e - edge of flight line flag, d - direction of scan flag`
+
+The 'filter' argument enables you to choose between the rows/points with specific attributes. The filter options can be accessed by: `read.las(filter = "-help")`
+
+*Note: when using the select and filter arguments with readLAS, it allows you to filter while reading the LAS file thus saving memory and computation time - it is the same as reading the LAS  file and then filtering the point cloud but saving memory and computation time.*
+
+On this ground it was decided that the following arguments are needed: *x,y,z, return number and number of returns, intensity, classification.*
+
+`
+`
+
