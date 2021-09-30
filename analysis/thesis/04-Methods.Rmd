@@ -2,38 +2,76 @@
 
 Chapter IV explains the development of workflow of the Master’s thesis and also the workflow itself. First the case study area (4.1) is presented with emphasis on its geomorphological characteristics, then a general workflow of automated analysis methods (4.2) is discussed. Following this, data pre-processing steps and methods are examined and the chosen method highlighted and the choice explained (4.3), similarly with the data preparation (4.4). Subsequently the data analysis methods, that is workflows used as paragons are discussed and the workflow of the Master’s thesis is explained (4.5).
 
-## **The case study area**
-The case study area used in this Master’s thesis is a 180 km2 area around Marburg, in Marburg-Biedenkopf/Hesse, Germany (Figure 18). The research area lies in the central hessian region, mainly comprised of a densely populated settlement area (Marburg and its outskirts) in the center, to the West the Gladenbacher Bergland and to the East the mountainous ridge called Lahnberge (extending from north to south between Cölbe and Hassenhausen). West of the Lahnberge, which are made of triassic medium variegated sandstone extends the Amöneburg Basin with its loess landscape (Dobiat et al 1994, 7).
+## **The Case Study Area**
+The case study area used in this Master’s thesis is a 180 km2 area around Marburg, in Marburg-Biedenkopf/Hesse, Germany (Figure 18). The research area lies in the central hessian region, mainly comprised of a densely populated settlement area (Marburg and its outskirts) in the center, to the West the Gladenbacher Bergland and to the East the mountainous ridge called Lahnberge (extending from north to south between Cölbe and Hassenhausen). West of the Lahnberge, which are made of triassic medium variegated sandstone extends the Amöneburg Basin with its loess landscape (@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 7).
 
 ```{r Figure18, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Location of the case study area of this Master's thesis in county Marburg-Biedenkopf/Hesse, Germany. Scale 1:100 000"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_18.png')
 ```
 
-The case study area was archaeologically investigated between 1983 and 1989 within the framework of a research project called “Urnenfelderzeitliche Forschungen im Marburger Raum” whose results were published in 1994 (Dobiat et al. 1994). This area constitutes the northernmost distribution of the South-German Urnfield Culture. Earlier studies led by the University of Marburg from the 1930's outlined the Marburg Group (mainly coined by Müller-Karpe 1949) which based on the investigation between 1983 and 1989 can be broken down into multiple burial mound groups which extend over multiple hundreds of meters. Dobiat et al. 1994, 9 postulated that originally more than 250 burial mounds must have existed which formed groups of up to a dozen mounds and are mainly situated along ridges looking over the Amöneburg Basin. East of Marburg, North to South sprawl the three burial mound groups Botanischer Garten, Lichter Küppel and Stempel (Figure 19).  According to the estimation of Dobiat et al. 1994, 31, the burial mound group of Botanischer Garten should have consisted of about at least 40 burial mounds while the burial groups at Lichter Küppel and Stempel of around 30 burial mounds each.
+The case study area was archaeologically investigated between 1983 and 1989 within the framework of a research project called “Urnenfelderzeitliche Forschungen im Marburger Raum” whose results were published in 1994 (@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a). This area constitutes the northernmost distribution of the South-German Urnfield Culture. Earlier studies led by the University of Marburg from the 1930's outlined the Marburg Group (mainly coined by @muller-karpeGraberUrnenfelderUnd1949) which based on the investigation between 1983 and 1989 can be broken down into multiple burial mound groups which extend over multiple hundreds of meters. @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 9 postulated that originally more than 250 burial mounds must have existed which formed groups of up to a dozen mounds and are mainly situated along ridges looking over the Amöneburg Basin. East of Marburg, North to South sprawl the three burial mound groups Botanischer Garten, Lichter Küppel and Stempel (Figure 19).  According to the estimation of Dobiat et al. 1994, 31, the burial mound group of Botanischer Garten should have consisted of about at least 40 burial mounds while the burial groups at Lichter Küppel and Stempel of around 30 burial mounds each.
 
 ```{r Figure19, echo=FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The burial mound groups ‘Botanischer Garten’, ‘Lichter Küppel’ and ‘Stempel’. Dobiat et al. 1994, Supplement 1."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_19.png')
 ```
 
-The extent of the case study area of this thesis was chosen intentionally based on the discussed area in Dobiat et al. 1994. After the 0.5 m DTM was calculated for the whole 180 km2 of the 20009/2010 LAZ files (see the workflow of the LiDAR data processing in 4.2), the attempt was made to identify all burial mounds in the Hillshade of the LiDAR derived 0.5 DTM by visual inspection in QGIS, based on the mapped burial mounds in Dobiat et al. 1994 (Map Supplement 1 & 2), also as a preparation to identify the Training Area and the Areas of Interests. Furthermore, apart from the already mentioned maps, Dobiat et al. 1994 also provides lists of burial mounds: Liste 1 contains the burial mounds of the three main burial groups East of Marburg (‘Botanischer Garten’, ‘Lichter Küppel’ and ‘Stempel’) and Liste 2 contains the burial mounds in the broader Marburg area (West to Marburg, Area of Interest 1). The exact coordinates can be found in Dobiat et al. 1994, 172-180.
+The extent of the case study area of this thesis was chosen intentionally based on the discussed area in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a. After the 0.5 m DTM was calculated for the whole 180 km2 of the 20009/2010 LAZ files (see the workflow of the LiDAR data processing in 4.2), the attempt was made to identify all burial mounds in the Hillshade of the LiDAR derived 0.5 DTM by visual inspection in QGIS, based on the mapped burial mounds in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a (Map Supplement 1 & 2), also as a preparation to identify the Training Area and the Areas of Interests. Furthermore, apart from the already mentioned maps, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a also provides lists of burial mounds: Liste 1 contains the burial mounds of the three main burial groups East of Marburg (‘Botanischer Garten’, ‘Lichter Küppel’ and ‘Stempel’) and Liste 2 contains the burial mounds in the broader Marburg area (West to Marburg, Area of Interest 1). The exact coordinates can be found in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172-180.
 During the visual comparison of the provided lists of mapped burial mounds and the hillshade of the case study area in QGIS the following differences have been documented:
 
-```{r Table2, echo=FALSE}
-table_2 <- read.csv(here::here('analysis/supplementary-materials/Table_2.csv'))
-knitr::kable(table_2, longtable = T, booktabs = TRUE, caption = "Comparison of the burial mound groups documented in Dobiat et al. 1994 and their visibility in the 2009/2010 LiDAR Hillshade. The sites which are marked with ? were not possible to identify in the Hillshade. NB: The burial mound groups 9 and 35 (the second mound) were only possible to identify using the Whitebox Multi-Scale Topographic Position Index derivative.")
-```
+|Site ID |Dobiat et al.    |    DTM05         |       AoI      |
+|-------:|----------------:|-----------------:|---------------:|
+|1       |orig. 13 mounds  |10? visible       |4               |
+|2       |12 mounds        |5? visible        |4               |
+|3       |orig. 5+2 mounds |5 + 1 + 1 visible |4               |
+|4       |5 mounds         |2 mounds visible? |4               | 
+|5       |orig. 8 mounds   |9 visible         |4/training area |          
+|6       |5 mounds         |? visible         |4               |
+|7       |orig. 15 mounds  |9 visible         |4/training area | 
+|8       |7 mounds         |4 visible         |4               |
+|9       |2 mounds         |1 in WB_MTPI      |4/training area |
+|10      |8 mounds         |4 visible?        |4               |
+|11      |2 mounds         |2 visible         |4               |
+|12      |orig. 20 mounds  |~ 7 visible       |4               |
+|13      |1 mound          |2 visible?        |4               |
+|14      |17-19 mounds     |18 visible        |4/training area |
+|15      |2+8 mounds       |2? visible        |4               |
+|16      |orig. 4 mounds   |?                 |3               |
+|17      |13 mounds        |?                 |3               |
+|18      |not existent     |?                 |3               |
+|19      |5 mounds         |?                 |3               |
+|20      |1 mound          |1?                |3               |
+|21      |7 mounds         |2? visible        |3               |
+|22      |~ 30 mounds      |~13 visible       |3               |
+|23      |17 mounds        |~11 visible       |3               |
+|24      |1 mound          |2? mounds         |3               |
+|25      |? mounds         |?                 |3               |
+|26      |6 mounds         |?                 |3               |
+|27      |orig. 3 mounds   |?                 |3               |
+|28      |orig. 34 mounds  |~17?              |3               |
+|29      |min. 3 mounds    |3?                |3               |   
+|30      |1 mound          |?                 |2               |  
+|31      |? mounds         |?                 |2               |
+|32      |1 mound?         |1 visible         |2               |
+|33      |1 mound          |?                 |2               |
+|34      |1 mound          |1                 |2               |
+|35      |2 mounds         |2 in WB_MTPI      |4/training area |
+|49      |2x2 mounds       |2x2 mounds        |1               |
+|51      |1 + 2 mounds     |1 + 2 mounds      |1               |
+|61      |2 mounds         |2 mounds          |1               |
+
+Table: Comparison of the burial mound groups documented in Dobiat et al. 1994 and their visibility in the 2009/2010 LiDAR Hillshade. The sites which are marked with ? were not possible to identify in the Hillshade. NB: The burial mound groups 9 and 35 (the second mound) were only possible to identify using the Whitebox Multi-Scale Topographic Position Index derivative.
 
 The concept of the workflow for the automated analysis of this data set was developed with keeping in mind that the burial mounds marked by ‘? ‘ will not be detected with a high probability, if they are not traceable in the Hillshade, even when using profile tools in QGIS. It was clear that using a 180 km2 area to develop workflows on is overpowering the computational capacity of a regular Laptop (Tuxedo with Ubuntu 18.04.5 LTS, i7, 15.4 GB RAM, no extra graphic card) and even Desktop PC (Windows 10, i7, 36 GB physical RAM & 40.5 GB virtual RAM, NVIDIA GTX 1080), the data set was split up based on the investigation of the Hillshade of the case study area. First, all tiles were processed with 0.1 m resolution, but it was soon realized that any part of the workflow demanded exponentially more time per tile, than a tile with 0.5 m resolution, so the whole workflow is based on 0.5 m resolution.
 
-The workflow developed was debugged in two instances: the workflow was first developed on the Training DTM, and then adapted to the Training Area. Then it was tested on five different Areas of Interests, which were chosen based on where the tumuli documented in Dobiat et al. 1994 are located.
+The workflow developed was debugged in two instances: the workflow was first developed on the Training DTM, and then adapted to the Training Area. Then it was tested on five different Areas of Interests, which were chosen based on where the tumuli documented in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a are located.
 As Training DTM tile *3dm_32482_5618_1* was chosen (white box in Figure 20, left, with *‘_xyzirnc_ground_05’* suffix), because the burial mounds (Site IDs 5, 35 and 9, Figure 21) showed the biggest variability in size and were best preserved. Although it has to be said that even the Training DTM had surprises in store: Site ID 9 presented a quite a challenge to be identified - it was only possible to do so using the Multi-Scale Topographic Index implemented in Whitebox and accessed through R.
 The Training Area (red box in Figure 20) consisting of five 1x1 tiles (*3dm_32482_5616_1_he, 3dm_32482_5617_1_he,  3dm_32482_5618_1_he, 3dm_32482_5619_1_he, 3dm_32483_5616_1_he*, all with *‘_xyzirnc_ground_05’* suffix). Affiliated to these are the mound groups of Site ID 7 to the north, and Site ID 14, to the south (Figure 20, right).  
 The five Areas of Interest (AoI) are spatially disconnected were addressed clockwise:
-Area of Interest 1: Site IDs 49, 51 & 61  in List 2, Dobiat et al. 1994, 177-178. Figure 21 & 22.
-Area of Interest 2: Site IDs 30 - 34 in List 1, Dobiat et al. 1994, 175. See Figure 21 & 22.
-Area of Interest 3: ‘Botanischer Garten’ and  ‘Lichter Küppel’, Site IDs 16 - 29 in List 1, Dobiat et al. 1994, 174-175. Figure 21 & 22.
-Area of Interest 4: ‘Stempel’, Site IDs 1 - 15 & 35 in List 1, Dobiat et al. 1994, 172-173 & 175. Figure 21 & 22.
-Apart from the burial mounds mapped and discussed in Dobiat et al. 1994, a few other burial mounds discernible in the Hillshade of the case study area were also included in the test dataset, that is AoI 5. 
+Area of Interest 1: Site IDs 49, 51 & 61  in List 2, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 177-178. Figure 21 & 22.
+Area of Interest 2: Site IDs 30 - 34 in List 1, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175. See Figure 21 & 22.
+Area of Interest 3: ‘Botanischer Garten’ and  ‘Lichter Küppel’, Site IDs 16 - 29 in List 1, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174-175. Figure 21 & 22.
+Area of Interest 4: ‘Stempel’, Site IDs 1 - 15 & 35 in List 1, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172-173 & 175. Figure 21 & 22.
+Apart from the burial mounds mapped and discussed in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, a few other burial mounds discernible in the Hillshade of the case study area were also included in the test dataset, that is AoI 5. 
 Area of Interest 5: 4 tiles west to Gisselberg, displaying 8(?) merovingian burial mounds in the west corner, but also other mound-like structures can be determined, actually throughout the whole case study area. 
 
 ```{r Figure20, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left:  Map and spatial relation of the Training DTM (white), the Training Area (red) and the five Areas of Interests (Area of Interest 1 = grey, Area of Interest 2 = blue, Area of Interest 3 = light green, Area of Interest 4 = grass green, Area of Interest 5 = orange). Right:The Training DTM, Training Area and the Area of Interests with the mapped burial mound sites in Dobiat et al. 1994. Scale 1:100 000"}
@@ -41,14 +79,14 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_20_2.png')
 ```
 
-To understand the nature and the morphological characteristics of the burial mounds in this area and also to understand if any change has happened since the LiDAR survey in 2009/2010, the Site IDs 5 and 35 were inspected in the terrain. At that time Site ID 9 was not identified in the Hillshade. It has to be noted that for the main part of the Master's thesis the QGIS plugin ‘VoGIS Profile Tool’ was used and only in a late phase of the work was the ‘Profile Tool’ QGIS plugin discovered and used, which displays minimal changes in the terrain a lot better than the previous tool. 
-On May 10th in the afternoon the author and two colleagues (Simon Seyfried, a fellow student and Bjön Schmidt, now working in the Landesamt für Denkmalpflege in Wiesbaden) surveyed the area of the Training DTM. To identify the mounds, a polygon layer created in QGIS containing all identified mounds in the Training DTM (Site IDs 5 and 35) based on the visual inspection of the 0.5 m Hillshade was exported to OruxMaps on an Android mobile phone to use as orientation and localisation. 
+To understand the nature and the morphological characteristics of the burial mounds in this area and also to understand if any change has happened since the LiDAR survey in 2009/2010, the Site IDs 5 and 35 were inspected in the terrain. At that time Site ID 9 was not identified in the ***Hillshade***. It has to be noted that for the main part of the Master's thesis the QGIS plugin ‘VoGIS Profile Tool’ was used and only in a late phase of the work was the ‘Profile Tool’ QGIS plugin discovered and used, which displays minimal changes in the terrain a lot better than the previous tool. 
+On May 10th in the afternoon the author and two colleagues (Simon Seyfried, a fellow student and Bjön Schmidt, now working in the Landesamt für Denkmalpflege in Wiesbaden) surveyed the area of the **Training DTM**. To identify the mounds, a polygon layer created in QGIS containing all identified mounds in the **Training DTM (Site IDs 5 and 35)** based on the visual inspection of the 0.5 m ***Hillshade*** was exported to OruxMaps on an Android mobile phone to use as orientation and localisation. 
 
 ```{r Figure21, echo=FALSE, fig.align='center', out.width="40%", out.height="40%", fig.cap="Screenshot of Oruxmaps with the burial mounds with Site IDs 35 (to the West in the field), 5 (to the East in the forest), 7 (to the North, not investigated in the field). Only Site IDs 5 and 35 were investigated which can be found in the area of Training DTM."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_21.jpg')
 ```
 
-The first burial mounds to survey were Site ID 35. It was postulated from Dobiat et al. 1994, that there might be two mounds present (Table 1). Figure 22 implies that it is only from the texture of the terrain that it is possible to guess any height difference between the two mounds. This is verified by the profile. It is clearly visible that Site ID 35-1 is at most preserved up to around 38 cm in height. One of the surveyors is depicted in Figure 23 as a scale. Site ID 35-2 is on a slope, already probably ploughed away, and/or the separating line (the 25 cm protuberance) in the field also destroyed a part of the second mound (Figure 22).
+The first burial mounds to survey were **Site ID 35**. It was postulated from @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, that there might be two mounds present (Table 1). Figure 22 implies that it is only from the texture of the terrain that it is possible to guess any height difference between the two mounds. This is verified by the profile. It is clearly visible that **Site ID 35-1** is at most preserved up to around 38 cm in height. One of the surveyors is depicted in Figure 23 as a scale. **Site ID 35-2** is on a slope, already probably ploughed away, and/or the separating line (the 25 cm protuberance) in the field also destroyed a part of the second mound (Figure 22).
 
 ```{r Figure22, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left: Location of burial mound group Site ID 35-1 and 2 in the Training DTM. Right: Profile of burial mound group, Site ID 35. Scale 1:700"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_22_1.png')
@@ -58,15 +96,15 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_23.jpg')
 ```
 
-This was detected only when a Multi-Scale Topographic Position Index using the whitebox package was calculated (Figure 24). This derivative was not taken into account when building the workflow, because the whitebox R package (which is the R interface for the Whitebox GAT FOSS GIS software) did not work when working with the Tuxedo laptop and Windows 10 Desktop PC. Since then the bug was fixed in the next update. The Multi-Scale Topographic Position Index will be discussed more in depth later on. 
-Generally it can be said that burial mounds which are situated in agricultural fields (that is in an intensively used area) are more likely to be detected by multispectral drone imagery and the calculation of vegetation indices than by LiDAR derived DTMs. Thus it was a pleasant surprise to see the traces of the two burial mounds of Site ID 35 (at least presumably also the second - and maybe a third?) in the Train DTM /Train Area/Area of Interest 4 using the Multi-Scale Topographic Position Index. The question is if burial mound Site ID 35-2 has eroded so much in the last 20 years (since 1994) that it is not possible any more to clearly detect it and only to try to guess it’s location. In Figure 24 the yellow areas delineate areas which are elevated in the micro-, meso- and macro scale, thus exaggerating the topography. On this basis also the area right to Site ID 35-2 might be arguable, but when we look at the extended profile it only with imagination to , and the section between 50 and 70 meters on the Y axis is most probable, but definitely eroded and disturbed by the field separator. 
+This was detected only when a ***Multi-Scale Topographic Position Index*** using the `whitebox` package was calculated (Figure 24). This derivative was not taken into account when building the workflow, because the `whitebox R package` (which is the R interface for the **Whitebox GAT FOSS GIS software**) did not work when working with the Tuxedo laptop and Windows 10 Desktop PC. Since then the bug was fixed in the next update. The ***Multi-Scale Topographic Position Index*** will be discussed more in depth later on. 
+Generally it can be said that burial mounds which are situated in agricultural fields (that is in an intensively used area) are more likely to be detected by multispectral drone imagery and the calculation of vegetation indices than by LiDAR derived DTMs. Thus it was a pleasant surprise to see the traces of the two burial mounds of Site ID 35 (at least presumably also the second - and maybe a third?) in the **Train DTM /Train Area/Area of Interest 4** using the ***Multi-Scale Topographic Position Index***. The question is if burial mound **Site ID 35-2** has eroded so much in the last 20 years (since 1994) that it is not possible any more to clearly detect it and only to try to guess it’s location. In Figure 24 the yellow areas delineate areas which are elevated in the micro-, meso- and macro scale, thus exaggerating the topography. On this basis also the area right to Site ID 35-2 might be arguable, but when we look at the extended profile, the section between 50 and 70 meters on the Y axis is most probable, but definitely eroded and disturbed by the field separator. 
 
 ```{r Figure24, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left: The Multi-Scale Topographic Position Index calculated using the whitebox package in R, with the burial mound groups Site ID 35-1 and 35-2, possibly 35-3?. Right: Extended and intentionally positioned profile of burial mound group Site ID 35. Note the scale is different being an MTPI. Scale 1:700"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_1.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_24_2.png')
 ```
 
-The burial mounds of Site ID 5(-1 to -9) are much more clearer to identify, as is visible from Figure 25. To make it easier to spot Site ID 5-9, the burial mound polygons are projected on the Hillshade with 25% transparency. Site ID 5 is the complete opposite of Site ID 35 - the mounds are extremely well discernable in the 0.5 m Hillshade, only to realize that when checking their profile, that their peak is mainly less than half a metre. Only Site ID 5-1 and 5 are outliers according to their height.
+The burial mounds of **Site ID 5(-1 to -9)** are much more clearer to identify, as is visible from Figure 25. To make it easier to spot Site ID 5-9, the burial mound polygons are projected on the ***Hillshade*** with 25% transparency. **Site ID 5** is the complete opposite of **Site ID 35** - the mounds are extremely well discernable in the 0.5 m ***Hillshade***, only to realize that when checking their profile, that their peak is mainly less than half a meter. Only Site ID 5-1 and 5 are outliers according to their height.
 
 ```{r Figure25, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left: Hillshade of Site ID 5. Right: Hillshade of Site ID 5 overlayed by transparent mound polygons. Scale 1:1500"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_25_1.png')
@@ -75,16 +113,24 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 
 The approximative height measurements of the burial mounds are as follows: 
 Site ID 5-1 ~ 120 cm
+\newline
 Site ID 5-2 ~ 40 cm
+\newline
 Site ID 5-3 ~ 38 cm
+\newline
 Site ID 5-4 ~ 42 cm
+\newline
 Site ID 5-5 ~ 50 cm
+\newline
 Site ID 5-6 ~ 60 cm
+\newline
 Site ID 5-7 ~ 50 cm
+\newline
 Site ID 5-8 ~ 45 cm
+\newline
 Site ID 5-9 ~ 40 cm 
 
-Below the profiles and the location of the profiles of the individual burial mounds are depicted for clarification (Figure 26-1 to 26-10.)
+Below the profiles and the location of the profiles of the individual burial mounds are depicted for clarification (Figure 26).
 
 ```{r Figure26, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Left row: Hillshade of Site ID 5-1 to 9. Right row: Profile of Site ID 5 5-1 to 9 overlayed by transparent mound polygons. Scale 1:1500"}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_1.png')
@@ -98,14 +144,14 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_9.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_26_10.png')
 ```
-To sum up it can be said that most of the burial mounds of Site ID 5 were easily identified in the terrain, apart from Site ID 5-9. In Figures 26-9 and 26-10 traces of big agricultural machines are visible which makes sense, given that there is a concrete road in the vicinity as seen in Figure 27. The situation discernable in the Hillshade has apparently worsened in the last 10 years. Figure 27 illustrates the local topography of Site ID 5-9 (center illustrated with red stick) to demonstrate that if it weren’t for Oruxmaps and the shapefile of the burial mounds, the field identification of the mound would've been completely missed. This also suggests that other less well preserved or barely visible sites in the LiDAR data from 2009/10 might also be more eroded or even completely diminished.
+To sum up it can be said that most of the burial mounds of Site ID 5 were easily identified in the terrain, apart from **Site ID 5-9**. In Figures 26-9 and 26-10 traces of big agricultural machines are visible which makes sense, given that there is a concrete road in the vicinity as seen in Figure 27. The situation discernable in the Hillshade has apparently worsened in the last 10 years. Figure 27 illustrates the local topography of **Site ID 5-9** (center illustrated with red stick) to demonstrate that if it weren’t for Oruxmaps and the shapefile of the burial mounds, the field identification of the mound would've been completely missed. This also suggests that other less well preserved or barely visible sites in the LiDAR data from 2009/10 might also be more eroded or even completely diminished.
 All this information has to be kept in mind when choosing automated analysis methods. Only because a certain method is working for burial mounds or mound-like archaeological objects in a certain region, it might not be true for other regions. Because topography in general, the micro-topography and especially geomorphology (and their way of erosion) play a very important role in how archaeological objects change with time and also how they are preserved in the present state when they are being investigated. In these cases a compromise has to be made to successfully detect barrows as will be demonstrated in the following sub-chapters.  
 
 ```{r Figure27, echo=FALSE, fig.align='center', out.width="70%", out.height="70%", fig.cap="Documentation of burial mound group Site ID 5-9 in the field."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_27.jpg')
 ```
 
-## **The general workflow of Automated Analysis Methods**
+## **The General Workflow of Automated Analysis Methods**
 
 When undertaking automated analysis of remote sensing data, there are certain general steps to be followed - clearly outlining themselves in the surveyed studies and depending on what data type is at disposal. If DTM/DEM raster are available, Data Pre-Processing (step i) would be unnecessary. Also, some methods and workflows do not require data preparation (they directly use the DEM/DTMs) and start right away with Data Analysis (iii), which can be (as already detailed in Chapter 2) a combination of Geometric knowledge-based Analysis, GeOBIA and/or Machine Learning or single methods. In step iii the respective methods used in this thesis are investigated and discussed (iii-i and iii-ii). The last step (iv) is of course the verification of the results. A generalized workflow would look the following (see also Figure 28):
 
@@ -115,10 +161,10 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 
 ## **Data Pre-Processing**
 
-The LiDAR dataset from 2009/2010 of the case study area is processed by the state-of-the art point-cloud oriented `lidR package` (Roussel et al.  2020) which makes it easy to manipulate and analyse LiDAR datasets and is FOSS. Multiple functions, algorithms, methods and workflows presented in peer-reviewed literature are implemented and thus `lidR` enables users to make specialized workflows and thus functions as a toolbox (Roussel et al. 2020). 
-It has to be mentioned, that according personal communication with the "Hessisches Landesamt für Bodenmanagement und Geoinformation" no metadata exists for the LiDAR data set from 2009/10, thus all inofrmation exisits it converyed in the .LAZ header and can be accessed using the `lidR package`.
+The LiDAR dataset from 2009/2010 of the case study area is processed by the state-of-the art point-cloud oriented `lidR package` (@rousselLidRPackageAnalysis2020) which makes it easy to manipulate and analyse LiDAR datasets and is FOSS. Multiple functions, algorithms, methods and workflows presented in peer-reviewed literature are implemented and thus `lidR` enables users to make specialized workflows and thus functions as a toolbox (@rousselLidRPackageAnalysis2020). 
+It has to be mentioned, that according personal communication with the "Hessisches Landesamt für Bodenmanagement und Geoinformation" no metadata exists for the LiDAR data set from 2009/10, thus all inofrmation exisits it converyed in the .LAZ header and can be accessed using the `lidR package.
 
-### **DTM generation by testing different algorithms**
+### **DTM Generation by Testing Different Algorithms**
 
 As a first step it was tested which ground point re-/classification and spatial interpolation should be used to generate a DTM which can capture all geomorphological details in the terrain that can be used to detect burial mounds. The processing of LiDAR data is a basic but very important part of the workflow. Still, it is only a means to an end so it will be kept brief (but in the necessary length to provide ideas to others who want to process LiDAR data for archaeological use using the `lidR package`) so that the focus can be oriented towards the detection of burial mounds. 
 
@@ -346,7 +392,7 @@ LIDR_200910_1_ground_idw05_5 <- lidR::grid_terrain(LIDR_200910_1_ground, res=0.1
 ````
 he same variable has been applied to the other point-cloud classifications (PMF & CSF: vf ⎯  ) which is not detailed in this instance but analysed below (Table ).
 
-**4.3.1.3 Algorithm comparison and choice**
+**4.3.1.3 Algorithm Comparison and Choice**
 \newline
 The last step is to compare the generated DTMs to choose which is best representing the actual ground surface and is thus suitable for mound detection. The (point cloud classification and spatial interpolation) algorithms chosen will be applied to the LiDAR data from 2009/2010. 
 
@@ -356,17 +402,17 @@ To choose the suitable (point cloud classification and spatial interpolation) al
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_33.png')
 ```
 
-The results are compared on two levels: first on point cloud level (point cloud classification) and on raster level (spatial interpolation of the ground points). A summary of the used settings is comprehensible from Table 3.
+The results are compared on two levels: first on point cloud level (point cloud classification) and on raster level (spatial interpolation of the ground points). A summary of the used settings is comprehensible from Table 2.
 
-```{r Table3, echo=FALSE}
-table_3 <- read.csv(here::here('analysis/supplementary-materials/Table_3.csv'))
-names(table_3)
-knitr::kable(table_3, longtable = T, booktabs = TRUE,
-  caption = "Table 3: Summary of the re/classification and interpolation functions and algorithms used.")
+```{r Table2, echo=FALSE}
+table_3 <- read.csv(here::here('analysis/supplementary-materials/Table_2.csv'))
+knitr::kable(table_3, longtable = T, booktabs = TRUE, col.names=NULL, 
+  caption = "Summary of the re/classification and interpolation functions and algorithms used.") %>%
+  kableExtra::add_header_above(c(" POINT CLOUD CLASSIFICATION" = 6, " ")) %>% kableExtra:: kable_styling(font_size = 7)
 ```
 
 First of all let’s discuss both the Progressive Morphological Filter (PMF) and the Cloth Simulation Function (CSF) algorithms. In the case of the PMF algorithm the size of the moving window (ws) of the algorithm and the height threshold (th) for the points to be classified can be modified. In the case of the CSF algorithm the texture and mass of the cloth/surface can be manipulated with other various parameters (including a class threshold) (see Table 3) Thus both algorithms approach the same from different directions. 
-For comparison purposes the results are compared according to the spatial interpolation methods used. TIN is implemented with parameter-free Delaunay triangulation and is the most simple linear interpolation method in `lidR`.  The result of the interpolation method is quite clear and thus it is used to highlight the basic differences between the two point cloud classification methods.
+For comparison purposes the results are compared according to the spatial interpolation methods used. TIN is implemented with parameter-free Delaunay triangulation and is the most simple linear interpolation method in `lidR`. The result of the interpolation method is quite clear and thus it is used to highlight the basic differences between the two point cloud classification methods.
 
 Figure 34 shows very clearly that PMF (bottom row) can deal with the artifacts very effectively by changing the height threshold. The threshold heights used were: 3, 1, 0.5, and 0.05 meters. It is clearly visible that heights near the surface (0.5 and 0.05 m) return a very natural ground surface and the perfect value lies somewhere between 0.5 and 0.05 (`th = 0.05` purges the surface too much and thus distorts the microtopography). A window size of 5 meters in a 1000 m x 1000 m tile seems reasonably accurate (small enough but not too much) so this parameter has not been changed. It also catches the eye that PMF is the simpler method, being able to control basically only one spatial variable. 
 
@@ -399,48 +445,244 @@ Kriging has not been tested because it took too long for one tile with default s
 This analysis showed that it is possible to look for the perfect settings of point cloud classification and spatial interpolation methods but it is time consuming. The already available ground classification of the LAS format is definitely reliable. The type (in forested areas) and density of the vegetation (especially near the ground surface) and the time of data collection (possibly in a vegetation free period - in the case of the 2009/2010 LAZ files no metadata is available) is very crucial in order to obtain reliable data. In case of blind areas or areas with less points a well-chosen spatial interpolation method can counteract (at least up to a certain degree) the missing information. 
 For the processing of the LiDAR data sets the ground classification and the IDW spatial interpolation with default settings has been chosen.
 
-### **Processing LAZ/LAS datasets with LAScatalog**
+### **Processing LAZ/LAS Data Sets With LAScatalog**
 
-The LAScatalog function in lidR enables the user to work with big LAS/LAZ datasets and thus to process large areas, without loading the entire dataset into the computer memory. When working with LAScatalogs, functions can be applied over the entire case study area (batch-processing).  Several processing options can be set for the LAScatalog, like chunk processing (splitting the data in multiple part and process them iteratively - sequentially or parallel), creating a buffer around each chunk to ensure output without edge artifacts, merging computed outputs into a single product, logging and return of partial outputs in case of crash, real-time progress estimation monitoring and an error-handling manager (Roussel et al. 2020).
+The LAScatalog function in lidR enables the user to work with big LAS/LAZ datasets and thus to process large areas, without loading the entire dataset into the computer memory. When working with LAScatalogs, functions can be applied over the entire case study area (batch-processing).  Several processing options can be set for the LAScatalog, like chunk processing (splitting the data in multiple part and process them iteratively - sequentially or parallel), creating a buffer around each chunk to ensure output without edge artifacts, merging computed outputs into a single product, logging and return of partial outputs in case of crash, real-time progress estimation monitoring and an error-handling manager (@rousselLidRPackageAnalysis2020).
 
-```{r Figure40, echo=FALSE, fig.align='center', out.width="100%", out.height="70%", fig.cap="Schematic visualization of the work process of a LAScatalog in lidR. Roussel et al. 2020, 10, Fig 7."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_40.png')
+```{r Figure35, echo=FALSE, fig.align='center', out.width="70%", out.height="50%", fig.cap="Schematic visualization of the work process of a LAScatalog in lidR. Roussel et al. 2020, 10, Fig 7."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_35.png')
 ```
 First the whole case study area was processed as a LAScatalog and exported tile-by-tile, otherwise the Laptop and even the Desktop PC would have flatlined. These 180 tiles were visually investigated and compared to the Liste 1 and 2 of Dobiat et al. 1994, as described in the previous subchapter. The code for this subchapter can be found in script **3a_LiDAR_data_processing_catalogue.R**
-
-```{r code-block-25, echo = TRUE, eval=FALSE}
-#shortcut to the repository with the LiDAR tiles outside the project
-lsLIDAR_2009_10 <- list.files(("C:/Users/kelto/Documents/reRCHrs_REPO/LiDAR_2009_10", pattern = glob2rx("*.laz"), full.names = TRUE)
-#read LAZ files
-LIDAR_200910_catalog <-  lidR::readLAScatalog(lsLIDAR_2009_10, 
-                                              select = "xyzirnc", filter ="keep_class 2")
-#set the projection of the lidR catalog
-sp::proj4string(LIDAR_200910_catalog) <- "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"
-#parallelize work
-future::plan(multisession, workers = 2L)
-#set the number of threads lidR should use
-lidR::set_lidr_threads(4)
-#set chunk buffer 
-lidR::opt_chunk_buffer(LIDAR_200910_catalog) <- 50# default: 30
-#set output path
-opt_output_files(LIDAR_200910_catalog) <- 
-paste0(path_analysis_data_dtm_200910, "/{*}_xyzirnc_ground_01")
-#enable to overwrite the results when processed again
-LIDAR_200910_catalog@output_options$drivers$Raster$param$overwrite <- TRUE
-#apply terrain gridding
-ground_class_CAT200910 <- lidR::grid_terrain(LIDAR_200910_catalog, res=0.5, algorithm = knnidw(k = 20L, p = 3, rmax = 50)) 
-````
 
 Based on the identification of the burial mound groups in the DTM the Areas of Interest (AoI 1-5) and the Train Area were chosen. Subsequently each data set of the Areas of Interests and the Train Area was processed as a separate `LAScatalog` and all tiles were exported separately but also as a single **.tif** file. The code for the processing of the different Areas of Interests and the Train Area can be find in script 
 **3b_LiDAR_data_processing_AOI_train_area_catalogues.R**
 
 ## **Data Preparation**
 
-In order to be able to approach the Objects of Interest (OoI), first these have to be prepared by Geometric knowledge-based methods, thus enhanced in relation to their environment by maximizing the contrast between them and their surroundings to generate more coherent areas which are easier to distinguish (for the computer and the human eye). Lately more and more complex methods have been elaborated or endorsed specifically for archaeological use (e.g. Mayoral et al. 2017, Orengo and Petrie 2018, Guyot et al. 2018). Recent studies (Verschoof-van der Vaart and Landauer 2020, 4) found that it is not always required to prepare the dataset. Thus it was decided to test two approaches: one workflow with data preparation and one without. To find the best suitable data preparation method, several methods (all together 91 derivatives) were investigated (script `4_generate_derivatives.R` - the order of derivatives and methods in the R script does not correspond to the order of methods discussed here, but the numbers are corresponding).
-First it was checked which native R  packages provide functions that can be used for data preparation. Two packages we found to be extremely useful: `raster` and `spatialEco`. Furthermore R interfaces exist to external FOSS GIS Software. Amongst others to **SAGA** (the package `RSAGA`), **GRASS GIS** (the package `rgrass7`) and **Whitebox GAT** (the package `whitebox`). Of course not all corresponding methods in all R packages were calculated or worked - it would’ve been a lot more than 91 derivatives.
+In order to be able to approach the Objects of Interest (OoI), first these have to be prepared by Geometric knowledge-based methods, thus enhanced in relation to their environment by maximizing the contrast between them and their surroundings to generate more coherent areas which are easier to distinguish (for the computer and the human eye). Lately more and more complex methods have been elaborated or endorsed specifically for archaeological use (e.g. @mayoralHighestGradientModel2017a, @orengoMultiscaleReliefModel2018a, @guyotDetectingNeolithicBurial2018a). Recent studies (@verschoof-vandervaartUsingCarcassonNetAutomatically2021, 4) found that it is not always required to prepare the dataset. Thus it was decided to test two approaches: one workflow with data preparation and one without. To find the best suitable data preparation method, all together 91 derivatives were investigated, which can be found in script **4_generate_derivatives.R**. The order of derivatives and methods in the R script does not correspond to the order of methods discussed here, but the numbers correspond. The table displaying all 91 derivatives can be found as a PDF file in the supplementary-materials folder, including also the respective functions which can be used to generate the derivatives, like a quick-guide. In the following a derivative in the PDF is referred to as followed: Openness - ***Supplement 3/91***.  
 
-A special interest was given to **morphometric textural analysis and enhancement methods**, because the case study area is slightly hilly with multiple shallow plateaus which are of similar height as the burial mounds (0.38 m to max. 1.2 m, discussed above). Thus in the second approach the attempt is made to enhance and exaggerate the poorly preserved burial mounds by generating an appropriate derivative.
-In the following, methods which would be usually applied in the data preparation step, are presented in tables. They are grouped according to the used function and package and based on the type of transformation the dataset has undergone: targeting the raster as a whole or by enhancing only certain areas or regions of the raster. It can be generally said that it is not easy to group data preparation methods because they do overlap in their tools and results and some fit into multiple categories. Thus this grouping cannot and does not try to be conclusive and definitive by any means. 
+First it was checked which native R packages provide functions that can be used for data preparation. Two packages we found to be extremely useful: `raster` and `spatialEco`. Furthermore R interfaces exist to external FOSS GIS Software. Amongst others to **SAGA** (the package `RSAGA`), **GRASS GIS** (the package `rgrass7`) and **Whitebox GAT** (the package `whitebox`). Of course not all corresponding methods in all R packages were calculated or worked - it would’ve been a lot more than 91 derivatives.
 
-### **Visulaisation methods**
+A special interest was given to **morphometric textural analysis and enhancement methods**, because the case study area is slightly hilly with multiple shallow plateaus which are of similar height as the burial mounds (0.38 m to max. 1.2 m, discussed above). Thus in the second approach the attempt is made to enhance and exaggerate the poorly preserved burial mounds by utilizing an appropriate derivative.
+In the following, methods are grouped according to the type of transformation the data set has undergone: targeting the raster as a whole or by enhancing only certain areas or regions of the raster. It can be generally said that it is not easy to group data preparation methods because they do overlap in their tools and results and some fit into multiple categories. Thus this grouping cannot and does not try to be conclusive and definitive by any means. 
 
+### **Visualization Methods**
+
+Visualisation methods transform any DTM into derivatives which enhance either physical qualities (LRM) or are of presentational value (***Hillshade***, ***Openness***). In this study the former is grouped into **‘morphometric analysis’** (4.4.3) because it represents a morphological transformation of the respective terrain. 
+@kokaljAirborneLaserScanning2017a discusses 12 visualisation techniques (though they do not make a difference between the presentational and morphometric methods), all processable in the openly available applications **RVT** and **LivTool**. Which visualisation method works best, depends on the characteristics of the landscape in question. They deliver best practices to any type of dataset with informative case studies. Apart from the ***Hillshade*** to visualize the DTMs and the ***Negative Openness*** - ***Supplement 3/91***, no visualisation method with presentational value was calculated, because of the focus on morphometric analyses.
+
+### **Textural Analysis**
+
+By manipulating cell values in a moving window of a certain size (in our case, because we do look for slight changes in the terrain, at the most 5x5 pixels make sense), the raster layer can be transformed and modulated to fit the needs. This is the basis on which filters work. 
+Low pass filters work with moving windows and e.g. calculate the ***sum***, the minimum (***min***), the maximum (***max***), the ***mean*** value, the standard deviation (***sd***) or the most frequent value (***modal***) of all cells in that certain moving window by smoothing it. High-pass filters on the other hand emphasize certain characters of the image, for this they are also called sharpening filters. One example are ***sobel filters*** which enhance the areas of the image where it’s intensity changes, thus detecting edges. They can be calculated in different directions but also combined. Multiple textural analysis methods were tested (Table 3), but the low pass filter proved to be most effective.
+The filters in the `filtR` function (altogether 8 filters) based on work from a previous seminar. Moving window sizes of 3 and 5 pixels were tested (***Supplement 3/1-16***).
+Low pass filters are applied in two steps of the general **iSEGMound workflow**: at the beginning smoothing the DTM/dDTM with a mean filter (based on @freelandAutomatedFeatureExtraction2016b and @romLandSeaAirborne2020b) and before the Segmentation step to generalize and average the pixel values into homogeneous regions to prepare for the Segmentation. In this second case the choice of the suitable filter from the 8 available depends which one creates more homogeneous regions which might differ from data to data.
+
+|Derivatives                                        |    ID                  |    R package |
+|---------------------------------------------------|-----------------------:|-------------:|
+|sum, min, max, mean, modal, sd & sobel filter      |***Supplement 3/1-16*** |    `raster::`|
+|sobal intensity, direction & edge filter           |***Supplement 3/47-49***|`spatialEco::`|
+|Gaussian Smoothing filter                          |***Supplement 3/46***   |`spatialEco::`|
+|Raster Multidimensional Scaling                    |***Supplement 3/34***   |`spatialEco::`|
+|Spherical Variance/Standard Deviation of Surface   |***Supplement 3/50-51***|`spatialEco::`|
+|Deviation from trend/minimum/maximum/mean/median/sd|***Supplement 3/35-45***|`spatialEco::`|
+|Max Elevation Deviation local/meso/broad scale     |***Supplement 3/52-57***|`whitebox::`  |
+
+Table: Examples of textural analysis methods.
+
+### **Morphometric Analysis**
+
+Geomorphology and Geomorphometry is a sub-discipline of Geography and morphometric analysis methods are commonly used for various landscape, hydrological and spatial ecological analyses. The morphometric methods processed in this thesis are mainly based on the methods used by @niculitaGeomorphometricMethodsBurial2020b.
+Among the calculated derivatives are: ***Slope***, ***Aspect***, ***Curvature***, ***Topographic Position Index***, ***Topographic Wetness Index*** and many more (Table 4). These are distinguished from the methods discussed in 4.4.4, because - as some textural analysis methods (the low pass filters) - they target the image as a whole.
+
+|Derivatives                        |    ID                     |    R package                      |
+|-----------------------------------|--------------------------:|----------------------------------:|
+|Topographic Position Index         |***Supplement 3/18, 24***  |`raster::`/`spatialEco::`          |
+|Terrain Ruggedness Index           |***Supplement 3/17,23,66***|`raster::`/`spatialEco::`/`RSAGA::`|
+|Vector Ruggedness Measure          |***Supplement 3/25,67***   |`spatialEco::`/`RSAGA::`           |
+|Terrain Surface Convexity          |***Supplement 3/70***      |`RSAGA::`                          | 
+|Surface Relief Ratio               |***Supplement 3/30***      |`spatialEco::`                     |
+|Surface Area Ratio                 |***Supplement 3/31***      |`spatialEco::`                     |
+|Terrain Surface Texture            |***Supplement 3/68-69***   |`RSAGA::`                          | 
+|Roughness                          |***Supplement 3/19***      |`raster::`                         | 
+|SAGA WetnessIndex                  |***Supplement 3/90***      |`RSAGA::`                          |
+|Flowdirection                      |***Supplement 3/22***      |`raster::`                         |
+|Convergence Index                  |***Supplement 3/60***      |`RSAGA::`                          |
+|Aspect                             |***Supplement 3/21,72***   |`raster::`/`RSAGA::`               |
+|Slope                              |***Supplement 3/20,71***   |`raster::`/`RSAGA::`               |
+|Hierarchical Slope Position        |***Supplement 3/33***      |`spatialEco::`                     |
+|Relative Heights & Slope Positions |***Supplement 3/61-65***   |`RSAGA::`                          |
+|Dissection                         |***Supplement 3/32***      |`spatialEco::`                     |
+|Profile Curvature                  |***Supplement 3/26,73***   |`spatialEco::`/`RSAGA::`           |
+|Total Curvature                    |***Supplement 3/27***      |`spatialEco::`                     |
+|McNab Curvature                    |***Supplement 3/28***      |`spatialEco::`                     |
+|Boldstad Curvature                 |***Supplement 3/29***      |`spatialEco::`                     |
+|Morphometric Features              |***Supplement 3/74-78***   |`RSAGA::`                          |
+|Upslope/Downslope Curvature        |***Supplement 3/79-83***   |`RSAGA::`                          |
+
+Table: Examples of morphometric analysis methods.
+
+### **Morphometric Enhancement and Extraction of Specific Features**
+
+Points ii-iv and ii-v of the generalized workflow of automated analysis (Figure 28) are discussed together because - as discussed above, the exact differentiation between the methods is often somewhat problematic and subjective. 
+The first derivative to be inspected is the ***Local Relief Model*** (LRM ***Supplement 3/59***, Table 5), which was developed by Ralf Hesse (@hesseLiDARderivedLocalRelief2010a) and implemented in the FOSS **LivToolbox** and **RVT** standalone softwares and subsequently also as an **ArcGIS Toolbox** (proprietary, by @novakLocalReliefModel2014) and a **GRASS GIS Add-on** (@petrasGRASSGISManual). It is basically a purged difference map which is deprived from the big elevation differences and thus leaves only the small elevation differences, where mostly the traces of archaeology are to be found. This already sheds light on why this method was not chosen: it generally enhances the small features but we are interested only in those which are relevant for our Objects of Interest and because of the 0.5 m resolution of the  DTM it is better not to enhance the small features. The Local Relief was already used as input derivative by the author of this Master's thesis when using a PBIA approach to archaeological object detection in LiDAR derived DTMs (@schneiderRCHAEOLOGYUsingMachine2018, @schneiderWhatDoesGood2018, and @schneiderHowDeepRandom2019) and it became clear, that this special feature of the ***Local Relief Model*** can be just as much a downfall and distort the results. 
+***Wind Exposition Index*** (***Supplement 3/84***, Table 5) very nicely highlights the burial mounds but also the (hollow-)ways and other structures in the DTM, thus enhancing all structures in the raster at the same time the same way. 
+Last but not least the ***Multi-Scale Topographic Index*** (***MSTPI or MTPI, Supplement 3/58, 85-89***, Table 5) has to be discussed. It can be - as also other derivatives - created with different tools; in our case the `whitebox` and `RSAGA` R packages were used. It is an integral image approach to measure relative topographic deviation from the mean elevation on micro-, meso- and macro scale (@weissTopographicPositionLandform2001) and then to combine these scales into a single multi-band image (in the case of `whitebox`; the **SAGA** algorithm produces a single band image), highlighting deviation on all three levels.
+Lately @guyotDetectingNeolithicBurial2018a used the FOSS standalone GIS software **Whitebox GAT** (@Lindsay2016) to compute first the ***Maximum Elevation Deviation*** on local-, meso and broad scale (see derivatives in subchapter : 4.4.2, ***Supplement 3/52-57***, Table 5). Then, in a second step @guyotDetectingNeolithicBurial2018a created the ***Multiscale topographic Position Index*** (@lindsayIntegralImageApproach2015) by a custom R script as an RGB composite. **Whitebox GAT** and **Whitebox Tools** can (since then it has been probably implemented) compute the integral image (***Multicale Topographic Position Color Composite***) in a second step (also in the R package `whitebox`, both authored by Dr. John Lindsay and his students). This second step did not work in two of the three computer setups (once a stable and clean installation of Ubuntu 18.04 with all dependencies and once a rather messy older Windows 10 installation) which were used during the development of the workflow of this thesis and thus the use of the R package **whitebox** was abandoned. 
+As an alternative, the ***Multi-Scale Topographic Index*** Tool from **RSAGA/SAGA** was used, which calculates the ***Topographic Position Index***, that is the difference of the elevation value of each cell of a DTM and the mean elevation in the radius of a given moving window (@weissTopographicPositionLandform2001, @jennessTopographicPositionIndex2006) for different scales and integrates them in one single image.
+
+|Derivatives                       |            ID           |    R package |
+|----------------------------------|------------------------:|-------------:|
+|Local Relief Model                |***Supplement 3/59***    |`rgrass7::`   |
+|Wind Exposition Index             |***Supplement 3/84***    |`RSAGA::`     |
+|Multiscale Topographic Index      |***Supplement 3/58***    |`whitebox::`  |
+|Multi-Scale Topographic Index     |***Supplement 3/85-89*** |`RSAGA::`     |
+
+Table: Examples of morphometric enhancement and extraction methods.
+
+The difference between the two ***Multi-Scale Topographic Index*** calculations is that `whitebox` works with the ***maximum elevation deviation*** and `R/SAGA` works with the ***mean elevation deviation***. The results of the computation of the `R/SAGA` tool are not that straight forward, but still fit the need: they exaggerate the burial mounds and suppress the background enough, thus this morphometric method was used as data Geometric knowledge-based data preparation method.
+
+## **Data Analysis**
+
+The steps undertaken until now prepared the data to be manipulated by specific methods and algorithms, but did not change the data in such great length. 
+As already mentioned, different data and research questions call for different methods. Therefore the respective workflows chosen as paragons based on their good description in the published studies **iMound** - @freelandAutomatedFeatureExtraction2016b, @davisComparisonAutomatedObject2019b, @romLandSeaAirborne2020b) and their reproducibility (**Watershed Segmentation** - @niculitaGeomorphometricMethodsBurial2020b), the methods **Geometric knowledge-based Analysis** (iii-i/IV.5.1) and **GeOBIA** (iii-ii/IV.5.2) are elaborated (Figure 28). 
+
+### **Geometric Knowledge-Based Analysis**
+
+The most interesting and well-documented Geometric knowledge-based method for object-extraction is **iMound**, which was developed by @freelandAutomatedFeatureExtraction2016b (the predecessor of the use of the pit-filling algorithm itself was @hanusImagingWatersAngkor2016 who used **ArcGIS**), then applied by @davisComparisonAutomatedObject2019b and lately by @romLandSeaAirborne2020b. In the following these precedent methods are shortly described and illustrated by workflows created in R.
+
+**4.5.1.1 @freelandAutomatedFeatureExtraction2016b** ***iMound***
+\newline
+The workflow (Figure 41) was developed to detect monumental earthworks in LiDAR data on Tonga in West Polynesia. The main point to emphasize is that the objects are clearly better preserved (the mound height was not discussed, but the threshold for minimum mound height was 1 m), than the mounds in the case study area of this thesis. This made it clear that the workflow is not completely transferable, because every site and the archaeological objects in that landscape has its specificity. From the study it is clear that the **iMound** algorithm was implemented in `R`, but the details (which package was used and which function) were not disclosed. Following @freelandAutomatedFeatureExtraction2016b the **pit-filling algorithms** by @planchonFastSimpleVersatile2002 and @wangEfficientMethodIdentifying2006 (implemented in SAGA and used through `RSAGA` in `R`) were tested for the thesis. The @planchonFastSimpleVersatile2002 algorithm was a lot slower than the @wangEfficientMethodIdentifying2006 algorithm, thus it was decided to use that for the Master’s thesis. Present thesis mainly kept to this workflow. 
+
+```{r Figure36, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="The reconstructed workflow of Freeland et al. 2016."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_36.png')
+``` 
+
+**4.5.1.2 @davisComparisonAutomatedObject2019b** ***SD***
+\newline
+This workflow starts directly with the inversion of the raster and uses a different depression mapping analysis - **Stochastic Depression Analysis (SDA)**, implemented in **Whitebox GAT** (the standalone FOSS GIS)(Figure 42). The authors refer to the workflow of @freelandAutomatedFeatureExtraction2016b but they don’t elucidate why they chose SDA over the fill-sink method exactly. It is only implied by describing the benefit of SDA to highlight small elevation changes (@davisComparisonAutomatedObject2019b, 168) and that the **Monte Carlo Simulation** incorporates the assumption for topographic uncertainty (@davisComparisonAutomatedObject2019b, 169).
+ 
+```{r Figure37, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="The reconstructed workflow of Davis et al. 2019."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_37.png')
+``` 
+
+**4.5.1.3 @romLandSeaAirborne2020b** ***iMound***
+\newline
+This description of the approach of **iMound** in this study has the most similarity to a workflow: a pictorial depiction of the different steps (@romLandSeaAirborne2020b, 254, Figure 254). It is not specified which lowpass filter was used. Similarly: although the **pit filling algorithm** of @wangEfficientMethodIdentifying2006 was used as in @freelandAutomatedFeatureExtraction2016b, it was not specified which software and tool or function was used. The only difference to @freelandAutomatedFeatureExtraction2016b is that the results of the **iMound** include the inversion of the results (Figure 43). The minimum threshold for mound height is also in this case 1 m, which is, as already mentioned before in subchapter 4.5.1.1, higher than most of the burial mound in the Master’s thesis (which are often only slightly different from the major morphological forms of the terrain), thus a different approach than setting a height threshold was approached to extract and effectively detect burial mounds. 
+
+```{r Figure38, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="The reconstructed workflow of Rom et al. 2020."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_38.png')
+``` 
+
+### **GeOBIA**
+
+The most recent and only reproducible **GeOBIA** workflow is @niculitaGeomorphometricMethodsBurial2020b. Although not completely reproducible because the underlying data set is not freely available but can be requested from the author by signing a contract for data use. The ideal reproducible code and workflow also includes a **Docker** file with the exact computational environment in which the published results were created. Latter fact does not detract from the value of the study. 
+The code starts with the statement “The self-explanatory R script...” and although it starts with the computation of local peaks and terminates with a random forest classification, the main part consists of concatenated **SAGA** tools without much comments. It might take some time to understand what the steps in the workflow do, even with having a detailed workflow (@niculitaGeomorphometricMethodsBurial2020b, Figure 5; Figure 39). It is hard to look up the documentation of the different **SAGA** tools, because they are called differently compared to the sections in the code. In addition, when using the RSAGA package with the most recent SAGA version, the following warning results: “*You seem to be using SAGA GIS 7.9.0, which may cause problems due to changes in names and definitions of SAGA module arguments, etc.*” As `RSAGA` requires **SAGA GIS** versions 2.3.1 LTS - 6.2.0, it means that only functions existing in those versions can be called in R and not functions in your installed SAGA version if it is higher than the requirement (in the case of this thesis SAGA GIS 7.9.0). It would’ve been useful to note this in the script. Still, `RSAGA` is working a lot more robust on Windows and Linux and this is why it was chosen instead of `whitebbox` for the calculation the ***Multi-Scale Topographic Index*** derivative.
+A schematic flowchart of the main general steps would’ve been useful and although the steps using different software types and the data types are color & shape coded, still the boxes have different sizes which can make a less experienced reader think that the steps have different significance. Although it is a good idea to want to put as much information in a workflow, it makes this workflow especially overcrowded and too colorful, also because multiple shades of a color are used. The illustrated steps in Niculiță 2020, Figure 6 counterbalance this.
+
+```{r Figure39, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Workflow of Niculita 2020, Figure 5."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_39.png')
+``` 
+
+The idea of peak extraction is a resourceful geometric knowledge-based method, which works better in a flatter area than in the case study area of this thesis. The **peak extraction** was tested on the train DTM with 3x3 and 5x5 moving window. Latter window size, that is a search area of 25 pixels still generated too many peaks per segment, and the use of a bigger search radius would’ve needed a much bigger screen. Thus the peak search approach was abandoned but the **Watershed Segmentation** step was adapted.
+
+### **iSEGMound**
+
+The developed workflow in this thesis is based on the **iMound** workflow, but because the OoI, that is the burial mounds are preserved very minimally (in general less than 0.5 m), a work-around had to be found to distinguish the shallow mounds from the shallow terrain elevations which would result in the same height. Thus there was no sense to filter the result for height. This is also the reason why peak-search would’ve resulted in too much information (points) to be filtered out. The workaround consisted in segmenting the areas which were extracted by the **iMound** workflow and then to filter for shape indices of the mounds in the Train DTM/Train Area. Thus **Geometric knowledge-based Analysis** and **GeOBIA methods** are used in the workflow of the thesis. 
+Before going into more detail about the workflow a schematic workflow is accentuating the main steps (Figure 40):
+
+```{r Figure40, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Scheme of the iSEGMound workflow including data preprocessing."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_40.png')
+```
+
+In the case of the **iMound** workflow, mainly @freelandAutomatedFeatureExtraction2016b was followed, apart from the thresholding. Regarding the segmentation, two segmentation algorithms were tested: **Watershed** and **Region Growing** (both detailed in Chapter 2). During the calculation of the derivatives (Chapter 4.4) it was found that ***Multi-Scale Topographic Position Index*** (from there on ***MSTPI***) does really enhance the homogeneity of the hardly visible burial mounds in arable land and suppresses the rugged microtopography created by the Spatial Interpolation of the Ground point classification. This is not so striking at first glance in the case of the `RSAGA/SAGA` algorithm but it is visible when zooming in and it is “enough” for the segmentation. 
+In this Master’s thesis two data preparation methods (no data preparation and ***MSTPI*** as explained in Chapter 4.4) and two segmentation methods were used and compared. Using the Training DTM (**1 tile; scripts 5a to 5d**) it was soon realized that the optimal values used in the segmentation algorithms change with the size of the area, thus all 4 workflows were computed also for the Training Area (**5 tiles; scripts 6a to 6d**). This means that eight workflows were created and calculated, which include workflows for smaller and for bigger areas. To test the feasibility of the values, a workflow was chosen from the workflows adapted to the Training Area, based on statistical comparison of the segmentation results (explained and detail in Chapter 5.). This chosen workflow was then tested on 5 Areas of Interest (**AoI 1, AoI 2, AoI 3, AoI 4, AoI 5**). The results will be discussed in Chapter 5.
+
+Because the same workflow was used altogether 13 times and thus certain processes or tools were used frequently, certain functions were written. There are also some borrowed functions.
+
+`plot_crossection`: is borrowed from the [lidR cookbook](https://jean-romain.github.io/lidRbook/io.html#plot)
+\newline
+`create_regions`: was found on [stackexchange](https://gis.stackexchange.com/questions/79114/joining-nearest-neighbor-small-polygons-using-r)
+\newline
+`filtR`: was transformed function from a biodiversity seminar course 
+
+All the other functions are wrapper functions for SAGA tools, available in the RSAGA package:
+\newline
+`generate_mtpi_SAGA`: wrapper around the [RSAGA:: ta_morphometry 28 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/ta_morphometry_28.html)
+\newline
+`fill_sink_SAGA_WL`: wrapper around the [RSAGA:: ta_preprocessor 4 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/ta_preprocessor_4.html)
+\newline
+`watershed_segmentation_SAGA`: wrapper around the [RSAGA:: imagery_segm 0 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_0.html)
+\newline
+`generate_seeds_SAGA`: wrapper around the [RSAGA:: imagery_segm 2 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_2.html)
+\newline
+`seeded_region_growing_SAGA`: wrapper around the [RSAGA:: imagery_segm 3 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_3.html)
+\newline
+`polygonize_segments_SAGA`: wrapper around the [RSAGA:: shapes_grid 6 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/shapes_grid_6.html)
+\newline
+`compute_shape_index_SAGA`: wrapper around the [RSAGA:: shapes_polygons 7 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/shapes_polygons_7.html)
+
+The **iSEGMound workflow** (Figure 41) consists of the following steps:
+
+**Step 0)** ***Data preprocessing*** 
+\newline
+The data pre-processing was done with the `lidR package` (@rousselLidRPackageAnalysis2020) and is described in Chapter 4.3. The corresponding R  scripts are:  **2_LiDAR_data_processing_tile_1.R**, **3a_LiDAR_data_processing_catalogue.R**, **3b_LiDAR_data_processing_AOI_catalogues.R**.
+
+**Step 1)** ***Data preparation***
+\newline
+The input raster is prepared either by the morphometric enhancement of burial mounds (Chapter 4.4.4) using the `generate_mtpi_SAGA` wrapper creating a ***MSTPI***. The algorithm originates from @guisanGLMCCASpatial1999 and @weissTopographicPositionLandform2001 and was implemented by @lindsayIntegralImageApproach2015 in **Whitebox GAT** and then applied by @guyotDetectingNeolithicBurial2018a. The algorithm used in the thesis is tool 28 from the **SAGA Morphometry toolbox**. Alternatively the DTM serves input raster.
+
+**Step 2)** ***iMound***
+\newline 
+**2a)** A ***mean filter*** is applied on the input raster (***DTM/MSTPI***) using the `filtR` wrapper function. The moving window was set to 3x3, because the Object of Interests (mounds) are represented quite shallow and we want to preserve delicate features but also profit form the filter function.
+\newline
+**2b)** To invert the filtered raster the `spatialEco::raster.invert` function is used. The equation implemented in this function in the `spatialEco` R package is the same as used @davisComparisonAutomatedObject2019b.
+\newline
+**2c)** Using the **pit filling algorithm** by Wang & Liu 2006 in the `fill_sink_SAGA_WL` wrapper form,  following @freelandAutomatedFeatureExtraction2016b and @romLandSeaAirborne2020b. 
+\newline
+**2d)** The pit-filled inverse raster is subtracted from the inverse raster. 
+
+The results contain the burial mounds but also a lot of other objects and information. This result is segmented in the third step. 
+
+**Step 3)** ***Segmentation*** 
+\newline
+**3a)** As a pre-processing method for the segmentation, the input raster of the segmentation is filtered with the different implemented filters: ***sum***, ***min***, ***max***, ***mean***, ***median***, ***modal***, ***sd*** and ***sobel*** to enhance  the burial mounds even more. @freelandAutomatedFeatureExtraction2016b, 69 mention a secondary filtering after the **iMound workflow**, thus this was tested out, computing all filters implemented in the `filtR` wrapper function. The filtered results were then checked in QGIS and compared to each other to choose the filter which prepares and exaggerates the mounds best for the segmentation. The chosen filter can be seen in the respective R scripts. 
+\newline
+**3b-i)** **Watershed Segmentation**
+\newline
+The `watershed_segmentation_SAGA` wrapper is used, following @niculitaGeomorphometricMethodsBurial2020b.
+\newline
+**3b-ii)** **Seeded Region Growing Segmentation**
+\newline
+**3b-ii-a)** First seed points have to be generated for the next step using the `generate_seedpoints_SAGA` wrapper.
+\newline
+**3b-ii-b)** These seed points are then used by the `region_growing_SAGA` wrapper to generate segments. To have a measure of goodness (not in the statistical way), **Seeded Region Growing** was implemented as an alternative segmentation method. **Region Growing Segmentation**, contrary to the **Watershed Segmentation**, is a bottom-up method and this contrast makes the two segmentation methods perfect for comparison. 
+\newline
+**3c)** The segmentation resulting from **3b-i)** and **3b-ii-b)** are raster, thus these have to be polygonized by the wrapper `polygonize_segments_SAGA` to transform the segments to polygons. 
+\newline
+**3d)** The polygonization is followed by joining touching segments together by the `create_regions` function, adapted from stackexchange.
+\newline
+**3d-i)** In the case of **Region Growing Segmentation** also the background was segmented, resulting in huge segments, thus before joining neighbouring segments, these big segments have to be purged. This can be done by plotting the segment with mapview and checking the ID of the big segments and then subset the segments by subtracting them.  
+\newline
+**3e)** After polygonization (and occasional purging from bigger segments created by **Region Growing Segmentation**), the **Shape Indices** of the segments are computed using the wrapper function `compute_shape_index_SAGA`.
+\newline
+**3f)** Additionally to the indices implemented in the **SAGA tool** three indices used by @niculitaGeomorphometricMethodsBurial2020b are implemented (*compactness*, *roundness*, *elongation*). 
+
+**Step 4)** ***Thresholding*** 
+\newline
+**4a)** A shapefile (mask) containing the known burial mounds of the **Training DTM** or the **Training Area** is loaded and overlaid on the segments resulting from the segmentation. The segments which comply with the mask are filtered and their **Shape Indices** (descriptors) are documented (a minimum to maximum range is recorded). Thus the threshold will not be set on basis of the "template"/optimal burial mounds, but on mounds which reflect "natural" features (will be elaborated in Chapter 5).
+\newline
+**4b)** As the last step the segmentation results are filtered for segments which have similar minimum to maximum descriptor range as the segments complying to the burial mound mask. 
+
+**Step 5)** ***Verification of results***
+\newline
+This covers the comparison of the results of the thresholding to the Train DTM, the Train Area and AoI 1-5 with the burial mounds mapped by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a. 
+
+The complete workflow can be inspected in Figure 41:
+
+```{r Figure41, echo=FALSE, fig.align='center', out.width="70%", out.height="70%", fig.cap="The detailed iSEGMound workflow."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_41.png')
+```
+
+All scripts are commented and instructions are given in the appropriate place. The comparison of the two segmentation methods is discussed in Chapter 5.

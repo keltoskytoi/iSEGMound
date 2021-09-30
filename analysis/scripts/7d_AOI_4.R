@@ -198,10 +198,7 @@ compute_shape_index_SAGA(segments=paste0(path_tmp, "segments.shp"),
 #####------------#11.CALCULATE ADDITIONAL DECRIPTIVE VARIAIBLES#------------####
 #----------------------------#LOAD SHAPE FILES & PLOT THEM#--------------------#
 segments_iSEG_mtpi_WS_AOI_4 <- readOGR(paste0(path_tmp, "segments.shp"))
-burial_mounds_5 <- readOGR(paste0(path_analysis_data_burial_mounds_Dobiat_1994, "5_Dobiat_1994.shp"))
-burial_mounds_7 <- readOGR(paste0(path_analysis_data_burial_mounds_Dobiat_1994, "7_Dobiat_1994.shp"))
-burial_mounds_14 <- readOGR(paste0(path_analysis_data_burial_mounds_Dobiat_1994, "14_Dobiat_1994.shp"))
-burial_mounds_35 <- readOGR(paste0(path_analysis_data_burial_mounds_Dobiat_1994, "35_Dobiat_1994.shp"))
+burial_mounds_32632 <-readOGR(paste0(path_analysis_data_burial_mounds_Dobiat_1994, "burial_mounds_32632.shp"))
 crs(segments_iSEG_mtpi_WS_AOI_4)
 #do not run, might bring R to crash
 #mapview::mapview(segments_iSEG_mtpi_WS_AOI3) + burial_mounds_5 + burial_mounds_7 + burial_mounds_14 + burial_mounds_35
@@ -226,101 +223,23 @@ rgdal::writeOGR(obj=segments_iSEG_mtpi_WS_AOI_4, dsn = "/home/keltoskytoi/repRCH
 ################################################################################
 #in case that you want to read the segments at a later point, you will have to
 #change the column names:
-segments_iSEG_mtpi_WS_ta <- readOGR(paste0(path_analysis_results_8b_iSEG05_mtpi_WS_ta,
-                                           "segments_shape_descriptive_joined_mtpi_WS_ta.shp"))
-#names(segments_iSEG_mtpi_WS_ta)
+segments_iSEG_mtpi_WS_AOI_4 <- readOGR(paste0(path_analysis_results_7d_iSEG05_AOI_4,
+                                           "segments_shape_descriptive_joined_mtpi_WS_AOI_4.shp"))
+names(segments_iSEG_mtpi_WS_AOI_4)
 #[1] "ID"      "A"       "P"       "P_A"     "P_sq_A_" "Depqc"   "Sphrcty" "Shp_Ind"
 #[9] "Dmax"    "DmaxDir" "Dmax_A"  "Dmx_s_A" "Dgyros"  "Fmax"    "FmaxDir" "Fmin"
 #[17] "FminDir" "Fmean"   "Fmax90"  "Fmin90"  "Fvol"    "cmpctns" "rondnss" "elongtn"
 
 ####----------------#12. THRESHOLD BASED FILTERING OF SEGMENTS--------------####
-##the segment IDs were checked in QGIS if not R would have crashed
-#NB: the Shape Index characterizes the deviation from an optimal circle. A Shape
-#Index of 1.4 - 1.7 can be seen as relatively compact but of course it depends
-#on the context
-#------------------basic descriptive values of the burial mounds---------------#
-#keep in mind, that you need to call ID+1!
-#### denominates burial mound segments with amorph stucture
-#------------------------#Dobiat 1994, Grave group 5#--------------------------#
-Mound_5_1 <- segments_iSEG_mtpi_WS_ta[10409,] #10408+1
-Mound_5_2 <- segments_iSEG_mtpi_WS_ta[9660,] #9659+1
-Mound_5_3 <- segments_iSEG_mtpi_WS_ta[8590,] #8589+1
-Mound_5_4 <- segments_iSEG_mtpi_WS_ta[9041,] #9040+1
-Mound_5_5 <- segments_iSEG_mtpi_WS_ta[8533,] #8532+1
-Mound_5_6 <- segments_iSEG_mtpi_WS_ta[9306,] #9305+1
-Mound_5_7 <- segments_iSEG_mtpi_WS_ta[10419,] #10418+1
-Mound_5_8 <- segments_iSEG_mtpi_WS_ta[11778,] #11777+1
-Mound_5_9 <- segments_iSEG_mtpi_WS_ta[6702,] #6701+1
-#------------------------#Dobiat 1994, Grave group 7#--------------------------#
-#Mound_7_1 <- segments_iSEG_mtpi_WS_ta[20489,] #20488+1 #### extremely elongated
-Mound_7_2 <- segments_iSEG_mtpi_WS_ta[20460,] #20459+1
-Mound_7_3 <- segments_iSEG_mtpi_WS_ta[21711,] #21710+1
-Mound_7_4 <- segments_iSEG_mtpi_WS_ta[23108,] #23107+1
-Mound_7_5 <- segments_iSEG_mtpi_WS_ta[24409,] #24408+1
-Mound_7_6 <- segments_iSEG_mtpi_WS_ta[24082,] #24081+1
-Mound_7_7 <- segments_iSEG_mtpi_WS_ta[25727,] #25726+1
-Mound_7_8 <- segments_iSEG_mtpi_WS_ta[26120,] #26119+1
-Mound_7_9 <- segments_iSEG_mtpi_WS_ta[26204,] #26203+1
-#------------------------#Dobiat 1994, Grave group 14#-------------------------#
-#Mound_14_1 <- segments_iSEG_mtpi_WS_ta[60160,] #60159+1 #### has an elongated tail
-Mound_14_2 <- segments_iSEG_mtpi_WS_ta[65456,] #65455+1
-Mound_14_3 <- segments_iSEG_mtpi_WS_ta[58359,] #58358+1
-Mound_14_4 <- segments_iSEG_mtpi_WS_ta[81481,] #81480+1
-Mound_14_5 <- segments_iSEG_mtpi_WS_ta[84210,] #84209+1
-#Mound_14_6 <- segments_iSEG_mtpi_WS_ta[84594,] #84593+1 ####
-Mound_14_7 <- segments_iSEG_mtpi_WS_ta[87096,] #87095+1
-Mound_14_8 <- segments_iSEG_mtpi_WS_ta[83486,] #83485+1 ####
-Mound_14_9 <- segments_iSEG_mtpi_WS_ta[90015,] #90014+1
-Mound_14_10 <- segments_iSEG_mtpi_WS_ta[90945,] #90944+1
-#Mound_14_11 <- segments_iSEG_mtpi_WS_ta[88236,] #88235+1 ####
-Mound_14_12 <- segments_iSEG_mtpi_WS_ta[91751,] #91750+1
-#Mound_14_13 <- segments_iSEG_mtpi_WS_ta[93759,] #93758+1 #### too elongated
-#Mound_14_14 <- segments_iSEG_mtpi_WS_ta[95099,] #95098+1 #### too elongated
-Mound_14_15 <- segments_iSEG_mtpi_WS_ta[96873,] #96872+1
-#Mound_14_16 <- segments_iSEG_mtpi_WS_ta[103663,] #103662+1 #### has an elongated tail
-Mound_14_17 <- segments_iSEG_mtpi_WS_ta[105097,] #105096+1
-#Mound_14_18 <- segments_iSEG_mtpi_WS_ta[106078,] #106077+1 #### has an elongated tail
-Mound_14_19 <- segments_iSEG_mtpi_WS_ta[89930,] #89929+1
-#------------------------#Dobiat 1994, Grave group 35#-------------------------#
-Mound_35 <- segments_iSEG_mtpi_WS_ta[13882,] #13881+1
-
-#bind the reference segments together:
-#minus Mound_7_1, Mound_7_9, Mound_14_6, Mound_14_8, Mound_14_11, because their amorphity
-#is small
-reference_descriptors_mtpi_WS_ta <- bind(Mound_5_1, Mound_5_2, Mound_5_3, Mound_5_4,
-                                         Mound_5_5, Mound_5_6, Mound_5_7, Mound_5_8,
-                                         Mound_5_9, Mound_7_2, Mound_7_3, Mound_7_4,
-                                         Mound_7_5, Mound_7_6, Mound_7_7, Mound_7_8,
-                                         Mound_14_2, Mound_14_3, Mound_14_4,
-                                         Mound_14_5, Mound_14_7, Mound_14_9, Mound_14_10,
-                                         Mound_14_12, Mound_14_15, Mound_14_17,
-                                         Mound_14_19, Mound_35)
-
-#we want to filter the segments even more, thus we also use the variable roundness
-min(reference_descriptors_mtpi_WS_ta$A) #45.25
-max(reference_descriptors_mtpi_WS_ta$A) #576
-min(reference_descriptors_mtpi_WS_ta$Sphrcty) #0.2951892
-max(reference_descriptors_mtpi_WS_ta$Sphrcty) #0.6417926
-min(reference_descriptors_mtpi_WS_ta$Shp_Ind) #1.558136
-max(reference_descriptors_mtpi_WS_ta$Shp_Ind) #3.387658
-min(reference_descriptors_mtpi_WS_ta$elongtn) #1.122967
-max(reference_descriptors_mtpi_WS_ta$elongtn) #1.913615
-min(reference_descriptors_mtpi_WS_ta$cmpctns) #0.09396165
-max(reference_descriptors_mtpi_WS_ta$cmpctns) #0.2042889
-min(reference_descriptors_mtpi_WS_ta$rondnss) #5.00867
-max(reference_descriptors_mtpi_WS_ta$rondnss) #22.2683
 ####---------------------------#MOUND THRESHOLDS#---------------------------####
-#let's filter for segments of the area, sphericity, shape index, elongation
-#and compactness
-
-#based on the experiences it is best to aim below and above the respective thresholds to get all mounds
-segments_iSEG_mtpi_WS_ta_filt <- segments_iSEG_mtpi_WS_ta[segments_iSEG_mtpi_WS_ta$A <= 576.1 & segments_iSEG_mtpi_WS_ta$A >= 45.20 &
-                                                            segments_iSEG_mtpi_WS_ta$Sphrcty >= 0.2951891 & segments_iSEG_mtpi_WS_ta$Sphrcty <= 0.6417927 &
-                                                            segments_iSEG_mtpi_WS_ta$Shp_Ind >= 1.558135 & segments_iSEG_mtpi_WS_ta$Shp_Ind <= 3.387660 &
-                                                            segments_iSEG_mtpi_WS_ta$elongtn >= 1.122960 & segments_iSEG_mtpi_WS_ta$elongtn <=1.913620 &
-                                                            segments_iSEG_mtpi_WS_ta$cmpctns >= 0.09396160 & segments_iSEG_mtpi_WS_ta$cmpctns <= 0.2042890 &
-                                                            segments_iSEG_mtpi_WS_ta$rondnss >= 5.00866 & segments_iSEG_mtpi_WS_ta$rondnss <= 22.2684,]
-mapview::mapview(segments_iSEG_mtpi_WS_ta_filt) + burial_mounds_5 + burial_mounds_7 + burial_mounds_14 + burial_mounds_35
+#let's filter for segment descriptors of iSEG_mtpi_WS_ta
+segments_iSEG_mtpi_WS_AOI_4_filt <- segments_iSEG_mtpi_WS_AOI_4[segments_iSEG_mtpi_WS_AOI_4$A <= 576.1 & segments_iSEG_mtpi_WS_AOI_4$A >= 45.20 &
+                                                                segments_iSEG_mtpi_WS_AOI_4$Sphrcty >= 0.2951891 & segments_iSEG_mtpi_WS_AOI_4$Sphrcty <= 0.6417927 &
+                                                                segments_iSEG_mtpi_WS_AOI_4$Shp_Ind >= 1.558135 & segments_iSEG_mtpi_WS_AOI_4$Shp_Ind <= 3.387660 &
+                                                                segments_iSEG_mtpi_WS_AOI_4$elongtn >= 1.122960 & segments_iSEG_mtpi_WS_AOI_4$elongtn <=1.913620 &
+                                                                segments_iSEG_mtpi_WS_AOI_4$cmpctns >= 0.09396160 & segments_iSEG_mtpi_WS_AOI_4$cmpctns <= 0.2042890 &
+                                                                segments_iSEG_mtpi_WS_AOI_4$rondnss >= 5.00866 & segments_iSEG_mtpi_WS_AOI_4$rondnss <= 22.2684,]
+mapview::mapview(segments_iSEG_mtpi_WS_AOI_4_filt) + burial_mounds_32632
 #------------------------------------------------------------------------------#
-rgdal::writeOGR(obj=segments_iSEG_mtpi_WS_ta_filt, dsn = "/home/keltoskytoi/repRCHrs/analysis/results/8b_iSEG05_mtpi_WS_ta",
-                layer ="iSEG_mtpi_WS_ta", driver = "ESRI Shapefile", verbose = TRUE, overwrite_layer = TRUE)
+rgdal::writeOGR(obj=segments_iSEG_mtpi_WS_AOI_4_filt, dsn = "C:/Users/kelto/Documents/iSEGMound/analysis/results/7d_iSEG05_AOI_4",
+                layer ="iSEG_AOI_4", driver = "ESRI Shapefile", verbose = TRUE, overwrite_layer = TRUE)

@@ -15,6 +15,9 @@ str(mounds_lit)
 #$ Method       : chr [1:41] "Machine Learning" "Machine Learning" "Machine Learning" "Template Matching" ...
 #$ OoI          : chr [1:41] "Tell mounds" "Tell mounds" "Tell mounds" "burial mounds" ...
 #$ Software_type: chr [1:41] "FOSS" "FOSS" "FOSS" "proprietary" ...
+
+#this files differs from the second by having an entry per method and not per
+#study as the second document
 ################################################################################
 mounds_lit_2 <- read.csv(file.path(path_analysis_data_literature_analysis,
                         "burial_mounds_short.csv"), header = TRUE, sep=",")
@@ -33,11 +36,13 @@ str(mounds_lit_2)
 #$ Software_type: chr [1:41] "FOSS" "FOSS" "FOSS" "proprietary" ...
 #$ access       : chr [1:31] "n/a" "n/a" "n/a" "equation" ...
 ################################################################################
-#-----------------------#WORKING WITH THE FIRST DATASET#-----------------------#
+#------------------------#WORKING WITH THE FIRST DATASET#----------------------#
 ################################################################################
+#extract the columns we are interested in
 mounds_lit_filt <- mounds_lit[, c(3:7)]
 #############################prepare/reshape the dataset########################
 ####----------------------------#using stats::ftable#-----------------------####
+#first we have to reorganize the table
 #check the different columns - also good for short and sweet summary:
 table(mounds_lit_filt$Year)
 #2006 2007 2009 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021

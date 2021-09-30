@@ -1,99 +1,542 @@
 # Results of the iSEGMound Workflow
 
-In this Master’s thesis two data preparation methods (using a plain DTM vs. a Multi-Scale Topographic Index, as described an explained in Chapter 4) and two segmentation methods (Watershed and Region Growing, as described in Chapter 2 and explained in Chapter 4) were examined, applied and compared, resulting in four workflows. The basic settings and the exact structure and process for the four workflows were tested and debugged on the Train DTM (one 1x1 km tile) and then applied and to the Train Area (five 1x1 km tile) to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. These settings were the adjusted and the most effective workflow was chosen (based on the Train Area). This was followed by the application of the selected workflow to the five Areas of Interests (AoI): AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5.
+In this Master’s thesis two data preparation methods (using a plain DTM vs. a ***MSTPI***, as described an explained in Chapter 4) and two segmentation methods (**Watershed** and **Region Growing**, as described in Chapter 2 and explained in Chapter 4) were examined, applied and compared, resulting in four workflows. The basic settings and the exact structure and process for the four workflows were tested and debugged on the Train DTM (one 1x1 km tile) and then applied and to the Train Area (five 1x1 km tile) to understand the relationship between the size of the area of investigation and the variable settings of the respective algorithms. These settings were the adjusted and the most effective workflow was chosen (based on the Train Area). This was followed by the application of the selected workflow to the five Areas of Interests (AoI): **AoI 1, AoI 2, AoI 3, AoI 4 and AoI 5**.
 
-First let's inspect the chosen morphometric derivative, the Multi-Scale Topographic Index (later MSTPI), on the example of the Train DTM (Figure 67). The burial mounds of Site ID 5 are clearly discernable and with a closer look also Site ID 35-1.  
+First let's inspect the chosen morphometric derivative, the ***MSTPI***, on the example of the Train DTM (Figure 42). The burial mounds of Site ID 5 are clearly discernable and with a closer look also Site ID 35-1. As a reminder let's overlay the burial mound groups **Site ID 5 (black)** and Site **ID 35-1 (blue)**: 
 
-```{r Figure 67, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Multi-Scale Topographic Index of the Train DTM, Scale 1:4450."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67.png')
+```{r Figure42, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Comparison of different point-cloud classification algorithms using IDW spatial interpolation. Left: MSTPI of the Training DTM. Right: Localisation of burial mound groups Site ID 5 and 35-1. Scale 1:4450"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_42_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_42_2.png')
 ```
-As a reminder let's see where the burial mound groups Site ID 5 (black) and Site ID 35 (blue) are located in the Training DTM:  
 
-```{r Figure 68, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Multi-Scale Topographic Index of the Train DTM with bruial mound groups Site ID 5 and 35. Scale 1:4450."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68.png')
+We know from @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, that **Site ID 35** was identified as two mounds (**Site ID 35-1** and **Site ID 35-2**). As in Chapter 4 discussed, only the mounds visible in Figure 42 were possible to be identified on ground.  
+
+## **Comparision of the different iSEGMound Workflows of the Training DTM**
+
+The workflows applied on the **Training DTM** are the following:
+\newline
+**5a_iSEG05_WS**, **5b_iSEG05_mtpi_WS**, **5c_iSEG05_RG**, and **5d_iSEG05_mtpi_RG**.
+
+To compare the results of the segmentation of the **Training DTM**, it is best to investigate those by segmentation. Left the **Watershed Segmentation** based on a DTM (**iSEG05_WS, orange segments**) and on the **MSTPI** (**iSEG05_mtpi_WS, lilac segments**). Right  the **Region Growing Segmentation** based on a DTM (**iSEG05_RG, light blue**) and on the **MSTPI** (**iSEG05_mtpi_RG, brown**):
+
+```{r Figure43, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="iSEG WS in orange and iSEG-mtpi-WS in lilac nect to iSEG-RG in light blue and iSEG-mtpi-RG in brown, Scale 1:4450."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_43_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_43_2.png')
 ```
-We know from Dobiat et al. 1994, that Site ID 35 was identified as two mounds. As in Chapter 4 discussed, the mounds visible in Figure 68 were possible to be identified on ground.  
 
-## **Results of the Training DTM**
+The first thing that catches the eyes is that both segmentation methods were able to detect Site **ID 35_1**, using the ***MSTPI***. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with morphometric derivatives. Also, when comparing the two segmentation methods, it is apparent, that **Watershed Segmentation** compared to **Region Growing** detected mostly all burial mounds, also as morphologically similar segments as the original mound forms and sizes). At a 1-tile level, the only difference between the **Watershed** and the **Region Growing Segmentations** in combination with a **MSTPI** is, that although **Region Growing Segmentation** gives less extra segments, but it gives often less smaller segments than the original archaeological objects and the Watershed Segmentation.  
+The basic comparison is illustrated by Table 6 and Figure 43 (above). At this stage it was not attempted to compare the results statistically because it was clear that a bigger area needs to be processed. 
 
-The workflows applied on the Training DTM are the following: 
-5a_iSEG05_WS, 5b_iSEG05_mtpi_WS, 5c_iSEG05_RG, and 5d_iSEG05_mtpi_RG.
+|Burial mounds|5a_iSEG05_WS| 5b_iSEG05_mtpi_WS|5c_iSEG05_RG |5d_iSEG05_mtpi_RG|
+|-------------|-----------:|-----------------:|------------:|----------------:|
+|Site ID 5-1  |detected    |detected          |detected     |detected         |                
+|Site ID 5-2  |detected    |detected          |not detected |detected         |                 
+|Site ID 5-3  |detected    |detected          |detected     |detected         |
+|Site ID 5-4  |detected    |detected          |detected     |detected         |
+|Site ID 5-5  |detected    |detected          |detected     |detected         |
+|Site ID 5-6  |detected    |detected          |detected     |detected         |
+|Site ID 5-7  |detected    |detected          |detected     |detected         |
+|Site ID 5-8  |detected    |detected          |detected     |detected         |
+|Site ID 5-9  |detected    |detected          |detected     |detected         |
+|Site ID 35-1 |not detected|detected          |not detected |detected         |
 
-Let's plot the results of the Training DTM by segmentation.
-Left the Watershed Segmentation based on a DTM (iSEG05_WS, orange segments) and on the SAGA MTPI (iSEG05_mtpi_WS, lilac segments). Right  the Region Growing Segmentation based on a DTM (iSEG05_RG, light blue) and on the SAGA MTPI (iSEG05_mtpi_RG, brown):
+Table: Comparison of detection success of burial mounds of the Training DTM between the different workflows.
 
-```{r Figure 69, echo=FALSE,fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="iSEG WS in orange and iSEG mtpi WS in lilac nect to iSEG RG in light blue and iSEG mtpi RG in brown, Scale 1:4450."}
+## **Comparison of the different iSEGMound Workflows of the Training Area**
+
+Before discussing the results of the segmentation, first let's inspect Site IDs 7 and 14. 
+
+**Site ID 7** is situated relatively near to the North of **Site IDs 5 and 35**. The group is constituted of 9 burials, roughly in an elongated line, counted from Southwest to Northeast. When inspecting the mounds, it can be seen that, similar to Site **ID 5-9**, these are also very near to the forestry commuting routes. Also they show erosion (mounds **Site ID 7-5 to 9**), mainly in road proximity. This situation has probably worsened since 2009/2010, the collection date of the LiDAR data and it can be postulated that their state deteriorated a lot more. This burial mound group is similarly preserved such as the average height of the mounds of **Site ID 5**.
+
+**Site ID 14** stretches a little further away to the South and consists of altogether 18 burials. This burial mound group spreads similarly elongated as **Site ID 7**, although a grouping can be made out in the center region of the group. What is striking about this group is, that many of the mounds - apart from mound 8, which is cut right at the middle - have been just missed or only slightly touched by service roads. The situation of burial mound **Site ID 14-8** already indicated, that it is going to be hard to detect this mound properly, because it might be will be difficult to distinguish from the road which is cutting it.  
+
+```{r Figure44, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Site ID 7, consituted of 9 burial mounds and Site ID 14, constituted of 18 burial mounds on the DTM, Scale 1:1200 and 1:3100."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_44_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_44_2.png')
+```
+
+The workflows applied on the **Training Area** are the following:
+\newline
+**6a_iSEG05_WS_ta**, **6b_iSEG05_mtpi_WS_ta**, **6c_iSEG05_RG_ta**, **6d_iSEG05_mtpi_RG_ta**.
+
+Because the ***Training Area** is too big to really see details when plotting the whole, three plots are going to be displayed: one overview to understand the number of segments and their distribution and then the two areas containing burial mounds (**Site IDs 5, 7 and 35 and Site ID 14**) will be plotted next to each other to see the exact segmentation results. 
+
+Inspecting first the results of the **Watershed Segmentation** of the **Training Area**, **iSEG05_WS_ta (pink segments)** and **iSEG05_mtpi_WS_ta (teal segments)** are plotted together (Figure 45). It is clearly visible from the overview, that the first impression of the **Training DTM** is reinforced: more segments are left over by using the **MSTPI**, which fit to minimum to maximum descriptor range of the *'threshold segments'* (described and explained in Chapter 4.5.3, step 4a). This means on the other hand of course more segments to check, but also more possibility to find previously unknown mounds. This will be investigated in the Discussion.  
+
+```{r Figure45, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG-WS-ta and iSEG-mtpi-WS-ta on the DTM, Scale 1:18000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_45.png')
+```
+
+When "zooming" in to the two areas containing burial mounds, we can see the following: the Northern are (left image of Figure 46) demonstrates again the advantage of using ***MSTPI***: the Site ID 35 is detected by the **iSEG05_mtpi_WS_ta** workflow, and also a second possible mound, which was only in the profile very slightly visible. **Site ID 9** was also detected (in green), although unknowingly: only after the `whitebox` ***MSTPI*** was checked against @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, became clear that that segment might be **Site ID 9**. This workflow is better in detecting mounds in this area than the **iSEG_WS_ta** workflow, which missed **Site ID 7-5,7-6,7-7 and 7-9**). 
+Looking at the Southern area (right image of Figure 74), **iSEG_WS_ta** workflow detected from **Site ID 14** 3 mounds more (**14-1, 14-8 and 14-11**) than the **iSEG05_mtpi_WS_ta** workflow, which detected **14-3** (but not detected by **iSEG05_WS_ta**).
+Although a little less accurate in the southern area, the **iSEG05_mtpi_WS_ta** workflow is more successful. 
+
+```{r Figure46, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG-WS-ta and iSEG-mtpi-WS ta on the DTM, Scale 1:3000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_46_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_46_2.png')
+```
+
+Considering the **Region Growing Segmentation**, the overview tells us, that after filtering generally less segments are left over, which fit to  minimum to maximum descriptor range as the segments complying to the burial mound mask:
+
+```{r Figure47, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:18000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_47.png')
+```
+
+Going into the details, **iSEG_RG_ta** is depicted in lime color and **iSEG_mtpi_RG_ta** in grass green. It is again clear, that using the ***MTPI*** , **Site ID 35** is detected, even if only the most visible one.
+The **iSEG_RG_ta** workflow does not detect all mounds from **Site ID 5** (5-2 is missing and 5-5 is minimally detected), although so far all workflows detected all mounds. In the case of **Site ID 7**, only 7-1 (at least a part of it), 7-2, 7-3 and 7-8 was detected. 
+The **iSEG mtpi_RG_ta** workflow did detect all mounds from **Site ID 5**, but it failed to detect **Site ID 7-4, 7-7 and 7-9**.
+Between the two workflows **iSEG_mtpi_RG_ta** is the more successful. 
+
+```{r Figure48, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:3000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_48_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_48_2.png')
+```
+
+\newpage
+## **Choice of the Best Fitting Segmentation Algorithm for the iSEGMound Workflow**
+
+We have seen, that it is clear, that ***MTPI*** as morphometric data preparation methods clearly enhances even the less well visible burial mounds and delineates the mounds more naturally. The remaining question is: how to choose between **Watershed** and **Region Growing Segmentation**? Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. 
+
+From the archaeological point of view the aim is to detect as many burial mounds as possible. This can be of course broken down to the question if we want to find the exact shape of the mounds or is the most important to detect as much as possible locations in any shape (e.g. just half or ¾ of a mound is detected) but to detect as many as possible of them. In the case of this Master's, the archaeological choice is definitely the **iSEG_mtpi_WS_ta** workflow. 
+
+The only statistical measure which was found the most approximately fitting to the question at hand is the *Jaccard Index* or *Intersection over Union*. This measure is used in Deep Learning as an evaluation metric to measure the accuracy of an object detection on the original data set.  
+
+```{r Figure49, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Values of Intersection over Union (IoU) or 'Jaccard Index'. Source: https://towardsdatascience.com/intersection-over-union-iou-calculation-for-evaluating-an-image-segmentation-model-8b22e2e84686."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_49.png')
+```
+
+The results of the **IoU** calculated can be seen in Table 7. The results of the **iSEG_mtpi_WS_ta** workflow are always more accurate than the results of the **iSEG_mtpi_RG_ta** workflow and where **iSEG_mtpi_WS_ta** has missed 6 mounds, **iSEG_mtpi_RG_ta** has missed 8. Based on the results of the **IoU**, it can be said also from a statistical point of view, that the **iSEG_mtpi_WS_ta** workflow was the most successful in the Train Area. 
+
+```{r Table7, echo=FALSE}
+table_7 <- read.csv(here::here('analysis/supplementary-materials/IoU_comparison.csv'))
+knitr::kable(table_7, longtable = T, booktabs = TRUE, caption = "Comparison of the IoU of iSEG-mtpi-WS-ta and iSEG-mtpi-RG-ta")
+```
+
+## **Application of the Finalized iSEGMound Workflow to the Areas of Interest**
+
+Based on the results of the **IoU** in Chapter 5.3, **iSEG_mtpi_WS_ta** was found the most successful workflow. Before discussing the Segmentation results of the individual Areas of Interest, it has to be advanced, how the reference minimum to maximum descriptor range (threshold) on which basis the segments of the AoIs were filtered was calculated.
+The minimum to maximum descriptor range values of the threshold were taken from the **iSEG_mtpi_WS_ta** workflow, that is the same threshold range was applied on the segmentation result of the AoIs, as was used in the case of **iSEG_mtpi_WS_ta**. 
+
+The results will be displayed according to the Areas of Interest: first an overview map of the AoI will be presented, then the Site IDs separately (***Hillshade*** and ***Hillshade*** with archaeologically interesting areas (beige shapes) the segmentation result, thus two plots). A profile of each mound can be inspected in the Supplements (they will be grouped according to Area of Interest and Site ID). 
+It has to be underlined, that the Site IDs were identified in the ***Hillshade*** 0.5 m DTM of the LiDAR data from 2009/2010 and by general visual analysis with the aid of @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Karte 1 and 2. Already @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a contains information of different time depth (primary information collection of the different Site IDs, that is their original publication and the publication date of @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a), and if we recall the case of the damaged burial mound of **Site ID 5-9**, then we have to take into account the time difference to the date of the acquisition of the LiDAR data set and the time of field walk. This all points to the fact, that certain burial mounds in List 1 and 2 in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a might not be identifiable neither by visual inspection of the (180 km2) LiDAR data nor with automated analysis methods, because the eroded mounds might present themselves totally different from the mounds which are used as precedents. Thus all archaeologically interesting areas can only be arbitrarily outlined. 
+To underline the statement that certain Site IDs are not identifiable any more, the profile of all Site IDs is depicted in the Supplement (Figures 90-). 
+
+### **Results for Area of Interest 1**
+
+In **Area of Interest 1** altogether 3 burial mound groups were documented by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a: **Site IDs 49, 61 and 51**. Area of Interest 1 proved to be very persistent in conveying the location of the mounds located by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a. The overview of the result of chosen threshold of the **iSEGMound workflow** is as follows: 
+
+```{r Figure50, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Overview of Area of Interest 1 with the result of the chosen threshold of the iSEGMound workflow, Scale 1:19000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_50.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Liste 2, 177 **Site ID 49** consists of altogether four mounds (in two groups: 49-1 in the North and 49-2 in the South). Only 1 mound was identified by segmentation: one of the mounds of 49-2 (Figure 51). It must be added, that the identification of the two mounds of Site ID 49-1 was more of a guess and the best fitting area was chosen when localizing Site ID 41 based on @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Karte 1. This circumstance occurs with multiple Site IDs throughout the whole case study area and is generally due to the diachronic information about the case study area. 
+
+When looking at the profiles of the bespoken Site ID 49 (Supplement, Figures 90 & 91), it has to be noted, that Site ID 49-1 seems to be quite eroded in comparison to Site ID 49-2 (Figure 91), where one burial mound was detected by the **iSEGMound workflow**.  
+```{r Figure51, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 1, Site ID 49. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_51_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_51_2.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Liste 2, 177 Site ID 51 consists of 3 mounds, in which case attempts were made to identify them based on the distribution map of @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Karte 1 (Figure 52). During this endeavor two more possible mounds were found more south (Site ID 51-3 and 4, Figures 94 & 95), in the direction to Site ID 61. Erosion traces can be identified in the case of Site ID 51-1 and 51-2 (Figure 92 & 93). Burial mounds 51-2 & 3 were detected. 
+
+```{r Figure52, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 1, Site ID 51-1-2-3-4. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_3.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_4.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_5.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_52_6.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Liste 2, 178 **Site ID 61** (Figure 53 and 96) should consist of two burial mounds, which are also visible in the ***Hillshade***. Only the northernmost burial mound (Site ID 61-1) was detected. 
+
+```{r Figure53, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 1, Site ID 61. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_53_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_53_2.png')
+```
+
+Altogether 4 mounds (49-2, 51-2, 51-3 and 61-1) were detected out of 9 mounds. The profiles give us more explanation why the other mounds might not have been detected. 
+
+### **Results for Area of Interest 2**
+
+In Area of Interest 2 altogether 5 burial mound groups were documented by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a: **Site IDs 30-34**. 
+The overview of the result of the chosen threshold of the **iSEGMound workflow** is as follows: 
+
+```{r Figure54, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Overview of Area of Interest 2 with the result of the chosen threshold of the iSEGMound workflow, Scale 1:15000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_54.png')
+```
+
+The attempt to identify Site IDs 31 and 33 produced only arbitrary identification, thus the localisation of archaeologically interesting areas (based on @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a) is by all means only vague (again). This too points to the fact, that erosion and land use has changed the geomorphology of the area and thus sites documented 1,5 decade before are a challenge to identify. 
+
+Th presumed **Site ID 30** (@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1) is disrupted by a built path but still protrudes 1 meter high (Figure 97) and was detected (Figure 55).
+
+```{r Figure55, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 2, Site ID 30. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_55_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_55_2.png')
+```
+
+In the case of **Site ID 31**, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1 based his information on the local records and postulates possible multiple burial mounds. The Site ID is neither identifiable nor detectable any more (Figure 56). This is underlined by the profile of the site (Figure 98).
+
+```{r Figure56, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 2, Site ID 31. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_56_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_56_2.png')
+```
+
+Site IDs 32, 33 and 34 were documented in 1962 together (@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1, Figures 57, 58, 59).
+
+**Site ID 32** (Figure 57) is wedged between two roads but still undisturbed (Figure 99). It was missed to detect it. 
+
+```{r Figure57, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 2, Site ID 32. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_57_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_57_2.png')
+```
+
+**Site ID 33** (Figure 58) presents itself in one of the profiles with more than 140 meter in diameter and more than 3 meters height but the cross section sheds a more sober light on Site ID 33: about 1 meter height and at most 30 m in diameter (Figure 100). The area is disturbed by natural path (natural in means of naturally developed by walking, not a built path) and because Site ID is strechted below a hillside terrace it might me also on natural origin. More investigation is needed to determine if Site ID 33 is actually a mound or not. Due to it's size (as comparison: Site ID 5-1 is 30 meters in diameter) it couldn't have been detected. 
+
+```{r Figure58, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 2, Site ID 33. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_58_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_58_2.png')
+```
+
+**Site ID 34** (Figure 59) is roughly preserved at 1 meter height at maximal height and stretches about 30 meter with strongly flattening flanks (Figure 101). The southern flank was disturbed by a natural path and if we look at the surroundings of Site ID 34 (Figure 59d), the question arises if we are really dealing with a burial mound.   
+
+```{r Figure59, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 2, Site ID 34. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_59_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_59_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_59_3.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_59_4.png')
+```
+
+The terrain chosen as Area of Interest 2 proved to be difficult to identify the burial mounds based on @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a. Out of the 5 sites, 3 (Site IDs 31, 33 and 34) are either too eroded or do not shelter burial mounds to be detected by algorithms. Merely Site ID 30 was detected. 
+
+### **Results for Area of Interest 3**
+
+In Area of Interest 3 altogether 14 burial mound groups were documented by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a: Site IDs 16-19. 
+
+The overview of the result of the chosen threshold of the **iSEGMound workflow** is as follows: 
+
+```{r Figure60, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Overview of Area of Interest 3 with the result of the chosen threshold of the iSEGMound workflow, Scale 1:29000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_60.png')
+```
+
+**Site ID 16** (Figure 61) is described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1 as harboring 4 flattened hardly recognizable mounds (in 1994). The presumed location was traced based on @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, Karte 2 (following the geographical markers in the map) but as the profile shows (Figure 102), no traces of burial mounds are to be find, neither in the surrounding area, probably due to erosion. 
+```{r Figure61, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 16. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_61_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_61_2.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1 **Site ID 17** (Figure 62) consists of 13 burial mounds and finds are known from 10 of them. Multiple sources discuss these burial mounds thus these are verified mounds. One reason why no traces can be found of these mounds is that the spatial interpolation algorithm of the LiDAR processing distorted the surface of the DTM. Another possibility is that the mounds were eroded and or excavated. The profile (Figure 103) across the Site ID underlines this.
+
+```{r Figure62, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 17. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:4000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_62_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_62_2.png')
+```
+
+In the case of **Site ID 18 and 19** there is no reason to discuss the sites because the area is completely built over and the mounds are destructed (Figure 63). Thus no profile was taken of these sites. 
+
+```{r Figure63, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Area of Interest 3, Site IDs 18-19. Hillshade and Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:4000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_63.png')
+```
+
+In connection with **Site ID 20** (Figure 64) @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1 mentions only one burial mound, which was not detected due to its vicinity to other similar geomorphological features in the terrain. The profile (Figure 104) underlines the high possibility of archaeological nature of Site ID 20.
+
+```{r Figure64, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 20. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_64_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_64_2.png')
+```
+
+**Site ID 21** (Figure 65) was described as consisting of 7 mounds (@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1), of which one was excavated. The identified location does not demonstrate bespoken seven mounds: hardly two are distinguishable, one definitely (Figure 105). No mound has been detected.
+
+```{r Figure65, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 21. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_65_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_65_2.png')
+```
+
+In the area of **Site ID 22** (Figure 66), @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1 identified about 30 burial mounds, from which about 13 are visible, disturbed by natural pathways an also bomb craters, possibly from WW II. Because the mounds are quite clearly identifiable no profile has been taken. 2 mounds were identified by the iMound workflow.
+
+```{r Figure66, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 22. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_66_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_66_2.png')
+```
+
+@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1 documented 17 burial mounds as **Site ID 23** which were excavated and destroyed by looting. More or less 11 mounds are visible (Figure 67) and it is clear that they are mounds (Figure 106), only that the spatial interpolation algorithm of the LiDAR processing distorted the surface of the DTM and thus the mounds are deformed. None of the mounds were detected.
+
+```{r Figure67, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 23. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_67_2.png')
+```
+
+**Site ID 24** (Figure 68) is documented as one burial mound by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1, which is outlined a bit deformed in the profile (Figure 107), also probably due to the spatial interpolation algorithm. It was not detected.
+
+```{r Figure68, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 24. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:700."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_68_2.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 174, Liste 1, it in not clear how many mounds **Site ID 25** (Figure 69) is supposed to consist of.
+The area identified as Site ID 25 is quite disrupted by natural paths and does not really show sings of burial mounds (Figure 108). No mound was detected.
+
+```{r Figure69, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 25. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1400."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_1.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_69_2.png')
 ```
 
-The first thing that catches the eyes is that both segmentation methods were able to detect Site ID 35, using the SAGA MTPI. Thus it is already clear from this early step on, that in the case of these scarcely preserved burial mounds it is useful to work with morphometric derivatives. When comparing the two segmentation methods, it is apparent, that Watershed segmentation produces more segments than Region Growing. 
+@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1, describes **Site ID 26** (Figure 70) as a cemetery with about 6 burial mounds and flat graves, of which many were excavated, during construction work. This points to the fact, that the area of the burial mounds was in use during the construction of the road nearby. Also multiple natural roads run through this area (Figure 109) which may overlay and erode possible traces of (excavated) burial mounds. 
 
-## **Results of the Training Area**
-
-Before discussing the results of the segmentations, first let's inspect Site ID 7 and Site ID 14. 
-
-Site ID 7 is situated relatively near to the North of Site IDs 5 and 35. The group is constituted of 9 burials, roughly in an elongated line, counted from Southwest to Northeast. When inspecting the mounds, it can be seen that, similar to Site ID 5-9, these are also very near to the forestry commuting routes. Also they already show erosion (mound Site ID 7-5 to 9), mainly in road proximity. This situation has already worsened since 2009/2010, the collection date of the LiDAR data. This burial mound group is similarly preserved such as the average height of the mounds of Site ID 5.
-
-Site ID 14 stretches a little further away to the South and consists of altogether 18 burials. This burial mound group spreads similarly elongated as Site ID 7, although a grouping can be made out in the center region of the group. What is striking about this group is, that many of the mounds - apart from mound 8, which is cut right at the middle - have been just missed or only slightly touched by service roads. The situation of burial mound Site ID 14-8 already indicated, that it is going to be hard to detect this mound properly, because it might be will be difficult to distinguish from the road which is cutting it.  
-
-```{r Figure 70, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Site ID 7, consituted of 9 burial mounds and Site ID 14, constituted of 18 burial mounds on the DTM, Scale 1:1200 and 1:3100."}
+```{r Figure70, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 26. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1400."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_1.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_70_2.png')
 ```
 
-The workflows applied on the Training Area are the following: 
-6a_iSEG05_WS_ta, 6b_iSEG05_mtpi_WS_ta, 6c_iSEG05_RG_ta, 6d_iSEG05_mtpi_RG_ta.
+In the case of **Site ID 27**, @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1, mentions that the 3 burial mounds identified here no longer exist any more due to construction works and Figure 71 reinforced this statement. Thus this site was not investigated further.  
+**Site ID 28** is also called "Botanischer Garten", which was previously comprised of 34 mounds. Almost all mounds were excavated and only some reconstructed while other mounds do not exist any more. Today the reconstructed mounds of this burial mound cemetery are part of the Botanical Garden of the Philipps University Marburg. This Site ID is included more for the completeness for the records. Only two of the reconstructed mounds were detected. 
 
-Because the Training Area is too big to really see details when plotting the whole, three plots are going to be displayed: one overview to understand the amount of segments and then the two areas containing burial mounds (Site IDs 5, 7 and 35 and Site ID 14) will be plotted next to each other to see the exact segmentation results. 
-
-Inspecting first the results of the Watershed Segmentation of the Training Area, iSEG05_WS_ta (pink segments) and iSEG05_mtpi_WS_ta (teal segments) are plotted together. It is clearly visible from the overview, that the first impression of the Training DTM is reinforced: more segments are left over by using the SAGA MTPI, which fit to *min* to *max* descriptor range as the segments complying to the burial mound mask. This means on the other hand of course more segments to check, but also more possibility to find previously not known mounds. This will be investigated in the Discussion.  
-
-```{r Figure 71, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG WS ta and iSEG mtpi WS ta on the DTM, Scale 1:18000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71.png')
+```{r Figure71, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 27-28. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_71_2.png')
 ```
 
-When "zooming" in to the two areas (Figure 73) containing burial mounds, we can see the following: 
-The Northern are (first image of Figure 74) demonstrates again the advantage of using MSTPI: the Site ID 35 is detected by the iSEG mtpi WS workflow, and also a second possible mound, which was only in the profile very slightly visible. Site ID 9 was also detected (in green), although unknowingly: only after the Whitebox MSTPI was checked against Dobiat et al. 1994, became clear that that segment might be Site ID 9. This workflow is better in detecting mounds in this area than the iSEG WS workflow, which missed Site Id 7-5,7-6,7-7 and 7-9). 
-Looking at the Southern area (second image of Figure 74), iSEG WS workflow detected from Site ID 14 3 mounds more (14-1, 14-8 and 14-11) than the iSEG mtpi WS workflow, which detected 14-3 (but not detected by iSEG WS).
-Although a little less accurate in the southern area, the iSEG mtpi WS workflow is more successful. 
+**Site ID X** (Figure 72) lies about 200 meter North of Site IDs 27 and 28 and consists of 3 mounds, of which all were detected. The profiles (Figure 111) suggest that these might be burial mounds, although not described in @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a. It has to be mentioned, that all the Site IDs (apart from Site ID 35) lie in forested areas, thus it is already incredible that so many burial mounds are known.  
 
-```{r Figure 72, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG WS ta and iSEG mtpi WS ta on the DTM, Scale 1:3000."}
+```{r Figure72, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID X. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_1.png')
 knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_72_2.png')
 ```
 
-Considering the Region Growing Segmentation, the overview tells us, that after filtering generally less segments are left over, which fit to *min* to *max* descriptor range as the segments complying to the burial mound mask:
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1 **Site ID 29** consists of at least 3 burial mounds (Figure 73), of which one was excavated. The **iSEGMound workflow** detected 3 mounds - the three to the left in the archaeologically interesting zone. According to the profile (Figure 110) the excavated mound might be the southern detected mound - in which case only one half of the mound was detected. 
 
-```{r Figure 73, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:18000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73.png')
+```{r Figure73, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 3, Site ID 29. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_73_2.png')
 ```
 
-Going into the details, iSEG_RG_ta is depicted in lime color and iSEG_mtpi_RG in grass green. It is again clear, that using the SAGA MTPI , Site ID 35 is detected, even if only the most visible one.
-The iSEG RG workflow does not detect all mounds from Site ID 5 (5-2 is missing and 5-5 is minimally detected), although so far all workflows detected all mounds. In the case of Site ID 7, only 7-1 (at least a part of it), 7-2, 7-3 and 7-8 was detected. 
-The iSEG mtpi RG workflow did detect all mounds from Site ID 5, but it failed to detect Site ID 7-4, 7-7 and 7-9.
-Between the two workflows iSEG mtpi RG is the more successful. 
+Area of Interest 3 sheltered altogether 15 Site IDs, of which 7 (Site IDs 16-19, 25-27) did not exactly offered reliable basis for burial mound detection. In the case of Site IDs 22 (only 2 of 13), 28, 29 and X it was possible to detect mounds, if not always all. 
 
-```{r Figure 74, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Plotting iSEG RG ta and iSEG mtpi RG ta on the DTM, Scale 1:3000."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_1.png')
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74_2.png')
+### **Results for Area of Interest 4**
+
+In Area of Interest 4 altogether 16 burial mound groups were documented by Dobiat et al. 1994: **Site IDs 1-15 and 35**. 
+
+The overview of result of the chosen threshold of the **iSEGMound workflow** is as follows (Figure 74): 
+
+```{r Figure74, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Overview of Area of Interest 4 with the result of the chosen threshold of the iSEGMound workflow, Scale 1:29000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_74.png')
 ```
 
-\newpage
-## **Choosing the best fitting segmentation**
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172, Liste 1, **Site ID 1** (Figure 75) was once comprised of 13 mounds, of which about 10 are still discernible in the ***Hillshade***. The profile (Figure 112) of the mounds underlines the fact, that many mounds are still visible. Five mounds of Site ID 1 were detected.
+**Site ID 4** was identified about 100 meters East of Site ID 1 (Figure 75). @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172, Liste 1 described this burial mounds group as consisting of 5 mounds. Either only two mounds are still visible or Site ID 4 was identified wrong. The profile of Site ID 4 (Figure 112) supports the assumption that there is at leas one mound in this archaeologically interesting area, but none was detected. 
 
-We have seen, that it is clear, that SAGA MTPI as morphometric data preparation methods clearly enhances even the less well visible burial mounds and delineates the mounds more naturally. The remaining question is: how to choose between Watershed and Region growing Segmentation? Which segmentation is better? Two different considerations were investigated: the archaeological decision and the statistical decision. 
-
-From the archaeological point of view the aim is to detect as many burial mounds as possible. This can be of course broken down to the question if we want to find the exact shape of the mounds (in the case of the Training DTM and Training Area) or is the most important to detect as much as possible locations in any shape (e.g. just half or ¾ of a mound is detected) but to detect as many as possible of them. In the case of this Master's, the archaeological choice is definately iSEG_mtpi_WS. 
-
-The only statistical measure which was found the most approximatively fitting is the *Jaccard Index* or *Intersection over Union*. This measure is used in Deep Learning as an evaluation metric to measure the accuracy of an object detection on the original data set. That is,  
-
-```{r Figure 75, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Values of Intersection over Union (IoU) or 'Jaccard Index'. Source: https://towardsdatascience.com/intersection-over-union-iou-calculation-for-evaluating-an-image-segmentation-model-8b22e2e84686."}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75.png')
+```{r Figure75, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 1 and 4. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_75_2.png')
 ```
 
-```{r Table 10, echo=FALSE}
-table_10 <- read.csv(here::here('analysis/supplementary-materials/IoU_comparison.csv'))
-knitr::kable(table_10, longtable = T, booktabs = TRUE,
-  caption = "Demo table")
+**Site ID 2** (Figure 76) was described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172, Liste 1 as a group of 12 mounds, of which only 5 are visible, some barely. The profiles (Figure 113) support the concept that these objects might be burial mounds. 3 mounds were detected. 
+
+```{r Figure76, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 2. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_76_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_76_2.png')
 ```
+
+@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 172, Liste 1 describes in the case of **Site ID 3**  two groups of burial mounds: one group of 5 and one of 2 mounds, both supposedly not traceable any more. The ***Hillshade*** of the archaeologically interesting zone (Figure 77) clearly shows, that the group of 5 burial mounds are easy to outline, but also two distinct mounds were found (and detected in the top left and bottom right corner of the archaeologically interesting area - also visible in the profile Figure 114). These two distinct mounds and two of the group of five were detected by the workflow. The profiles underline the mound nature of the often eroded objects of Site ID 3. Out of the 7 mounds only 4 mounds were detected.
+
+```{r Figure77, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 3. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_77_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_77_2.png')
+```
+
+@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 mentions in connection with **Site ID 5** eight mounds of which some are still visible and in connection with **Site ID 9** two mounds. Site ID 5 was used as reference site to estimate the threshold of the filtering process, applied in the last step of the **iMound workflow**. The profile of Site ID 5 have already been discussed in Chapter 4.1, Figure 26.
+Site ID 9 is a bit more tricky. In the case of Site ID 9 the ***MTPI*** calculated by `RSAGA` and the `whitebox` package helped to identify one possible mound of the presumed two (Figure 117), but the identification still remains questionable. A second mound is not identifiable, also because the area is quite eroded because it is next to a main road in the forest and also natural ways have developed through the alleged site. 
+In case of Site ID 5, 7 out of 9 mounds were detected (Figure 78). Site ID 9 was not detected, probably by the reasons explained above.
+
+```{r Figure78, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 5 and 9. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1700."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_78_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_78_2.png')
+```
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1, **Site ID 6** should constitute of 5 burial mounds. When inspecting the ***Hillshade*** of the identified location (Figure 79), the first thing that is visible that it is a quite rough area with many natural ways going on and also the structure of the spatial interpolation of the LiDAR point classification points to the fact, that the understorey vegetation must be quite dense. The profile (Figure 115) of Site ID 6 strengthens this opinion.
+
+```{r Figure79, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 6. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_79_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_79_2.png')
+```
+
+**Site ID 7** was described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 as consisting of 15 mounds which are only partially indentifiable was also used as reference for estimation of the threshold for the filtering process, applied in the last step of the iMound workflow. The profiles (Figure 116) underline the mound nature of these objects. All mounds were detected. 
+
+
+```{r Figure80, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 7. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_80_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_80_2.png')
+```
+
+**Site ID 8** was described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 as a group of today (well, in 1994) visible group of 7 mounds of which one was excavated. The localisation of this Site based on Karte 2 lead to an area NW of Site ID 6 (in about 200 m distance). Today only 4 mounds are visible (Figure 81). This Site extends along a crop field and two mounds were (partly) preserved by leaving stripes of untouched land protruding into the crop field. One can image what might have happened to the other mounds, although it must be said, that the spatial interpolation of the LiDAR point classification resulted in quite a turbulent surface with artifacts, also due to dense understorey vegetation. Consulting the profiles of these mounds (Figure 117) it is clear, that we definitely are dealing with 4 mounds. Only one mound was detected.  
+ 
+```{r Figure81, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 8. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_81_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_81_2.png')
+``` 
+ 
+**Site ID 10** is documented by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1, as a group of 8 mounds. In the archaeologically interesting zone identified as Site ID 10 (Figure 82), only 4 mounds are identifiable (Figure 119) and only 2 mounds were detected. This fact is definitely connected to the fact, that the mounds are lined up along a ridge and also a natural trail runs between them, also visibly damaging them.
+
+```{r Figure82, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 10. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:2000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_82_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_82_2.png')
+``` 
+
+According to @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1, **Site ID 11** consist of 2 mounds, although only traces of one mound was possible to identify (Figure 83,1). The results of the **iSEGMound workflow** point to a very flattened object, which, based on its profile might be a flattened mound (Figure 120). This area is also quite disturbed by forest works: traces of different path and driving tracks can be noticed, right by the presumed but not detected mound in the archaeologically interesting area. 
+
+```{r Figure83, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 11. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_83_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_83_2.png')
+```
+
+**Site ID 12** was documented by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 as originally consisting of 20 mounds from which three were excavated. In 1994 it was only possible to locate a few. In the ***Hillshade** 7 mounds a discernible (Figure 84) and 4 are detected by the **iSEGMound workflow**. The profiles (Figure 121) support the concept that these are burial mounds.
+
+```{r Figure84, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site IDs 12. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1250."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_84_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_84_2.png')
+```
+
+**Site ID 13** is described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 as one excavated mound. The mound is still visible in the ***Hillshade*** (Figure 85) and is just missed by a road used for driving trucks in the forest. The profile (Figure 122) points to the fact, that indeed the NW corner of the mound is damaged by the service road. This mound was not detected.
+
+
+```{r Figure85, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 13. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_85_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_85_2.png')
+```
+
+@dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1 describes **Site ID 14** as consisting of 17 to 19 mounds. The ***Hillshade*** of this archaeologically interesting area (Figure 86) reinforces, that there are indeed 19 mounds. The mounds are so clear, that no profile was taken and Site ID 14 was used as reference site to estimate the threshold of the filtering process, applied in the last step of the **iMound workflow**. Thus it would be desirable, that all of the mounds will be detected in the final chosen workflow - which did not happen: only 12 out of 19 mounds were detected. But we have to keep in mind, that also initially not all mounds were detected by **iSEG_mpti_WS_ta**, that is in the Training Area. Let's compare the results regarding Site ID 14:
+
+|Site ID 14 |iSEG_mtpi_WS_ta|iSEG AoI 4  |  
+|-----------|--------------:|-----------:|
+|1          |not detected   |not detected|
+|2          |detected       |detected    |      
+|3          |detected       |detected    |
+|4          |detected       |not detected|
+|5          |detected       |detected    |         
+|6          |not detected   |detected    |
+|7          |detected       |detected    |
+|8          |not detected   |not detected|
+|9          |detected       |detected    |
+|10         |detected       |detected    |
+|11         |not detected   |not detected|
+|12         |detected       |detected    |
+|13         |detected       |detected    |
+|14         |detected       |not detected|
+|15         |detected       |detected    |
+|16         |detected       |detected    |
+|17         |detected       |not detected|
+|18         |not detected   |not detected|
+
+Table: Comparison of the resluts of the results of the **iSEG_mtpi_WS_ta** and **iSEG AoI 4 workflows**.
+
+All things considered it has to be said that in the case of **iSEG AoI 4**, only 2 more mounds were missed compared to **iSEG_mtpi_WS_ta**. Also **iSEG AoI 4** detected Site ID 14-6, which was missed by **iSEG_mtpi_WS_ta**. 
+
+```{r Figure86, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 14. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:5000."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_86_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_86_2.png')
+```
+
+Based on @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 173, Liste 1, **Site ID 15** (Figure 87) was identified quite close to Site ID 12 (see Figure 74). Originally 2 mounds and a groups of 8 mounds should be identifiable. Two mounds were identified (Figure 123) but it needs to be said, that with a possible group of mounds might be identified W of the archaeologicaly interesting area, right along the border of the crop field. It is clear form the ***Hillshade***, that the spatial interpolation of the LiDAR point classification is in certain areas quite rough and points to the fact, that the understorey vegetation must be quite dense and thus the terrain is rugged.
+One of the two mounds in the center was detected. 
+
+```{r Figure87, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 15. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:1500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_87_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_87_2.png')
+```
+
+As already detailed in Chapter 4.1, **Site ID 35** was described by @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a, 175, Liste 1 as a group of two mounds. Site ID 35 is in the **Training DTM**, thus it was inspected on site and it was only possible to identify one mound. When consulting the MSTPI by the `whitebox` R package, it was noticed, that there might have been altogether three mounds, of which two are not visible in the ***Hillshade***. The third mound was only mentioned in the caption of Figure 24. Inspecting the detection results of Site ID 35, it can be only said that in the most extreme case only the right side of a possible third, completely destroyed mound was detected. This is all very questionable and could only be verified by field work. 
+
+```{r Figure88, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 4, Site ID 35. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:750."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_88_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_88_2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_88_3.png')
+```
+
+Of the 16 burial mound groups only one proved to be destroyed with the biggest probability. Many of the burial mound groups were detected - at least some mounds from the mound groups.  
+
+### **Results for Area of Interest 5**
+
+Area of Interest 5 consisting only of 4 tiles and is mainly aimed at detecting the Merovingian burial mounds NW of Germershausen. Inspecting Area of Interest 5, two archaeologically interesting areas have been found which will be discussed below.   
+
+The overview of result of the chosen threshold of the **iSEGMound workflow** is as follows (Figure 89): 
+
+```{r Figure89, echo=FALSE, fig.align='center', out.width="100%", out.height="100%", fig.cap="Overview of Area of Interest 5 with the result of the chosen threshold of the iSEGMound workflow, Scale 1:11500."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_89.png')
+```
+
+The Merovingian burial mounds are grouped along a service path in the forest and although the OSM map marks 9 mounds, only 8 can be identified in the ***Hillshade***. In addition, one of the mounds is separated by the service road, which is not highlighted in the freely available OSM map. It is visible, that 5 have been excavated (Figure 89,1). Unfortunately only one mound was detected (Figure 90,2).
+
+```{r Figure90, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 5, Merowingian burial mounds. Left: Hillshade. Right: Archaeological Zone with thresholded Watershed Segmentation result. Scale 1:750."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_90_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_90_2.png')
+
+```
+
+None of the other 2 archaeologically interesting areas were detected by the thresholding.
+
+At this point it has to be emphasized, that the actual detection results are the results of the chosen threshold, not the segmentation itself. If we look at the unthresholded/unfiltered segmentation result, we can see, that actually all Merovingian mounds have been detected (Figure 91). This is actually true of all areas, where the spatial interpolation of the LiDAR point cloud is not to much distorted due to dense vegetation. This point is going to be elaborated in the discussion.
+
+```{r Figure91, echo=FALSE, fig.align='center', out.width="50%", out.height="50%", fig.cap="Merowingian burial mounds with the result of the unthresholded Watershed Segmentation, Scale 1:750."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_91.png')
+```
+
+In the case of ?1 and ?2 the **Watershed Segmentation** gives differing results: ?1 is segmented accordingly but ?2 was not segmented as a mound form, because it stretched over the edge of a terrace, thus it is segmented together with the border of the terrace (Figure 92). There two examples demonstrate very clearly two dominant segmentation outcomes.
+
+```{r Figure92, echo=FALSE, fig.show='hold', out.width="50%", fig.align = "default", fig.cap="Area of Interest 5, undocumented probable sites. Left: unthresholded Watershed segmentation of ?1, Scale 1:500. Right: unthresholded Watershed segmentation of ?2, Scale 1:800."}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_92_1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_92_2.png')
+```
+
+## **Synoptic View of the Results of the Finalized iSEGMound Workflow**
+
+In **Area of Interest 1** altogether three burial mound groups are located: Site IDs 49, 61 and 51. Of the altogether 9 mounds 4 mounds (49-2, 51-2, 51-3 and 61-1) were detected. 
+In **Area of Interest 2** out of the 5 sites, 3 (Site IDs 31, 33 and 34) are either too eroded or do not shelter burial mounds to be detected by algorithms. Merely Site ID 30 was detected. 
+**Area of Interest 3** sheltered altogether 15 Site IDs, of which 7 (Site IDs 16-19, 25-27) did not exactly offered reliable basis for burial mound detection. In the case of Site IDs 22 (only 2 of 13), 28, 29 and X it was possible to detect mounds, if not always all. 
+Of the 16 burial mound groups in **Area of Interest 4** only one proved to be destroyed with the biggest probability. Many of the burial mound groups were detected - at least some mounds from the mound groups.
+
+
+|Site ID |Dobiat et al.    |    DTM05         |       AoI      |    Detection    |
+|--------|----------------:|-----------------:|---------------:|----------------:|
+|1       |orig. 13 mounds  |10? visible       |4               |5/10 detected    |
+|2       |12 mounds        |5? visible        |4               |3/5 detected     |
+|3       |orig. 5+2 mounds |5 + 1 + 1 visible |4               |4/7 detected     |
+|4       |5 mounds         |2 mounds visible? |4               |0/2 detected     |
+|5       |orig. 8 mounds   |9 visible         |4/training area |7/9 detected     |        
+|6       |5 mounds         |? visible         |4               |dense vegetation?|
+|7       |orig. 15 mounds  |9 visible         |4/training area |9/9 detected     |
+|8       |7 mounds         |4 visible         |4               |1/4 detected     |
+|9       |2 mounds         |1 in WB_MTPI      |4/training area |0/1 detected     |
+|10      |8 mounds         |4 visible?        |4               |2/4 detected     |
+|11      |2 mounds         |2 visible         |4               |1/2 detected     |
+|12      |orig. 20 mounds  |~ 7 visible       |4               |4/7 detected     |
+|13      |1 mound          |1 visible?        |4               |0/1 detected     |
+|14      |17-19 mounds     |18 visible        |4/training area |12/19 detected   |
+|15      |2+8 mounds       |2? visible        |4               |1/2 detected     |
+|16      |orig. 4 mounds   |?                 |3               |too eroded?      |
+|17      |13 mounds        |?                 |3               |dense vegetation?|
+|18      |not existent     |?                 |3               |destroyed        |
+|19      |5 mounds         |?                 |3               |destroyed        |
+|20      |1 mound          |1?                |3               |0/1 detected     |
+|21      |7 mounds         |2? visible        |3               |0/2 detected     |
+|22      |~ 30 mounds      |~13 visible       |3               |2/13 detected    |
+|23      |17 mounds        |~11 visible       |3               |0/11 detected    |
+|24      |1 mound          |1 visible         |3               |0/1 detected     |
+|25      |? mounds         |?                 |3               |too eroded?      |
+|26      |6 mounds         |?                 |3               |too eroded?      |
+|27      |orig. 3 mounds   |?                 |3               |destroyed        |
+|28      |orig. 34 mounds  |~17?              |3               |2/17? detected   |
+|29      |min. 3 mounds    |3?                |3               |3/3 detected     |  
+|30      |1 mound          |?                 |2               |1/1 detected     |
+|31      |? mounds         |?                 |2               |too eroded?      |
+|32      |1 mound?         |1 visible         |2               |0/1 detected     |
+|33      |1 mound          |?                 |2               |too eroded?      |
+|34      |1 mound          |1                 |2               |too eroded?      |
+|35      |2 mounds         |3 in WB_MTPI?     |4/training area |1/3? detected    |
+|49      |2x2 mounds       |2x2 mounds        |1               |1/4 detected     |
+|51      |1 + 2 mounds     |1 + 2 mounds      |1               |2/3 detected     |
+|61      |2 mounds         |2 mounds          |1               |1/2 detected     |
+
+Table: Comparison of the documented mounds in Dobiat et al. 1994, the visible mounds in the ***Hillshade/DTM** with 0.5 m resolution and the detected mounds. 
+
+If all identifiable mounds (except the Site IDs which are destroyed or eroded or show dense vegetation) are added together, then there are 144 detectable burial mounds in the Case Study Area. The **iSEGMound Workflow** with the threshold of the **iSEG05_mtpi_WS_ta workflow** detected 62 mounds, that is 43,05 %. 
+Although Site ID X in Area of interest was additionally detected, this result is sobering. In the next Chapter, the discussion it is elaborated, how and why this result was achieved and it will be discussed how it can be changed.  

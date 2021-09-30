@@ -1,1 +1,17 @@
 # Acknowlegements {.unnumbered}
+
+The analysis of Automated Analysis Methods in Archaeological Remote Sensing was inspired by Irmela Herzog, who invited me in 2019 to the 24th CHNT (Cultural Heritage and New Technologies) in Vienna to talk about my then research (Pixel-based Image Analysis) where I heard among others the presentations on which @romLandSeaAirborne2020b, @Kazimi2019SemiSL and @meyerAutomatedDetectionField2019a is based. These manifold directions lead me to the survey part of this thesis, to understand what has been done and how until now. This idea was enforced by the Machine Learning in Archaeology Conference held in Rome (subsequently after CHNT 24), where I heard the research on which @orengoAutomatedDetectionArchaeological2020a, @trierAutomatedMappingCultural2021a is based and many more inspiring talks and ideas.
+\newline
+The idea of reproducible research - as far as I was able to fulfill the aim in this Master's Thesis - was fueled by publications and R packages of Ben Marwick and my participation at several Sessions of the CAA SIG SSLA (Scientific Scripting Languages in Archaeology) since it's foundation in 2018. I would like to thank Oliver Nakoinz, who has encouraged me in 2018 after my EAA presentation to go further on the path of Quantitative Archaeology and reproducible practice.
+\newline
+Further several colleague, scholars and friends must be named, who inspired me with their questions or critique or their work. First I would like to thank the whole Geography Department in Marburg, which put up with my special ideas and questions all the time, not being a Geographer. I would like to thank Chris Reudenbach who opened for me the world of R and Computational Modelling and who's on point critiques made me want to be more precise and to understand this new world better and better.
+I met quite a few scholars on my visits to AARG, CAA and other conferences, but also online platforms are during Corona great for making connections with other scientists - having the same or similar problems, like different groups on Slack - this way I met Maria Elena Castiello whom I have to thank for the perfect Rumsfeld citation. Here I also met Sophie Schmidt who helped me to get started with an .Rmd. fitting for a thesis and not only a report. At this place I would also like to thank Luise Wraase and Simon Seyfried, who read Chapters 1 to 3 and gave useful advice.
+\newline
+There are many whom I want to thank because they inspired me one way or the other but the space should be filled with the thesis and not my ramblings. Speaking of ramblings - which is a saying of Rog Palmer: this way I am also thanking him for always keeping me on my toes about AI and Machine Learning - you are right, I am detecting here only round things, I saved the other objects for my Doctoral Dissertation. 
+\newline
+Penultimate but not less importantly I would like to thank Karsten Lambers, who took it upon himself to be second supervisor to this thesis and was scholarly, patient and compassionate about my situation of having already a job and still finishing up this thesis.
+\newline
+At last but not least I would like to thank my family: my parents and Róbert who endured the silent times when I was roaming on scientific grounds. 
+\newline
+Without all of you, I couldn't have finished this thesis.
+

@@ -1,0 +1,79 @@
+# Appendix
+
+In the following the `.R` scripts of the research compendium are addressed and can be found in the /scripts folder. The are commented scripts with instructions - evident instructions from the point of the view of the author but this view is of course always biased. 
+
+## R scripts
+
+`1_literature_analysis.R` 
+
+
+`2_LiDAR_data_processing_tile_1.R`
+\newline
+`3a_LiDAR_data_processing_catalogue.R`
+\newline
+`3b_LiDAR_data_processing_AOI_catalogues.R`
+\newline
+
+`4_data_preparation.R`
+\newline
+
+`5a_iSEG05_WS.R`
+\newline
+`5b_iSEG05_mtpi_WS.R`
+\newline
+`5c_iSEG05_RG.R`
+\newline
+`5d_iSEG05_mtpi_RG.R`
+\newline
+`6a_iSEG05_WS_ta.R`
+\newline
+`6b_iSEG05_mtpi_WS_ta.R`
+\newline
+`6c_iSEG05_RG_ta.R`
+\newline
+`6d_iSEG_mtpi_RG_ta.R`
+
+`7a_AOI_1.R`
+\newline
+`7b_AOI_2.R`
+\newline
+`7c_AOI_3.R`
+\newline
+`7d_AOI_4.R`
+\newline
+`7e_AOI_5.R`
+\newline
+
+
+`8_burial_mounds_segments_SHI.R`
+\newline
+`9_compare_segmentations.R`
+\newline
+`10_thresold_test.R`
+\newline
+
+`11_workflows.R`
+
+
+## Functions 
+`plot_crossection`: is borrowed from the [lidR cookbook](https://jean-romain.github.io/lidRbook/io.html#plot)
+\newline
+`create_regions`: was found on [stackexchange](https://gis.stackexchange.com/questions/79114/joining-nearest-neighbor-small-polygons-using-r)
+\newline
+`filtR`: was transformed function from a biodiversity seminar course 
+
+All the other functions are wrapper functions for SAGA tools, available in the RSAGA package:
+\newline
+`generate_mtpi_SAGA`: wrapper around the [RSAGA:: ta_morphometry 28 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/ta_morphometry_28.html)
+\newline
+`fill_sink_SAGA_WL`: wrapper around the [RSAGA:: ta_preprocessor 4 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/ta_preprocessor_4.html)
+\newline
+`watershed_segmentation_SAGA`: wrapper around the [RSAGA:: imagery_segm 0 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_0.html)
+\newline
+`generate_seeds_SAGA`: wrapper around the [RSAGA:: imagery_segm 2 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_2.html)
+\newline
+`seeded_region_growing_SAGA`: wrapper around the [RSAGA:: imagery_segm 3 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/imagery_segmentation_3.html)
+\newline
+`polygonize_segments_SAGA`: wrapper around the [RSAGA:: shapes_grid 6 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/shapes_grid_6.html)
+\newline
+`compute_shape_index_SAGA`: wrapper around the [RSAGA:: shapes_polygons 7 tool](http://www.saga-gis.org/saga_tool_doc/7.9.1/shapes_polygons_7.html)

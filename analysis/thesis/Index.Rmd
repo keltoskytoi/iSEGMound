@@ -1,85 +1,246 @@
 ---
-title: "iSEGMound – a Reproducible Workflow for Mound Detection in LiDAR-derived DTMs"
-subtitle: "Agnes Schneider"
-author: 
-- "Submitted in accordance with the requirements for the degree of Master of Science"
-- "Philipps-University Marburg" 
-- "Department of Physical Geography"
-
-site: bookdown::bookdown_site
-
-date: '16.09.2021'
-output: 
+title: " "
+output:
     bookdown::pdf_book:
       df_print: kable
       latex_engine: lualatex
-      fig_caption: yes
-      reference_docx: "../templates/template.docx" # Insert path for the DOCX file
-      pandoc_args:
-      - --lua-filter=../templates/scholarly-metadata.lua
-      - --lua-filter=../templates/author-info-blocks.lua
-      - --lua-filter=../templates/pagebreak.lua
-      fontsize: 12 pt
-      toc: true
-      toc-depth: 5
-      number_sections: true
-bibliography: "../templates/references.bib"
-csl: "../templates/antiquity.csl" # Insert path for the bib-style
+      number_sections: TRUE
+      extra_dependencies: "subfig"
+toc: false #very important!!!!
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 12pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{ragged2e}
+  - \usepackage{graphicx}
+  - \usepackage{lscape}
+  - \usepackage{longtable}
+  - \graphicspath{ {./figures/} }
+  - \usepackage{natbib}\bibliographystyle{agsm}
+  - \usepackage[nottoc, numbib]{tocbibind}
+  - \renewcommand{\contentsname}{} 
+bibliography: references.bib
+csl: antiquity.csl
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, 
+  tidy = TRUE, tidy.opts = list(comment = FALSE))
+options(tinytex.verbose = TRUE)
+```
+\newpage
+
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+\vspace{2cm}
+
+```{r uni_logo, echo=F, out.width="75%", out.height="75%",}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png')
+```
+
+\vspace{1cm}
+
+
+\Large
+
+\doublespacing
+\textbf{iSEGMound} \\
+A Reproducible Workflow for Mound Detection in LiDAR-derived DTMs
+
+\vspace{1 cm}
+
+\normalsize
+\singlespacing
+
+by
+
+\vspace{0.5 cm}
+
+\bf AGNES SCHNEIDER \\
+    
+\vspace{1.5 cm}
+\normalsize
+
+Master Thesis \\
+in partial fulfillment of the requirement \\
+for the degree of Master of Science in Physical Geography \\
+at the Philipps-Universität Marburg
+
+\vspace{2 cm}
+\end{centering}
+\textbf{Supervisor:}\space\space\space\space\space\ Dr. Christoph Reudenbach, Physical Geography 
+\newline
+\textbf{Co- Supervisor:} Dr. Karsten Lambers, Faculty of Archaeology, Leiden University
+\vspace{0.5 cm}
+\newline
+\textbf{Graduate:}\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\ Agnes Schneider
+\newline
+\textbf{Matriculation number:} 2689766
+\newline
+\textbf{E-Mail:} \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\ Schnei7v@students.uni-marburg.de; euboia@gmail.com
+\newline
+\textbf{Date of Submission:} \space\space\space\ 30.09.2021 
+
+\newpage
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\begin{centering}
+
+\vspace*{\fill}
+
+\begingroup.
+
+{\emph {“as we know, there are known knowns;\\ 
+there are things we know we know.\\
+We also know there are known unknowns; \\
+that is to say we know there are some things we do not know. \\
+But there are also unknown unknowns — \\
+the ones we don't know we don't know.“}} \\ 
+\vspace{0.25 cm}
+\emph{\textbf{Donald Rumsfeld}, United States Secretary of Defense} \emph{February 12, 2002}
+
+\endgroup.
+
+\vspace*{\fill}
+
+\end{centering}
 
 \newpage
 
-```{r acknowledgements, child = '00-Acknowledgements.Rmd'}
+\pagenumbering{roman}
+
+```{r Eigentstaendigkeit, fig.align='center', out.width="100%", out.height="100%", fig.cap=""}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Eigenstaendigkeitserklaerung.png')
+```
+
+\newpage
+\vspace{1 cm}
+\begin{centering}
+
+\bf Abstract
+
+\end{centering}
+
+\vspace{1 cm}
+
+This Master's thesis presents a workflow for (semi-)automated burial mound detection in LiDAR derived DEMs and their derivatives.
+\newline
+The thesis consists of two main sections. The first section starts with a discussion of Automated Archaeological Remote Sensing and its reception and perception in Archaeological Science, followed by the analysis of all published studies which have the aim to detect burial mounds or mound-like structures and are discussed in terms of used methods, software, accessibility of code and data. Then the toolbox for the thesis, a research compendium,  to implement the *desiderata* and requirements is discussed. 
+The second section start with the presentation of the case study area and the generalized workflow for automated analysis based on the studies discussed in the first section. This generalized workflow is the framework for the second part of the Master's thesis. As data-preprocessing step the generation of the used DTM from .LAZ file is explained and discussed, then as data preparation step different derivatives are calculated, explained and discussed and the ***Multi-Scale Topographic Index (MSTPI)*** is chosen as an alternative for a **DTM/Hillshade** for the workflow. Next, the used data analysis methods and workflows used as precedents are discussed (the most accessible workflow is **iMound** and the only one reproducible workflow is published and developed in `R` is Niculita 2020, a GeOBIA workflow). Then the created **iSEGMound Workflow** for this thesis, based on the nature and condition of the geomorphology of the case study area, is detailed and explained. Afterwards, the best workflow of various alternatives with different data preparation methods (***DTM*** or ***MSTPI***) and data analysis methods (**Watershed Segmentation** or **Region Growing Segmentation**) is chosen using the IoU/Jaccrad Index. Subsequently the results of the **iSEGMound Workflow** on the case study area is advanced, only to discuss and evaluate it in the last chapter.
+\newline
+This thesis propagates a highly adaptable workflow, which elements can be extracted and used independently.
+
+\newpage
+
+\centering
+\raggedright
+\newpage
+\tableofcontents
+
+\newpage
+
+\vspace{5mm}
+\justifying
+```{r preamble, child = '000-Preamble.Rmd'}
 ```
 
 \newpage
 
+\vspace{5mm}
+\justifying
+```{r acknowledgements, child = '00-Acknowledgements.Rmd'}
+```
+
+\newpage
 \pagenumbering{arabic}
+
+
+\vspace{5mm}
+\justifying
 
 ```{r intro, child = '01-Intro.Rmd'}
 ```
 
 \newpage
 
+\vspace{5mm}
+\justifying
+
 ```{r literature, child = '02-Literature.Rmd'}
 ```
 
 \newpage
+
+\vspace{5mm}
+\justifying
 
 ```{r materials, child = '03-Materials.Rmd'}
 ```
 
 \newpage
 
+\vspace{5mm}
+\justifying
+
 ```{r methods, child = '04-Methods.Rmd'}
 ```
 
 \newpage
+
+\vspace{5mm}
+\justifying
 
 ```{r results, child = '05-Results.Rmd'}
 ```
 
 \newpage
 
+\vspace{5mm}
+\justifying
+
 ```{r discussion, child = '06-Discussion.Rmd'}
 ```
 
 \newpage
+
+\vspace{5mm}
+\justifying
 
 ```{r conclusion, child = '07-Conclusion.Rmd'}
 ```
 
 \newpage
 
-```{r bibliography, child = '08-Bibliography.Rmd'}
+```{r supplements, child = '08-Supplements.Rmd'}
 ```
 
 \newpage
 
-```{r supplements, child = '09-Supplements.Rmd'}
+```{r appendix, child = '09-Appendix.Rmd'}
 ```
 
 \newpage
 
 ```{r colophon, child = '10-Colophon.Rmd'}
 ```
+
+\newpage
+
+# References
+\bibliography{references}
+

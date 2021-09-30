@@ -213,3 +213,5 @@ mapview(all_train_mounds)
 rgdal::writeOGR(obj=all_train_mounds, dsn = "C:/Users/kelto/Documents/iSEGMound/analysis/data/burial_mounds_Dobiat_1994",
                 layer ="all_train_mounds", driver = "ESRI Shapefile",
                 verbose = TRUE, overwrite_layer = TRUE)
+
+

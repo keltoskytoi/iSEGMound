@@ -1,16 +1,162 @@
 # Discussion
 
-After the technical review of studies which use automation to detect burial  mounds  and mound-like structures in Archaeological Remote Sensing data sets, the aim of this Master thesis was to detect burial mounds by using the most frequent and  easily reproducible methods in the repertoire. As already emphasized in Chapter II and IV, the most accessible workflow is iMound and the only one reproducible workflow in R is published and developed in R (Niculitca 2020). After detailing the framework of the thesis in Chapter III, chapter IV was dedicated to the iSEGMound workflow, the actual product of this Master’s thesis. 
+After the technical and methodological review of studies which use Automated Analysis to detect burial mounds and mound-like structures in Archaeological Remote Sensing data sets, the aim of this Master thesis was to detect burial mounds by using the most frequent and easily reproducible methods in the repertoire discussed in Chapter 2. As already emphasized in Chapter 2 and 4, the most accessible workflow is **iMound** and the only one reproducible workflow is published and developed in `R` is @niculitaGeomorphometricMethodsBurial2020b, a **GeOBIA workflow**. After elaborating on the framework of the thesis in Chapter 3, Chapter 4 was dedicated to the development of **iSEGMound Workflow**, the actual product of this Master’s thesis. Originally the idea was to implement the **iMound workflow**, but the topographical conditions (poorly preserved in the terrain) of the Objects of Interest, the burial mounds needed a different approach, thus it was decided to combine the two methods. 
+The choice of the Segmentation Algorithm used in the final **iSEGMound workflow**, the choice of filtering thresholds and the results of this workflow were presented in Chapter 5 before describing the results. During the description of the results of the Segmentation of the different Areas of Interests, multiple things became even clearer than before: 
+
+Using ***MSTPI*** gives really an advantage to enhance burial mounds. Unfortunately because of package update problems "only" the `(R)SAGA` ***MSTPI*** algorithm was available in `R` during the development of the workflow. When discussing **Site ID 35** (Chapter 4, Figure 24 & Chapter 5, Figure 88), the `whitebox` ***MSTPI*** of the **Training DTM** was used. Visually comparing the result of the `(R)SAGA` MSTPI to the `whitebox` ***MSTPI*** already shows, that the integral image approach enhances burial mounds even more, that the `(R)SAGA` MSTPI algorithm. It was not possible to simply interchange the two ***MSTPI*** results, because the integral image needs a different approach: it needs to be treated as a multi-layer image, similar to an RGB image.   
+There is a certain diachronic time depth and uncertainty in the Site IDs - the moment of the original recording of the site is different than that the publication of @dobiatForschungenGrabhugelgruppenUrnenfelderzeit1994a and the collection of the LiDAR data was done 15 years later (2009/2010). In addition the field walk in March 2021 happened 12 more years later, thus it is clear, that some objects might be a lot more eroded or even destroyed by natural path or service path in the forest. A good spatial interpolation method is crucial to create a detailed enough DTM. In instances, where the vegetation is dense, also a good/better spatial interpolation method cannot help to create a better results. Almost all Site IDs in the Areas of Interests are in forested areas. This all has contributed to the fact, that about eleven Site IDs could not be included in the analysis or yielded poor foundation for object detection (this was noted with each Site ID that it affected in Chapter 5. Still, this alone cannot explain the sober 43,05% detection result (62 detected mounds out of 144 mounds) in the Case Study Area, also because only those Site IDs were included which area contained visible mounds. It has to be pointed out, that one threshold range (of the **iSEG05_mtpi_WS_ta** workflow) was used for all Areas of Interest, which clearly did not work that well. It was tested on purpose how one threshold would work, which was based on a part of **Area of Interest 4** (Site IDs 5, 7, 14 and 35 served as reference mounds for the thresholds). It was no surprise, that the generally used threshold range worked in Area of Interest 4 the best: 50 of 85, that is 58,823 % detection result (Table 10.)
+
+|**Site ID**|**Dobiat et al.**|    **DTM05**     |     **AoI**    |  **Detection**  |
+|-----------|----------------:|-----------------:|---------------:|----------------:|
+|1          |orig. 13 mounds  |10? visible       |4               |5/10 detected    |
+|2          |12 mounds        |5? visible        |4               |3/5 detected     |
+|3          |orig. 5+2 mounds |5 + 1 + 1 visible |4               |4/7 detected     |
+|4          |5 mounds         |2 mounds visible? |4               |0/2 detected     |
+|5          |orig. 8 mounds   |9 visible         |4/training area |7/9 detected     |        
+|6          |5 mounds         |? visible         |4               |dense vegetation?|
+|7          |orig. 15 mounds  |9 visible         |4/training area |9/9 detected     |
+|8          |7 mounds         |4 visible         |4               |1/4 detected     |
+|9          |2 mounds         |1 in WB_MTPI      |4/training area |0/1 detected     |
+|10         |8 mounds         |4 visible?        |4               |2/4 detected     |
+|11         |2 mounds         |2 visible         |4               |1/2 detected     |
+|12         |orig. 20 mounds  |~ 7 visible       |4               |4/7 detected     |
+|13         |1 mound          |1 visible?        |4               |0/1 detected     |
+|14         |17-19 mounds     |18 visible        |4/training area |12/19 detected   |
+|15         |2+8 mounds       |2? visible        |4               |1/2 detected     |
+|35         |2 mounds         |2 in WB_MTPI      |4/training area |1/3? detected    |
+
+Table: The detection results of Area of Interest 4, compared to the original number of mounds in Dobiat et al. 1994 and the burial mounds visible in the DTM.
+
+Why did the threshold work so badly in all of the Areas of Interest? First let's compare the detection results of the **Training Area** to the detection result of the **Area of Interest 4**. In the case of the **Training Area** (scale of 5 tiles), the detection result was 82,5%, and on the **Area of Interest 4** (scale of 18 tiles) 72,5 %. Thus the same threshold gives different results on different sizes of area - which makes sense, because the variables of the ***MSTPI*** algorithm have to be changed according to the size of the Area of Interest. 
+
+|**Site ID**|**Dobiat et al.**|**Training Area**|   **AoI4**   |
+|-----------|----------------:|----------------:|-------------:|
+|5          |9 mounds visible |9/9 detected     |7/9 detected  |
+|7          |9 mounds visible |8/9 detected     |9/9 detected  |
+|14         |18 mounds visible|14/19 detected   |12/19 detected|
+|35         |3 mounds visible?|2/3 detected     |1/3  detected |
+
+Table: The detection results of Site IDs 5,7,14 and 35 in the Train Area versus Area of Interest 4.
+
+Now, the question is: are the thresholds mistaken or the result of the Watershed Segmentation itself? This argument was already addressed at the end of chapter 5: the "raw" Segmentation contains all the (burial mound) segments needed, in case that the burial mounds are not situated on geographically exposed and "problematic" or complex position (see also @cerrillo-cuencaApproachAutomaticSurveying2017a, 4 on this matter). This means, that the thresholding is the problem and points to the fact that also the thresholding has to change, accordingly to the increase in size - this only means, that with different scales of area, the scales of thresholding/filtering also has to change. To get a glimpse of this, let's compare the shape descriptors of Site ID 5, in the **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4** workflows (Table 12).  
+
+|     **Site ID**  |*Area*|*Sphericty*|*ShapeIndex*|*Elongation*|*Compactness*|*Roundness*|
+|------------------|:----:|----------:|-----------:|-----------:|------------:|----------:|
+|Site_ID5_1_WS_ta  |576   |0.4211772  |2.374298    |1.140856    |0.1340649    |22.2683    |
+|Site_ID5_1_WS_AoI4|590.75|0.4558742  |2.193588    |1.140856    |0.1451093    |22.83853   |
+|Site_ID5_2_WS_ta  |78.25 |0.53149    |1.881503    |1.168186    |0.1691785    |7.798604   |
+|Site_ID5_2_WS_AoI4|52    |0.3195337  |3.129561    |1.245981    |0.1017107    |5.048634   |
+|Site_ID5_3_WS_ta  |68.25 |0.6366466  |1.57073     |1.122967    |0.2026509    |7.86768    |
+|Site_ID5_3_WS_AoI4|66.5  |0.6150606  |1.625856    |1.137158    |0.1957799    |7.665945   |
+|Site_ID5_4_WS_ta  |83.75 |0.4915338  |2.034448    |1.201858    |0.1564601    |7.123866   |
+|Site_ID5_4_WS_AoI4|82.75 |0.4885905  |2.046704    |1.201858    |0.1555232    |7.038805   |
+|Site_ID5_5_WS_ta  |73.75 |0.5535072  |1.806661    |1.257404    |0.1761868    |7.527906   |
+|Site_ID5_5_WS_AoI4|72.25 |0.5380663  |1.858507    |1.283805    |0.1712718    |7.289991   |
+|Site_ID5_6_WS_ta  |159.75|0.4525746  |2.209581    |1.388532    |0.144059     |9.765713   |
+|Site_ID5_6_WS_AoI4|149.5 |0.5222127  |1.914929    |1.067092    |0.1662255    |11.89209   |
+|Site_ID5_7_WS_ta  |103.75|0.555502   |1.800174    |1.373006    |0.1768218    |8.189425   |
+|Site_ID5_7_WS_AoI4|100.75|0.5310711  |1.882987    |1.373006    |0.1690452    |7.952622   |
+|Site_ID5_8_WS_ta  |86    |0.53892    |1.855563    |1.366117    |0.1715436    |7.286651   |
+|Site_ID5_8_WS_AoI4|69.5  |0.5794649  |1.72573     |1.168269    |0.1844494    |7.087005   |
+|Site_ID5_9_WS_ta  |74    |0.4419485  |2.262707    |1.698944    |0.1406766    |6.191642   |
+|Site_ID5_9_WS_AoI4|69.25 |0.4999917  |2.000033    |1.448796    |0.1591523    |6.794626   |
+
+Table: Comparison of **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4** workflows in means of the segment descriptors of Site ID 5.
+
+The **iSEG05_AOI_4 workflow**, using the descriptor variables of the **iSEG05_mtpi_WS_ta** workflow did not detect Site ID 5-1 and and 5-6. Also Site ID 5-2 has different descriptors and was only partly detected, but that is due to the segmentation. To understand why, let's have a look at Table 13. The minimum and maximum of the threshold range for iSEG05_mtpi_WS_ta excludes ID 5-1 because of its *Area* and *Roundness*. The difference is minimal, but it is there. Calculating the difference between the values of *Area* and *Roundness* in relation to **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4**, in the case of Site ID 5-1 both values are increased by 2,56 %, over the increase of 5 to 18 tiles. 
+
+|**Descriptor**|   **min** |  **max** |
+|--------------|:---------:|---------:|
+|*Area*        |45.20      |576.1     |
+|*Sphericty*   |0.2951891  |0.6417927 |
+|*ShapeIndex*  |1.558135   |3.387660  |
+|*Elongation*  |1.122960   |1.913620  |
+|*Compactness* |0.09396160 | 0.2042890|
+|*Roundness *  |5.00866    |22.2684   |
+
+Table: The minimum and maximum of the threshold range for iSEG05_mtpi_WS_ta.
+
+When increasing maximum and decreasing the minimum values by 3%, a few more burial mounds are detected in Area of Interest 4, including Site ID 5-1 and 7-1. This was only base on one mound. Let's  calculate the (numeric (Table 15) and percentage (Table 16)) differences of all differences between the segment descriptors of Site ID 5 between **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4**, to see, how the difference/uncertainty in the other objects of Site ID 5 can be quantified and eventually addressed. 
+
+|     **Site ID**  |*Area*  |*Sphericty*|*ShapeIndex*|*Elongation*|*Compactness*|*Roundness*|
+|------------------|:------:|----------:|-----------:|-----------:|------------:|----------:|
+|Site_ID5_1_WS_ta  |576     |0.4211772  |2.374298    |1.140856    |0.1340649    |22.2683    |
+|Site_ID5_1_WS_AoI4|590.75  |0.4558742  |2.193588    |1.140856    |0.1451093    |22.83853   |
+|Site_ID5_2_WS_ta  |78.25   |0.53149    |1.881503    |1.168186    |0.1691785    |7.798604   |
+|Site_ID5_2_WS_AoI4|52      |0.3195337  |3.129561    |1.245981    |0.1017107    |5.048634   |
+|Site_ID5_3_WS_ta  |68.25   |0.6366466  |1.57073     |1.122967    |0.2026509    |7.86768    |
+|Site_ID5_3_WS_AoI4|66.5    |0.6150606  |1.625856    |1.137158    |0.1957799    |7.665945   |
+|Site_ID5_4_WS_ta  |83.75   |0.4915338  |2.034448    |1.201858    |0.1564601    |7.123866   |
+|Site_ID5_4_WS_AoI4|82.75   |0.4885905  |2.046704    |1.201858    |0.1555232    |7.038805   |
+|Site_ID5_5_WS_ta  |73.75   |0.5535072  |1.806661    |1.257404    |0.1761868    |7.527906   |
+|Site_ID5_5_WS_AoI4|72.25   |0.5380663  |1.858507    |1.283805    |0.1712718    |7.289991   |
+|Site_ID5_6_WS_ta  |159.75  |0.4525746  |2.209581    |1.388532    |0.144059     |9.765713   |
+|Site_ID5_6_WS_AoI4|149.5   |0.5222127  |1.914929    |1.067092    |0.1662255    |11.89209   |
+|Site_ID5_7_WS_ta  |103.75  |0.555502   |1.800174    |1.373006    |0.1768218    |8.189425   |
+|Site_ID5_7_WS_AoI4|100.75  |0.5310711  |1.882987    |1.373006    |0.1690452    |7.952622   |
+|Site_ID5_8_WS_ta  |86      |0.53892    |1.855563    |1.366117    |0.1715436    |7.286651   |
+|Site_ID5_8_WS_AoI4|69.5    |0.5794649  |1.72573     |1.168269    |0.1844494    |7.087005   |
+|Site_ID5_9_WS_ta  |74      |0.4419485  |2.262707    |1.698944    |0.1406766    |6.191642   |
+|Site_ID5_9_WS_AoI4|69.25   |0.4999917  |2.000033    |1.448796    |0.1591523    |6.794626   |
+
+Table: Segment descriptors of Site ID 5-1 to 9 of **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4**
+
+|**Site ID**|  *Area*|*Sphericty* |*ShapeIndex*|*Elongation*|*Compactness*|*Roundness*|
+|-----------|:------:|-----------:|-----------:|-----------:|------------:|----------:|
+|Site_ID5_1 |+14,75  |+0,034697   |-0,18071    |     0      |+0,0110444   |+0,57023   |
+|Site_ID5_2 |-26,25  |-0,2119563  |+1,248058   |+0,077795   |-0,0674678   |-2,74997   |
+|Site_ID5_3 |-1,75   |-0,021586   |+0,055126   |+0,014191   |-0,006871    |-0,201735  |
+|Site_ID5_4 |-1      |-0,0029433  |+0,012256   |     0      |-0,0009369   | 0,085061  |
+|Site_ID5_5 |-1,5    |-0,0154409  |+0,051846   |+ 0,026401  |-0,004915    |-0,237915  |
+|Site_ID5_6 |-10,25  |+0,0696381  |-0,114652   |-0,32144    |+0,0221665   |+2,126377  |
+|Site_ID5_7 |-3      |-0,0244309  |+0,082813   |     0      |-0,0077766   |-0,236803  |
+|Site_ID5_8 |-16,5   |+0,0405449  |-0,129833   |-0,197848   |+0,0129058   |-0,199646  |
+|Site_ID5_9 |-4,75   |+0,0580432  |-0,262674   |-0,250148   |+0,0184766   |+0,602984  |
+
+Table: Numeric difference between the Segment descriptors of Site ID 5-1 to 9 of **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4**.
+
+If we translate the numeric values to percentage (Table 16), we can inspect Table 17. First of all Site ID 5_2 has to be left out of consideration, because the segmentation "cut the mound in half", resulting 1/3 smaller object area and 2/3 bigger *Shape Index*, although the overall interdependence is already visible in the case of Site ID 5-2. 
+When we look at the descriptors it is visible, that *Sphericity* and *Compactness* usually positively correlate, except when not (Site ID 5-4). Also *Area* and *Roundness* correlate positivley, at least in about half of the mounds. This is of course not surprising, because the calculation of the descriptors is similar. 
+
+|**Site ID** |    *Area*   |   *Sphericty*  |*ShapeIndex*|*Elongation*| *Compactness* | *Roundness* |
+|------------|:-----------:|---------------:|-----------:|-----------:|--------------:|------------:|
+|Site_ID5_1  |**+2,5607%** |**+8,2381%**    |-7,6110%    |     0%     |**+8,2380%**   |**+2,5607% **|
+|*Site_ID5_2*|  *-33,5463%*|***-39,8796% ***|*+66,3330%* |*+6,6594%*  |**-39,8796%**  |*-35,2623%*  |
+|Site_ID5_3  |**-2,5641%** |**-3,3905%**    |+3,5095%    |+1,2637%    |**-3,3905%**   |**-2,5640%** |
+|Site_ID5_4  |**-1,1940%** |-0,5987%        |+0,6024%    |     0%     |-0,0059%       |**-1,1940%** |
+|Site_ID5_5  |    -2,0338% |**-2,7896%**    |+2,8697%    |+ 2,0996%   |**-2,7896%**   |-3,1604%     |
+|Site_ID5_6  |    -6,4162% |**+15,3870%**   |-5,1888%    |-23,1496%   |**+15,3870%**  |+21,7739%    |
+|Site_ID5_7  |  *-2,9126%* |**-4,3979%**    |+4,6002%    |     0%     |**-4,3979%**   |*-2,8915%*   |
+|Site_ID5_8  |    -19,18%  |**+7,5233%**    |-6,9969%    |-14,4825%   |**+7,5233%**   |-2,7398%     |
+|Site_ID5_9  |    -6,4189% |**+13,1334%**   |-11,6088%   |-14,7237%   |**+13,1340%**  |+9,7386%     |
+
+Table: Percentage difference between the Segment descriptors of Site ID 5-1 to 9 of **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4** (only up to 4 digits have been documented).
+
+Based on the percentage difference of the descriptors of the mounds of Site ID 5 in **iSEG05_mtpi_WS_ta** and **iSEG05_AOI_4** it is visible, that scale differences can be expressed in a numerical way. In this instance only Site ID 5 was used and thus this approach can only be approximation, because all Site IDs would need to be inspected on which the min and max range of the thresholds was based and it would be a whole new study and would go too far in this Master's thesis.
+To understand if it is possible to get a similar percentage on the detection as the detection of Site ID 5 in the **Training Area** (scale of 5 tiles, 82,5%)and on the **Area of Interest 4** (scale of 18 tiles, 72,5 %), it was tested using a rough average (10%) of the calculated percentage difference of Site ID 5 and try to fit it onto the Area of Interest 4. The calculation of the different descriptor values can be found in script `10_thresold_test.R`.
 
 
+|**Site ID**|**Dobiat et al.**|    **DTM05**     |**AoI 4 Detection**|**AoI 4 + 10 % Detection**|
+|-----------|----------------:|-----------------:|------------------:|-------------------------:|
+|1          |orig. 13 mounds  |10? visible       |5/10 detected      |7/10 detected             |
+|2          |12 mounds        |5? visible        |3/5 detected       |3/5 detected              | 
+|3          |orig. 5+2 mounds |5 + 1 + 1 visible |4/7 detected       |6/7 detected              | 
+|4          |5 mounds         |2 mounds visible? |0/2 detected       |0/2 detected              |
+|5          |orig. 8 mounds   |9 visible         |7/9 detected       |9/9 detected              |      
+|6          |5 mounds         |? visible         |dense vegetation?  |dense vegetation?         |
+|7          |orig. 15 mounds  |9 visible         |9/9 detected       |9/9 detected              |
+|8          |7 mounds         |4 visible         |1/4 detected       |3/4 detected              |
+|9          |2 mounds         |1 in WB_MTPI      |0/1 detected       |0/1 detected              |
+|10         |8 mounds         |4 visible?        |2/4 detected       |2/4 detected              |
+|11         |2 mounds         |2 visible         |1/2 detected       |2/2 detected              |
+|12         |orig. 20 mounds  |~ 7 visible       |4/7 detected       |5/7 detected              |
+|13         |1 mound          |1 visible?        |0/1 detected       |1/1 detected              |
+|14         |17-19 mounds     |18 visible        |12/19 detected     |19/19 detected            |
+|15         |2+8 mounds       |2? visible        |1/2 detected       |2/2 detected              |
+|35         |2 mounds         |2 in WB_MTPI      |1/3? detected      |2/3 detected              |
 
-Although the results of the segmentation(s) are not perfect (often the exact form of the burial mounds is not reached) they still offer a quite effective tool to filter the amount  of data to be examined. The input for the workflow can be either a DTM or a  MSTPI and from the results of the different workflows it is very clear, that the enhancement of the mounds leads to a better detection (see the case of burial mound group 35, where in the training DTM one and in the training area both mounds are visible), although the mounds can be definitely enhanced better.
+Table: Comparison of the new detection results of Area of Interest 4 with threshold range expanded by 10% in all directions, the original number of mounds in Dobiat et al. 1994, the burial mounds visible in the DTM, and the original detection for Area of Interest 4.
 
-Whitebox vs. SAGA 
-Technical problems: not updated packages etc. 
+The generally used threshold range detected in Area of Interest 4 50 of 85 burial mounds, which translated to a 58,823 % detection result. When using a threshold range of 10% less on the minimum end and 10% more on the maximum end, then 70 mounds are detected out of the 85, that is a 82,3529% detection result (Table 17). The code can be found in the R.file `10_thresold_test.R`.
 
-
-
-Shape index is a tricky thing, because the same value can mean different forms
-
-This means on the other hand of course more segments to check, but also more possibility to find previously not known mounds. This will be investigated in the Discussion.  
+Synoptically it has to be argued, that it is useful to have reference mounds (preferably ones, which represent the whole spectrum of diversity to be expected) to be able to calculate reference descriptor variables which are then set as a minimum to maximum threshold range. It was shown, that when using 'legacy' data, there will be a certain amount of uncertainty about the condition of the recorded sites which since may have disappeared. This uncertainty is increased by the fact, that when the defined threshold ranges are applied on a different scale as where the threshold range was identified, the Objects of Interests might change in their descriptive figures. When enough experience is given, an artificially set (not based on actually reference data) threshold range can also be set. An important knowledge gained is, that the threshold range should not be treated rigidly but a certain size of wiggle room should be allowed due to the factor of uncertainty. A solution to the scale problem is to divide any case study area in roughly equal sized sub-areas and to process them separately. 

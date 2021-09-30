@@ -1,0 +1,52 @@
+# Preamble {.unnumbered}
+
+Although this Master's thesis aspires to be as reproducible as possible in the form of a reproducible Research Compendium, hosted on Github, unfortunately the data set itself, on which the workflow is based, is not openly accessible. Although the Geography Department of the Philipps-Universität Marburg can use the LiDAR data for teaching purposes, it cannot be published anywhere.
+On the other hand, it is possible to request the data set [Hessische Verwaltung für Bodenmanagement und Geoinformation](Hessische Verwaltung für Bodenmanagement und Geoinformation). The following LAZ files were used: 
+
+**Train DTM:** 3dm_32482_5618_1_he.laz 
+\newline
+**Train Area:** 3dm_32482_5616_1_he.laz, 3dm_32482_5617_1_he.laz, 
+\newline
+3dm_32482_5618_1_he.laz, 3dm_32482_5619_1_he.laz, 3dm_32483_5616_1_he.laz
+\newline
+**Area of Interest 1:**  3dm_32480_5630_1_he.laz, 3dm_32480_5631_1_he.laz, 
+\newline
+3dm_32480_5632_1_he.laz, 3dm_32480_5633_1_he.laz, 3dm_32481_5630_1_he.laz, 
+\newline
+3dm_32481_5631_1_he.laz, 3dm_32481_5632_1_he.laz
+\newline
+**Area of Interest 2:**  3dm_32484_5630_1_he.laz, 3dm_32485_5630_1_he.laz, 
+\newline
+3dm_32485_5631_1_he.laz, 3dm_32485_5632_1_he.laz, 3dm_32486_5630_1_he.laz, 
+\newline
+3dm_32486_5631_1_he.laz, 3dm_32486_5632_1_he.laz
+\newline
+**Area of Interest 3:**  3dm_32484_5625_1_he.laz, 3dm_32485_5623_1_he.laz, 
+\newline
+3dm_32485_5624_1_he.laz, 3dm_32485_5625_1_he.laz, 3dm_32485_5626_1_he.laz, 
+\newline
+3dm_32486_5623_1_he.laz, 3dm_32486_5624_1_he.laz,3dm_32486_5625_1_he.laz, 
+\newline
+3dm_32486_5626_1_he.laz, 3dm_32486_5627_1_he.laz, 3dm_32487_5626_1_he.laz, 
+\newline
+3dm_32487_5627_1_he.laz, 3dm_32487_5628_1_he.laz
+\newline
+**Area of Interest 4:**  3dm_32480_5617_1_he.laz, 3dm_32481_5616_1_he.laz, 
+\newline
+3dm_32481_5617_1_he.laz, 3dm_32481_5618_1_he.laz, 3dm_32482_5616_1_he.laz, 
+\newline
+3dm_32482_5617_1_he.laz, 3dm_32482_5618_1_he.laz, 3dm_32482_5619_1_he.laz, 
+\newline
+3dm_32482_5620_1_he.laz, 3dm_32483_5616_1_he.laz, 3dm_32483_5618_1_he.laz,
+\newline
+3dm_32483_5619_1_he.laz, 3dm_32483_5620_1_he.laz, 3dm_32484_5618_1_he.laz, 
+\newline
+3dm_32484_5620_1_he.laz, 3dm_32484_5621_1_he.laz, 3dm_32485_5620_1_he.laz, 
+\newline
+3dm_32485_5621_1_he.laz
+\newline
+**Area of Interest 5:** 3dm_32478_5624_1_he.laz, 3dm_32479_5624_1_he.laz, 
+\newline
+3dm_32480_5624_1_he.laz, 3dm_32481_5624_1_he.laz
+
+The code for the workflow and the Thesis itself (in multiple parts because the Supplement is too big) can be found on [Github:](https://github.com/keltoskytoi/iSEGMound)

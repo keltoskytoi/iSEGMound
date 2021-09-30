@@ -1,0 +1,269 @@
+# Supplements
+
+Supplement_1, Supplement_2 and Supplement_3 are in the *supplementary-materials* folder in the repository. In the printed version, these Supplements are to be found after the References, at the end of the document.
+
+```{r FigureS, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Figure S. Comparison of different point-cloud classification algorithms using IDW spatial interpolation. Left to Right: IDW05 default setting to IDW05-5. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_S1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_S2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_S3.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_S4.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Figure_S5.png')
+```
+
+\newpage
+## Area of Interest 1
+
+Note that the profiles run from left to right and top to bottom.
+
+```{r FigureAOI1-49-1, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 49-1. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_2000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_1_2000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_1_2000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_1_2000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_1_2000_prof_b2.png')
+```
+
+```{r FigureAOI1-49-2, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 49-2. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_2000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_2_2000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_49_2_2000_prof2.png')
+```
+
+```{r FigureAOI1-51-1, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 51-1. Scale 1:500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-1_500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-1_500_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-1_500_prof2.png')
+```
+
+```{r FigureAOI1-51-2, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 51-2. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-2_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-2_1000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-2_1000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-2_1000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-2_1000_prof_b2.png')
+```
+
+```{r FigureAOI1-51-3, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 51-3. Scale 1:500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-3_500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-3_500_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-3_500_prof2.png')
+```
+
+```{r FigureAOI1-51-4, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 51-2. Scale 1:500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-4_500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-4_500_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_51-4_500_prof2.png')
+```
+
+```{r FigureAOI1-61, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 61-1 (N) and 61-2 (S). Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_61_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_61_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_61_1000_prof2.png')
+```
+
+\newpage
+## Area of Interest 2
+
+```{r FigureAOI2-30, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 30. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_30_800.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_30_800_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_30_800_prof2.png')
+```
+
+```{r FigureAOI2-31, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 31. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_31_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_31_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_31_1000_prof2.png')
+```
+
+```{r FigureAOI2-32, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 32. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_32_800.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_32_800_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_32_800_prof2.png')
+```
+
+```{r FigureAOI2-33, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 33. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_33_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_33_1000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_33_1000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_33_1000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_33_1000_prof_b2.png')
+```
+
+```{r FigureAOI2-34, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 34. Scale 1:500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_34_500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_34_500_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_34_500_prof2.png')
+```
+
+\newpage
+## Area of Interest 3
+
+```{r FigureAOI3-16, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 16. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_16_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_16_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_16_1000_prof2.png')
+```
+
+```{r FigureAOI3-17, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 17. Scale 1:4000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_17_4000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_17_4000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_17_4000_prof2.png')
+```
+
+```{r FigureAOI3-20, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 20. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_20_800.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_20_800_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_20_800_prof2.png')
+```
+
+```{r FigureAOI3-21, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 21. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_21_800.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_21_800_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_21_800_prof2.png')
+```
+
+```{r FigureAOI3-23, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 23. Scale 1:1500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_c1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500_prof_c2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_23_1500.png')
+```
+
+```{r FigureAOI3-24, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 24. Scale 1:700"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_24_700.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_24_700_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_24_700_prof2.png')
+```
+
+```{r FigureAOI3-25, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 25. Scale 1:1400"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_25_1400.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_25_1400_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_25_1400_prof2.png')
+```
+
+```{r FigureAOI3-26, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 26. Scale 1:1400"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_26_1400.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_26_1400_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_26_1400_prof2.png')
+```
+
+```{r FigureAOI3-29, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 29. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_29_2000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_29_2000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_29_2000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_29_2000_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_29_2000.png')
+```
+
+```{r FigureAOI3-X, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID X. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_X_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_X_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_X_1000_prof2.png')
+```
+
+\newpage
+## Area of Interest 4
+
+```{r FigureAOI4-1-4, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 1 and 4. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_c1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_c2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_d1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_1_4_2000_prof_d2.png')
+```
+
+```{r FigureAOI4-2, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 2. Scale 1:2500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_c1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_2_2500_prof_c2.png')
+```
+
+```{r FigureAOI4-3, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 3. Scale 1:2500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_c1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_c2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_d1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_3_2500_prof_d2.png')
+```
+
+```{r FigureAOI4-6, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 6. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_6_2000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_6_2000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_6_2000_prof_a2.png')
+```
+
+```{r FigureAOI4-7, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 7. Scale 1:1500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_b2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_c1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_7_1500_prof_c2.png')
+```
+
+```{r FigureAOI4-8, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 8. Scale 1:1500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_8_1500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_8_1500_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_8_1500_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_8_1500_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_8_1500_prof_b2.png')
+```
+
+```{r FigureAOI4-9, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 9. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_9_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_9_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_9_1000_prof2.png')
+```
+
+```{r FigureAOI4-10, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 10. Scale 1:2000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_10_2000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_10_2000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_10_2000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_10_2000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_10_2000_prof_b2.png')
+```
+
+```{r FigureAOI4-11, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 11. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_11_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_11_1000_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_11_1000_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_11_1000_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_11_1000_prof_b2.png')
+```
+
+```{r FigureAOI4-12, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 12. Scale 1:1250"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_12_1250.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_12_1250_prof_a1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_12_1250_prof_a2.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_12_1250_prof_b1.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_12_1250_prof_b2.png')
+```
+
+```{r FigureAOI4-13, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 13. Scale 1:1000"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_13_1000.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_13_1000_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_13_1000_prof2.png')
+```
+
+```{r FigureAOI4-15, echo=FALSE, fig.show='hold', fig.align = "default", out.width="50%", out.height="50%", fig.cap="Profile of Site ID 15. Scale 1:1500"}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_15_1500.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_15_1500_prof.png')
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/Site_ID_15_1500_prof2.png')
+```

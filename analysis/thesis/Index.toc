@@ -1,0 +1,43 @@
+\contentsline {section}{Preamble}{v}{section*.3}%
+\contentsline {section}{Acknowlegements}{vii}{section*.4}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Exploitation of Automated Analysis Methods to detect burial mounds and structurally similar archaeological objects: a survey}{7}{section.2}%
+\contentsline {section}{\numberline {3}Towards a Paradigm Shift in Archaeological Remote Sensing practice by means of Tool-driven Automated Analysis}{25}{section.3}%
+\contentsline {section}{\numberline {4}Applied Mound Detection}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}\textbf {The Case Study Area}}{31}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}\textbf {The General Workflow of Automated Analysis Methods}}{43}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}\textbf {Data Pre-Processing}}{45}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}\textbf {DTM Generation by Testing Different Algorithms}}{45}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}\textbf {Processing LAZ/LAS Data Sets With LAScatalog}}{58}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}\textbf {Data Preparation}}{60}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}\textbf {Visualization Methods}}{61}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}\textbf {Textural Analysis}}{61}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}\textbf {Morphometric Analysis}}{62}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}\textbf {Morphometric Enhancement and Extraction of Specific Features}}{64}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}\textbf {Data Analysis}}{65}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}\textbf {Geometric Knowledge-Based Analysis}}{66}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}\textbf {GeOBIA}}{68}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}\textbf {iSEGMound}}{69}{subsubsection.4.5.3}%
+\contentsline {section}{\numberline {5}Results of the iSEGMound Workflow}{76}{section.5}%
+\contentsline {subsection}{\numberline {5.1}\textbf {Comparision of the different iSEGMound Workflows of the Training DTM}}{77}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}\textbf {Comparison of the different iSEGMound Workflows of the Training Area}}{78}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}\textbf {Choice of the Best Fitting Segmentation Algorithm for the iSEGMound Workflow}}{83}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}\textbf {Application of the Finalized iSEGMound Workflow to the Areas of Interest}}{85}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}\textbf {Results for Area of Interest 1}}{86}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}\textbf {Results for Area of Interest 2}}{88}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}\textbf {Results for Area of Interest 3}}{92}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}\textbf {Results for Area of Interest 4}}{98}{subsubsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.5}\textbf {Results for Area of Interest 5}}{107}{subsubsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.5}\textbf {Synoptic View of the Results of the Finalized iSEGMound Workflow}}{108}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Discussion}{111}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{120}{section.7}%
+\contentsline {section}{\numberline {8}Supplements}{122}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Area of Interest 1}{123}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Area of Interest 2}{126}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Area of Interest 3}{128}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Area of Interest 4}{133}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Appendix}{140}{section.9}%
+\contentsline {subsection}{\numberline {9.1}R scripts}{140}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Functions}{141}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Colophon}{142}{section.10}%
+\contentsline {section}{\numberline {11}References}{145}{section.11}%

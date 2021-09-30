@@ -1,39 +1,22 @@
-Site_ID,Dobiat _et_al_1994,DTM05,AoI
-1,"13 mounds, some are still visible",12? visible,4
-2,12 mounds ,11-12? visible,4
-3,"5 + 2 mounds, not visible any more ",5 + 1 + 1 visible,4
-4,5 mounds ,2 mounds visible?,4
-5,"8 mounds, some are still visible",9 visible,4/training area
-6,5 mounds,3? visible,4
-7,"15 mounds, some are still visible",9 visible,4/training area
-8,7 mounds,4 visible,4
-9,2 mounds,1 visible in WB_MTPI,4/training area
-10,8 mounds,4 visible?,4
-11,2 mounds ,2 visible,4
-12,"orig. 20 mounds, only few visible",~ 12 visible,4
-13,1 mound,2 visible?,4
-14,19 mounds,19 visible,4/training area
-15,2 + 8 mounds,2? visible,4
-16,"4 flat mounds, hardly visible",?,3
-17,13 mounds,10? visible,3
-18,3 mounds,destroyed,4
-19,5 mounds,destroyed?,3
-20,? mounds,?,3
-21,7 mounds,3 visible,3
-22,~ 30 mounds? not clear if mounds,~ 20 visible,3
-23,17 mounds ,~ 11 visible,3
-24,1 mound,2? mounds,3
-25,? mounds,?,3
-26,6 mounds,? ,3
-27,"3 mounds, destroyed?",destroyed by road?,3
-28,"34 mounds, not all existent ",~ 17?,3
-29,at least 3 mounds,5?,3
-30,1 mound,destroyed by road?,2
-31,? mounds,?,2
-32,1 mound?,1 visible,2
-33,1 mound,?,2
-34,1 mound,1+1 bit N ?,2
-35,"2 mounds in the field, ploughed ",in WB_MTPI visible,4/training area
-49,2x2 mounds,2x2 mounds,1
-51,1 + 2 mounds,1 + 2 mounds,1
-61,2 mounds,2 mounds,1
+POINT_CLOUD_CLASSIFICATION,,,,,,
+Progressive Morphological Filter,,,,,,
+,ws,th,,,,
+pmf ,5,3,,,,
+pmf_th1,5,1,,,,
+pmf_th05,5,0.5,,,,
+pmf_th005,5,0.05,,,,
+Cloth Simulation Function,,,,,,
+,sloop_smooth,class_threshold,cloth_resolution,rigidness,iterations,time_step
+csf,FALSE,0.5,0.5,1,500,0.65
+csf2,TRUE,0.5,0.5,1,500,0.65
+csf3,TRUE,0.5,0.5,2,500,0.65
+SPATIAL INTERPOLATION,,,,,,
+Traingulated Irregular Network (TIN),,,,,,
+_tin05,default,,,,,
+Inverse Distance Weighing,,,,,,
+,k,p,rmax,,,
+_idw05,10,2,50,,,
+_idw05_2,50,3,50,,,
+_idw05_3,5,2,25,,,
+_idw05_4,20,4,50,,,
+_idw05_5,50,6,25,,,

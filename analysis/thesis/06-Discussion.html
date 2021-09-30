@@ -169,11 +169,357 @@ pre code {
 
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>After the technical review of studies which use automation to detect burial mounds and mound-like structures in Archaeological Remote Sensing data sets, the aim of this Master thesis was to detect burial mounds by using the most frequent and easily reproducible methods in the repertoire. As already emphasized in Chapter II and IV, the most accessible workflow is iMound and the only one reproducible workflow in R is published and developed in R (Niculitca 2020). After detailing the framework of the thesis in Chapter III, chapter IV was dedicated to the iSEGMound workflow, the actual product of this Master’s thesis.</p>
-<p>Although the results of the segmentation(s) are not perfect (often the exact form of the burial mounds is not reached) they still offer a quite effective tool to filter the amount of data to be examined. The input for the workflow can be either a DTM or a MSTPI and from the results of the different workflows it is very clear, that the enhancement of the mounds leads to a better detection (see the case of burial mound group 35, where in the training DTM one and in the training area both mounds are visible), although the mounds can be definitely enhanced better.</p>
-<p>Whitebox vs. SAGA Technical problems: not updated packages etc.</p>
-<p>Shape index is a tricky thing, because the same value can mean different forms</p>
-<p>This means on the other hand of course more segments to check, but also more possibility to find previously not known mounds. This will be investigated in the Discussion.</p>
+<p>After the technical and methodological review of studies which use Automated Analysis to detect burial mounds and mound-like structures in Archaeological Remote Sensing data sets, the aim of this Master thesis was to detect burial mounds by using the most frequent and easily reproducible methods in the repertoire discussed in Chapter II. As already emphasized in Chapter II and IV, the most accessible workflow is <strong>iMound</strong> and the only one reproducible workflow is published and developed in <code>R</code> is Niculitca 2020, a GeOBIA workflow. After elaborating on the framework of the thesis in Chapter III, Chapter IV was dedicated to the development of <strong>iSEGMound Workflow</strong>, the actual product of this Master’s thesis. Originally the idea was to implement the <strong>iMound workflow</strong>, but the topographical conditions (poorly preserved in the terrain) of the Objects of Interest, the burial mounds needed a different approach, thus it was decided to combine the two methods. The choice of the Segmentation Algorithm used in the final iSEGMound workflow, the choice of filtering thresholds and the results of this workflow were presented in Chapter V before describing the results. During the description of the results of the Segmentation of the different Areas of Interests, multiple things became even clearer than before:</p>
+<p>MSTPI is really giving an advantage to enhance burial mounds. Unfortunately because of package update problems “only” the <code>(R)SAGA</code> MSTPI algorithm was available in R during the development of the workflow. When discussing Site ID 35 (Chapter 4, Figure 24 &amp; Chapter 5, Figure 88), the <code>whitebox</code> MSTPI of the Training STM was used. Visually comparing the result of the <code>(R)SAGA</code> MSTPI to the <code>whitebox</code> MSTPI already shows, that the integral image approach enhances burial mounds even more, that the <code>(R)SAGA</code> MSTPI algorithm. It was not possible to simply interchange the two MSTPI results, because the integral image needs a different approach: it needs to be treated as a multi-layer image, similar to an RGB image.<br />
+There is a certain diachronic time depth in the Site IDs- the moment of the original recording of the site is different than that the publication of Dobiat 1994, also the collection of the LiDAR data was done 15 years later (2009/2010) and the field walk in March 2021 was 12 more years later, thus some objects might be a lot more eroded or even destroyed by natural path or service path in the forest. A good spatial interpolation method is crucial to create a detailed enough DTM. In instances, where the vegetation is dense, also a good/better spatial interpolation method cannot help to create a better results. Almost all Site IDs in the Areas of Interests are in forested areas. This all has contributed to the fact, that about eleven Site IDs could not be included in the analysis or yielded poor foundation for object detection (this was noted with each Site ID that it affected in Chapter 5). Still, this alone cannot explain the sober 43,05% detection result (62 detected mounds out of 144 mounds in the Case Study Area), also because only those Site IDs were included which area contained visible mounds. It has to be pointed out, that one threshold (of the iSEG05_mtpi_WS_ta workflow) was used for all Areas of Interest, which clearly did not work. It was tested on purpose how one threshold would work, which was based on a part of Area of Interest 4. It was no surprise, that it worked there the best: 50 of 85, that is 58,823 % detection result (Table 10.)</p>
+<table>
+<caption>The detection results of Area o Interest 4.</caption>
+<thead>
+<tr class="header">
+<th>Site ID</th>
+<th align="right">Dobiat et al.</th>
+<th align="right">DTM05</th>
+<th align="right">AoI</th>
+<th align="right">Detection</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td align="right">orig. 13 mounds</td>
+<td align="right">10? visible</td>
+<td align="right">4</td>
+<td align="right">5/10 detected</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td align="right">12 mounds</td>
+<td align="right">5? visible</td>
+<td align="right">4</td>
+<td align="right">3/5 detected</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td align="right">orig. 5+2 mounds</td>
+<td align="right">5 + 1 + 1 visible</td>
+<td align="right">4</td>
+<td align="right">4/7 detected</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td align="right">5 mounds</td>
+<td align="right">2 mounds visible?</td>
+<td align="right">4</td>
+<td align="right">0/2 detected</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td align="right">orig. 8 mounds</td>
+<td align="right">9 visible</td>
+<td align="right">4/training area</td>
+<td align="right">7/9 detected</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td align="right">5 mounds</td>
+<td align="right">? visible</td>
+<td align="right">4</td>
+<td align="right">dense vegetation?</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td align="right">orig. 15 mounds</td>
+<td align="right">9 visible</td>
+<td align="right">4/training area</td>
+<td align="right">9/9 detected</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td align="right">7 mounds</td>
+<td align="right">4 visible</td>
+<td align="right">4</td>
+<td align="right">1/4 detected</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td align="right">2 mounds</td>
+<td align="right">1 in WB_MTPI</td>
+<td align="right">4/training area</td>
+<td align="right">0/1 detected</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td align="right">8 mounds</td>
+<td align="right">4 visible?</td>
+<td align="right">4</td>
+<td align="right">2/4 detected</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td align="right">2 mounds</td>
+<td align="right">2 visible</td>
+<td align="right">4</td>
+<td align="right">1/2 detected</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td align="right">orig. 20 mounds</td>
+<td align="right">~ 7 visible</td>
+<td align="right">4</td>
+<td align="right">4/7 detected</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td align="right">1 mound</td>
+<td align="right">1 visible?</td>
+<td align="right">4</td>
+<td align="right">0/1 detected</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td align="right">17-19 mounds</td>
+<td align="right">18 visible</td>
+<td align="right">4/training area</td>
+<td align="right">12/19 detected</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td align="right">2+8 mounds</td>
+<td align="right">2? visible</td>
+<td align="right">4</td>
+<td align="right">1/2 detected</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td align="right">2 mounds</td>
+<td align="right">2 in WB_MTPI</td>
+<td align="right">4/training area</td>
+<td align="right">1/3? detected</td>
+</tr>
+</tbody>
+</table>
+<p>Why did the threshold work so badly in all of the Areas of Interest? First let’s compare the detection results of the Training Area to the detection result of the Area of Interest 4. In the case of the Training Area (scale of 5 tiles), the detection result was 82,5%, and on the Area of Interest (scale of 18 tiles) 72,5 %. Thus the same threshold gives different results on different sizes of area - which makes sense, because the variables of the MSTPI algorithm have to be changed according to the size of the Area of Interest.</p>
+<table>
+<caption>The detection results of Site IDs 5,7,14 and 35 in the Train Area versus Area of Interest 4.</caption>
+<thead>
+<tr class="header">
+<th>Site ID</th>
+<th align="right">Dobiat et al.</th>
+<th align="right">Training Area</th>
+<th align="right">AoI4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td align="right">9 mounds visible</td>
+<td align="right">9/9 detected</td>
+<td align="right">7/9 detected</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td align="right">9 mounds visible</td>
+<td align="right">8/9 detected</td>
+<td align="right">9/9 detected</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td align="right">18 mounds visible</td>
+<td align="right">14/19 detected</td>
+<td align="right">12/19 detected</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td align="right">3 mounds visible?</td>
+<td align="right">2/3 detected</td>
+<td align="right">1/3 detected</td>
+</tr>
+</tbody>
+</table>
+<p>Now, the question is: are the thresholds mistaken or the result of the Watershed Segmentation itself? This argument was already addressed at the end of chapter 5: the “raw” Segmentation contains all the (burial mound) segments needed, in case that the burial mounds are not situated on geographically exposed and “problematic” or complex position (see also Cerillo-Cuenca 2016, 4 on this matter). This means, that the thresholding is the problem and points to the fact that also the thresholding has to change, accordingly to the increase in size - this only means, that with different scales of area, the scales of thresholding/filtering also has to change. To get a glimpse of this, let’s compare the shape descriptors of Site ID 5, in the iSEG05_mtpi_WS_ta and iSEG05_AOI_4 workflows (Table 12).</p>
+<table>
+<caption>Comparison of iSEG05_mtpi_WS_ta and iSEG05_AOI_4 workflows in means of the descriptors of Site ID 5.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Area</th>
+<th align="right">Sphericty</th>
+<th align="right">ShapeIndex</th>
+<th align="right">Elongation</th>
+<th align="right">Compactness</th>
+<th align="right">Roundness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Site_ID5_1_WS_ta</td>
+<td align="center">576</td>
+<td align="right">0.4211772</td>
+<td align="right">2.374298</td>
+<td align="right">1.140856</td>
+<td align="right">0.1340649</td>
+<td align="right">22.2683</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_1_WS_AoI4</td>
+<td align="center">590.75</td>
+<td align="right">0.4558742</td>
+<td align="right">2.193588</td>
+<td align="right">1.140856</td>
+<td align="right">0.1451093</td>
+<td align="right">22.83853</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_2_WS_ta</td>
+<td align="center">78.25</td>
+<td align="right">0.53149</td>
+<td align="right">1.881503</td>
+<td align="right">1.168186</td>
+<td align="right">0.1691785</td>
+<td align="right">7.798604</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_2_WS_AoI4</td>
+<td align="center">52</td>
+<td align="right">0.3195337</td>
+<td align="right">3.129561</td>
+<td align="right">1.245981</td>
+<td align="right">0.1017107</td>
+<td align="right">5.048634</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_3_WS_ta</td>
+<td align="center">68.25</td>
+<td align="right">0.6366466</td>
+<td align="right">1.57073</td>
+<td align="right">1.122967</td>
+<td align="right">0.2026509</td>
+<td align="right">7.86768</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_3_WS_AoI4</td>
+<td align="center">66.5</td>
+<td align="right">0.6150606</td>
+<td align="right">1.625856</td>
+<td align="right">1.137158</td>
+<td align="right">0.1957799</td>
+<td align="right">7.665945</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_4_WS_ta</td>
+<td align="center">83.75</td>
+<td align="right">0.4915338</td>
+<td align="right">2.034448</td>
+<td align="right">1.201858</td>
+<td align="right">0.1564601</td>
+<td align="right">7.123866</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_4_WS_AoI4</td>
+<td align="center">82.75</td>
+<td align="right">0.4885905</td>
+<td align="right">2.046704</td>
+<td align="right">1.201858</td>
+<td align="right">0.1555232</td>
+<td align="right">7.038805</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_5_WS_ta</td>
+<td align="center">73.75</td>
+<td align="right">0.5535072</td>
+<td align="right">1.806661</td>
+<td align="right">1.257404</td>
+<td align="right">0.1761868</td>
+<td align="right">7.527906</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_5_WS_AoI4</td>
+<td align="center">72.25</td>
+<td align="right">0.5380663</td>
+<td align="right">1.858507</td>
+<td align="right">1.283805</td>
+<td align="right">0.1712718</td>
+<td align="right">7.289991</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_6_WS_ta</td>
+<td align="center">159.75</td>
+<td align="right">0.4525746</td>
+<td align="right">2.209581</td>
+<td align="right">1.388532</td>
+<td align="right">0.144059</td>
+<td align="right">9.765713</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_6_WS_AoI4</td>
+<td align="center">149.5</td>
+<td align="right">0.5222127</td>
+<td align="right">1.914929</td>
+<td align="right">1.067092</td>
+<td align="right">0.1662255</td>
+<td align="right">11.89209</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_7_WS_ta</td>
+<td align="center">103.75</td>
+<td align="right">0.555502</td>
+<td align="right">1.800174</td>
+<td align="right">1.373006</td>
+<td align="right">0.1768218</td>
+<td align="right">8.189425</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_7_WS_AoI4</td>
+<td align="center">100.75</td>
+<td align="right">0.5310711</td>
+<td align="right">1.882987</td>
+<td align="right">1.373006</td>
+<td align="right">0.1690452</td>
+<td align="right">7.952622</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_8_WS_ta</td>
+<td align="center">86</td>
+<td align="right">0.53892</td>
+<td align="right">1.855563</td>
+<td align="right">1.366117</td>
+<td align="right">0.1715436</td>
+<td align="right">7.286651</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_8_WS_AoI4</td>
+<td align="center">69.5</td>
+<td align="right">0.5794649</td>
+<td align="right">1.72573</td>
+<td align="right">1.168269</td>
+<td align="right">0.1844494</td>
+<td align="right">7.087005</td>
+</tr>
+<tr class="odd">
+<td>Site_ID5_9_WS_ta</td>
+<td align="center">74</td>
+<td align="right">0.4419485</td>
+<td align="right">2.262707</td>
+<td align="right">1.698944</td>
+<td align="right">0.1406766</td>
+<td align="right">6.191642</td>
+</tr>
+<tr class="even">
+<td>Site_ID5_9_WS_AoI4</td>
+<td align="center">69.25</td>
+<td align="right">0.4999917</td>
+<td align="right">2.000033</td>
+<td align="right">1.448796</td>
+<td align="right">0.1591523</td>
+<td align="right">6.794626</td>
+</tr>
+</tbody>
+</table>
+<p>The iSEG05_AOI_4 workflow, using the descriptor variables of the iSEG05_mtpi_WS_ta workflow did not detect Site ID 5-1 and and 5-6 …. The point is, that there needs to be ANY reference object and their shape index - one site is enough, to localize the Shape Index values. The uncertainty factor in the difference of computing the MSTPI over a bigger area changed the result of the segmentation results enough, that not all values fit any more from a general thresholding</p>
+<p>Shape Index - round form = 1; 1.4 = quite compact, less round but not very diversified</p>
+<p>Sphericity Compactness Roundness</p>
+<p>Shape index is a tricky thing, because the same value can mean different forms; possibly too many variables in the thresholding; to many vaiables in the threshold? maybe using those fewer Shape Indices which are really important? roundness, shape index… The problem of having good reference data vs. the reality?</p>
+<p>Synoptically</p>
 </div>
 
 

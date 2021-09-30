@@ -1,5 +1,5 @@
 Package: iSEGMound
-Title: Burial Mound Detection in LiDAR Derived MSTPI Using iMound and GeOBIA 
+Title: iSEGMound - A Reproducible Workflow for Mound Detection in LiDAR-derived DTMs 
 Version: 0.0.0.9000
 Authors@R:
     person(given = "Agnes",
@@ -7,7 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "euboia.gmail.com")
            ORCID = "0000-0002-1854-6760")
-Description: What the package does (one paragraph).
+Description: This Master’s thesis presents a workflow for (semi-)automated burial mound detection in Li-
+DAR derived DEMs and their derivatives.
 License: CC BY 4.0
 ByteCompile: true
 Encoding: UTF-8
