@@ -58,7 +58,7 @@ You can download the compendium as a zip from from this URL:
 - open the `.Rproj` file in RStudio
 - run `devtools::install()` to ensure you have the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file).
-- finally, open `analysis/paper/Master_Thesis.Rmd` and knit to produce the `paper.docx`, or run `rmarkdown::render("analysis/paper/Master_Thesis.Rmd")` in the R console
+- finally, open `analysis/thesis/Index.Rmd` and knit to produce the `Index.pdf`, or run `rmarkdown::render("analysis/thesis/Index.Rmd")` in the R console
 
 ### Licenses
 
